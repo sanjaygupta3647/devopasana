@@ -29,6 +29,12 @@
 	<div class="panel panel-white">
 		<div class="panel-heading">
 			<h6 class="panel-title"><?php echo (!$id) ? 'Add' : 'Edit'; ?> campaign</h6>
+
+			<?php if($id > 0): ?>
+				<a class="addprice" data-toggle="modal" data-target="#link-pooja-to-campaign" href="">
+					<span class="btn btn-primary btn-sm">Add Pooja to  this campaign</span>
+				</a>
+				<?php endif; ?>
 		</div>
 
 		<form class="form-validation" id="add-campaign" action="" method="post">
@@ -47,19 +53,7 @@
 							<input type="text" name="slug" class="form-control" value="<?php echo ($campaign->slug) ? $campaign->slug : ''; ?>" placeholder="Slug">
 						</div>
 					</div>
-					<div class="col-md-12">
-						<div class="form-group">
-							<label>Page meta title: </label>
-							<input type="text" name="meta_title" class="form-control" value="<?php echo ($campaign->meta_title) ? $campaign->meta_title : ''; ?>" placeholder="Meta title">
-						</div>
-					</div>
 					
-					<div class="col-md-12">
-						<div class="form-group">
-							<label>Page meta description: </label>
-							<textarea name="meta_description" class="form-control" placeholder="Meta description"><?php echo ($campaign->meta_description) ? $campaign->meta_description : ''; ?></textarea> 
-						</div>
-					</div>
 
 					<?php if (!empty($id)) : ?>
 						<input type="hidden" name="id" value="<?php echo $id; ?>"> 
@@ -112,6 +106,20 @@
 							</select>
 						</div>
 					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<label>Meta title: </label>
+							<input type="text" name="meta_title" class="form-control" value="<?php echo ($campaign->meta_title) ? $campaign->meta_title : ''; ?>" placeholder="Meta title">
+						</div>
+					</div>
+					
+					<div class="col-md-12">
+						<div class="form-group">
+							<label>Meta description: </label>
+							<textarea name="meta_description" class="form-control" placeholder="Meta description"><?php echo ($campaign->meta_description) ? $campaign->meta_description : ''; ?></textarea> 
+						</div>
+					</div>
 				</div>
 
 			</fieldset>
@@ -121,6 +129,63 @@
 			</div>
 		</form>
 	</div>
+	<div class="row" >
+				    
+		<?php if(count($all_camapaign_pooja)): ?> 
+		<?php foreach($all_camapaign_pooja as $val): ?> 
+		<div class="pricesection">
+			<div class="col-md-9">
+				<div class="form-group">
+						
+					<input type="text" name="lable" class="form-control" disabled value="<?php echo $val->title;  ?>" placeholder="Pooja sub title">
+				</div>
+			</div>
+				
+			
+			<div class="col-md-3">
+				<div class="form-group "> 
+					<button class="btn btn-warning delete_pooja" data-pooja_id="<?php echo $val->id ?>" data-campaign_id="<?php echo $id ?>" type="button">Delete</button>
+						
+				</div>
+			</div>
+		</div>
+		<?php endforeach; ?>
+		<?php endif; ?>
+	
+	</div>
 	<?php $this->load->view('includes/admin/tagline'); ?>
 </div>
 <!-- /content area -->
+
+<div class="modal fade" id="link-pooja-to-campaign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Select pooja from list to link with this campaign</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	  <form   id="add-pooja-to-campaign" action="" method="post">
+	      <input type="hidden" name="campaign_id" id="campaign_id" value="<?php echo $id; ?>"> 
+		  <div class="modal-body mx-3">
+			<div class="md-form mb-5">  
+			  <select name="pooja_id" class="select select2 form-control validate">
+				<?php if(!empty($allpooja)): ?>
+			    <option value="">Please select</option>
+				<?php foreach($allpooja as $val): ?>
+				<option value="<?php echo $val->id ?>"><?php echo $val->title ?></option>
+				<?php endforeach; ?>
+				<?php endif; ?> 
+			</select>
+			   
+			</div> 
+		  </div>
+		  <div class="modal-footer d-flex justify-content-center">
+			<button class="btn btn-info">Save</button>
+		  </div>
+	  </form>
+    </div>
+  </div>
+</div>

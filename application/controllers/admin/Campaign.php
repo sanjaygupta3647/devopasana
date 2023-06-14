@@ -21,7 +21,11 @@ class Campaign extends MY_Controller
 		if ($id) {
 			$this->_view_data['pagetitle'] = 'Edit campaign ';
 			$this->load->model('campaign_model', 'campaign');
+			$this->load->model('pooja_model', 'pooja');
 			$campaign = $this->campaign->getDetail($id);
+			$this->_view_data['allpooja'] = $this->pooja->getActivepooja(); 
+			$this->_view_data['all_camapaign_pooja'] = $this->campaign->getAllCampaignPooja($id);
+			 
 		}
 		$this->_view_data['pageCss'] = array("" => "true");
 		$this->_view_data['pageJs'] = array(
@@ -175,4 +179,40 @@ class Campaign extends MY_Controller
 		}
 		$this->output->set_content_type('application/json')->set_output(json_encode($response));
 	}
+
+	public function add_pooja_to_campaign()
+	{
+		$postdata = $this->input->post(); 
+		$this->load->model('campaign_model', 'campaign');
+		$check = $this->campaign->isExistPooja($postdata['campaign_id'],$postdata['pooja_id']);
+		
+		if (!$check) {  
+			$id = $this->campaign->addCampaignPooja($postdata); 
+			if ($id) {  
+				$response = array('type' => 'success', 'message' => 'Pooja added to campaign!');
+			} else {
+				$response = array('type' => 'error', 'message' => "Unable to save data.");
+			}
+		} else {
+			$response = array('type' => 'error', 'message' => "Selected pooja is already added to this campaign!");
+		}
+		$this->output->set_content_type('application/json')->set_output(json_encode($response));
+	}
+
+	public function deletePooja()
+	{
+		$postdata = $this->input->post(); 
+		$this->load->model('campaign_model', 'campaign'); 
+		$delete = $this->campaign->deletePooja($postdata['campaign_id'],$postdata['pooja_id']);
+		
+		if ($delete) {  
+			    $url = base_url("admin/campaign/add/".$postdata['campaign_id']);
+				$response = array('type' => 'success', 'message' => "Pooja deleted from campaign.",'url'=>$url);			 
+		} else {
+			$response = array('type' => 'error', 'message' => "Seems some error!");
+		}
+		$this->output->set_content_type('application/json')->set_output(json_encode($response));
+	} 
+
+	
 }

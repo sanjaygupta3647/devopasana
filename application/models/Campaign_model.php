@@ -89,8 +89,7 @@ class Campaign_model extends CI_Model
   
 		if (!empty($postData['search']['value'])) {
 			$search = urldecode($postData['search']['value']);
-			$this->db->where(" (heading like '%$search%'
-				 
+			$this->db->where(" (title like '%$search%' 
 				)  ");
 		}
 
@@ -104,6 +103,7 @@ class Campaign_model extends CI_Model
 		$this->db->order_by('id', 'desc');
 
 		$query = $this->db->get();
+		 
 		if ($query->num_rows() > 0) {
 			return array('draw' => '1', 'count' => $count, 'alldata' => $query->result());
 		} else {
@@ -141,4 +141,40 @@ class Campaign_model extends CI_Model
         $rows =  $query->result();
         return (!empty($rows[0]->cnt)) ? $rows[0]->cnt : false;
     }
+
+	function isExistPooja($campaign_id,$pooja_id){
+		$this->db->select('count(*) as cnt');
+        $this->db->from("campaign_pooja");
+        $this->db->where('campaign_id', $campaign_id);
+		$this->db->where('pooja_id', $pooja_id); 
+        $query = $this->db->get();
+        $rows =  $query->result();
+        return (!empty($rows[0]->cnt)) ? $rows[0]->cnt : false;
+	}
+
+	function getAllCampaignPooja($campaign_id)
+	{
+		$this->db->select('p.id,p.title');
+        $this->db->from('pooja p');
+		$this->db->join('campaign_pooja cp','cp.pooja_id = p.id'); 
+        $this->db->where('cp.campaign_id', $campaign_id);
+		$query = $this->db->get();
+        return $query->result();
+		 
+	}
+
+	function addCampaignPooja($insert_data)
+	{
+
+		$this->db->insert("campaign_pooja", $insert_data);
+		$id = $this->db->insert_id();
+		return $id;
+	}
+
+	function deletePooja($campaign_id,$pooja_id)
+	{
+		$this->db->where('campaign_id', $campaign_id);
+		$this->db->where('pooja_id', $pooja_id);
+		return $this->db->delete("campaign_pooja");
+	}
 }
