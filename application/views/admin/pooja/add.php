@@ -125,6 +125,20 @@
 							</select>
 						</div>
 					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<label>Addons:</label>							 
+							<select name="addons[]" multiple required class="select" id="addons">
+								<?php if(count($addons)): ?>
+								<?php foreach($addons as $ads): ?>
+									<option value="<?php echo $ads->id; ?>" <?php echo (!empty($pooja->addons) && in_array($ads->id, explode(",",$pooja->addons))) ? 'selected' : ''; ?>><?php echo $ads->title; ?></option> 
+								<?php endforeach; ?>
+								<?php endif;  ?>
+								
+							</select>
+						</div>
+					</div>
 				</div>
 				
 				<div class="row" id="poojaprice">

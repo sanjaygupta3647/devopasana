@@ -21,15 +21,9 @@ class Addon_model extends CI_Model
 		return $id;
 	}
 	
-	function addaddonPrice($insert_data)
-	{
-
-		$this->db->insert("addon_price", $insert_data);
-		$id = $this->db->insert_id();
-		return $id;
-	}
+	 
 	
-	function getActiveaddon(){
+	function getActiveAddon(){
 		$this->db->select('id,title');
 		$this->db->from('addon'); 
 		$this->db->where('status', 'Active');

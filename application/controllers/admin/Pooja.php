@@ -25,6 +25,8 @@ class Pooja extends MY_Controller
 			$this->_view_data['pricelist'] = $this->pooja->getAllPriceList($id);
 			 
 		}
+		$this->load->model('addon_model', 'addon');
+		$this->_view_data['addons'] = $this->addon->getActiveAddon($id);  
 		$this->_view_data['pageCss'] = array("" => "true");
 		$this->_view_data['pageJs'] = array(
 			"admin/js/core/libraries/jquery_ui/core.min.js" => "false",
@@ -162,6 +164,7 @@ class Pooja extends MY_Controller
 				$postdata['id'] = $id;
 			} 
 			$postdata['path_to_upload'] = "pooja/".$postdata['id']; 
+			
 			$pooja_data = array(
 				'title' => $postdata['title'],
 				'slug' => $postdata['slug'],
@@ -175,6 +178,10 @@ class Pooja extends MY_Controller
 				'prasad_charge' => $postdata['prasad_charge'],
 				'updated_on'=>$time
 			);  
+
+			if (!empty($postdata['addons'])) {
+				$pooja_data['addons']  = implode(',', array_values($postdata['addons'])); 
+			}
 		
 			if (!empty($_FILES['image']['name'])) {
 				$postdata = uploadFile($_FILES, $postdata); 
