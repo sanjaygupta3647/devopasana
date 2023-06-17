@@ -33,14 +33,11 @@ class MY_Controller extends CI_Controller
 
 
 		$this->_user_id = $session_data['user_id'];
-		$this->_role_id = $session_data['role_id'];
-		$this->_username   = $session_data['username'];
-		$this->_status = $session_data['status'];
+		$this->_role_id = $session_data['role_id']; 
 
 		$this->_view_data['user_id'] = $this->_user_id;
 		$this->_view_data['role_id'] = $this->_role_id;
-		$this->_view_data['username'] = $this->_username;
-		$this->_view_data['status'] = $this->_status;
+		 
 	}
 
 	public function is_logged_in()

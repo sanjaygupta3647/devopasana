@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pooja extends MY_Controller
+class Addon extends MY_Controller
 {
 	function __construct()
 	{
@@ -15,15 +15,16 @@ class Pooja extends MY_Controller
 
 	public function add($id = null)
 	{
+		ini_set('display_errors', '1');
+		ini_set('display_startup_errors', '1');
+		error_reporting(E_ALL);
 		$id  = (int)$id;
-		$this->_view_data['pagetitle'] = 'Add pooja';
-		$pooja = [];
+		$this->_view_data['pagetitle'] = 'Add addon';
+		$addon = [];
 		if ($id) {
-			$this->_view_data['pagetitle'] = 'Edit pooja ';
-			$this->load->model('pooja_model', 'pooja');
-			$pooja = $this->pooja->getDetail($id);
-			$this->_view_data['pricelist'] = $this->pooja->getAllPriceList($id);
-			 
+			$this->_view_data['pagetitle'] = 'Edit addon ';
+			$this->load->model('addon_model', 'addon');
+			$addon = $this->addon->getDetail($id); 
 		}
 		$this->_view_data['pageCss'] = array("" => "true");
 		$this->_view_data['pageJs'] = array(
@@ -33,47 +34,42 @@ class Pooja extends MY_Controller
 			"admin/js/plugins/forms/selects/select2.min.js" => "false",
 			"admin/js/plugins/forms/styling/uniform.min.js" => "false",
 			"admin/js/core/libraries/jasny_bootstrap.min.js" => "false",
-			"admin/js/plugins/forms/validation/validate.min.js" => "false",
-			"admin/js/plugins/editors/summernote/summernote.min.js" => "false",
+			"admin/js/plugins/forms/validation/validate.min.js" => "false", 
 			"admin/js/bootbox.min.js" => "false",
-			"admin/js/pooja/add-edit.js" => "false"
-
-
+			"admin/js/addon/add-edit.js" => "false"
 		);
 		$this->_view_data['id'] = $id;
-		$this->_view_data['pooja'] = $pooja;
-		$this->_view_data['pageContent'] = 'admin/pooja/add';
+		$this->_view_data['addon'] = $addon;
+		$this->_view_data['pageContent'] = 'admin/addon/add'; 
 		$this->load->view('admin-template', $this->_view_data);
 	}
 	
 	
-	public function allpoojas($postdata = null)
+	public function alldata($postdata = null)
 	{
 		$allinputes = $this->input->get();
 
-		$this->load->model('pooja_model', 'pooja');
+		$this->load->model('addon_model', 'addon');
 		$sessData  = getSessionData(); 
 		$allinputes['status'] = $status;
 		 
-		$poojas = $this->pooja->getAllDataForAdmin($allinputes);
+		$addons = $this->addon->getAllDataForAdmin($allinputes);
 
 		$i = 0;
-		foreach ($poojas['alldata'] as $key => $val) {
+		foreach ($addons['alldata'] as $key => $val) {
 			$dataArr[$i][] = $i + 1; 
-			$sublink  = base_url("admin/pooja/add/" . $val->id);
+			$sublink  = base_url("admin/addon/add/" . $val->id);
 			$link = '<a href="' . $sublink . '">' . $val->title . '</a>';
 
-			$dataArr[$i][] = $link;
-			 
-			$dataArr[$i][] = userDateFormat($val->start_date);
-			$dataArr[$i][] = userDateFormat($val->end_date);
+			$dataArr[$i][] = $link; 
+			$dataArr[$i][] = showprice($val->price); 
 			$dataArr[$i][] = userDateTimeFormat($val->added_on); 
 			$dataArr[$i][] = $val->status; 
 			 
 			$action =  '<ul class="text-center icons-list"><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu9"></i></a>';
 			$action .= '<ul class="dropdown-menu dropdown-menu-right">';
 			$link1 = '<li><a  href="'.$sublink.'"><i class="icon-database-edit2"></i>Update</a></li>';
-			$link2 = '<li><a class="delete" data-id="' . $val->id . '" data-closed_by="' . current_user() . '" data-close_time="' . db_date_time() . '" href="javascript:void(0)"><i class="icon-database-remove"></i>Delete</a></li>';
+			$link2 = '<li><a class="delete" data-id="' . $val->id . '"   href="javascript:void(0)"><i class="icon-database-remove"></i>Delete</a></li>';
 			 
 			$action .= $link1 . $link2. '</ul></li></ul>'; 
 			$dataArr[$i][] = $action;
@@ -83,13 +79,13 @@ class Pooja extends MY_Controller
 		if (empty($dataArr)) {
 			$dataArr = [];
 		}
-		$response = array('draw' => $allinputes['draw'], 'recordsFiltered' => $poojas['count'], 'recordsTotal' => $poojas['count'], 'data' => $dataArr);
+		$response = array('draw' => $allinputes['draw'], 'recordsFiltered' => $addons['count'], 'recordsTotal' => $addons['count'], 'data' => $dataArr);
 		$this->output->set_content_type('application/json')->set_output(json_encode($response));
 	}
 
 	public function all($status = null)
 	{ 
-		$this->_view_data['pagetitle'] = 'All pooja'; 
+		$this->_view_data['pagetitle'] = 'All addon'; 
 		$this->_view_data['input'] = $this->input->get();
 
 		$this->_view_data['pageCss'] = array("" => "true");
@@ -97,21 +93,22 @@ class Pooja extends MY_Controller
 			"admin/js/plugins/tables/datatables/datatables.min.js" => "false",
 			"admin/js/plugins/tables/datatables/extensions/responsive.min.js" => "false",
 			"admin/js/plugins/forms/selects/select2.min.js" => "false",
-			"admin/js/pooja/list.js" => "false",
-			"admin/js/bootbox.min.js" => "false"
+			"admin/js/bootbox.min.js" => "false",
+			"admin/js/addon/list.js" => "false"
+			
 		);
-		$this->_view_data['pageContent'] = 'admin/pooja/list';
+		$this->_view_data['pageContent'] = 'admin/addon/list';
 		$this->load->view('admin-template', $this->_view_data);
 	}
 
-	public function delete_pooja($id)
+	public function delete_addon($id)
 	{
 		if (empty($id)) {
 			$response = array('type' => 'error', 'message' => "Unable to delete record 'ID' meessing.", 'url' => $url);
 		} else {
-			$this->load->model('pooja_model', 'pooja');
-			$return = $this->pooja->deleteRecord($id);
-			$url = base_url('admin/pooja/all');
+			$this->load->model('addon_model', 'addon');
+			$return = $this->addon->deleteRecord($id);
+			$url = base_url('admin/addon/all');
 			if ($return) {
 				$response = array('type' => 'success', 'message' => "Record deleted!", 'url' => $url);
 			} else {
@@ -121,93 +118,67 @@ class Pooja extends MY_Controller
 		$this->output->set_content_type('application/json')->set_output(json_encode($response));
 	}
 	
-	public function save_pooja_price(){
-		$postdata = $this->input->post(); 
-		$this->load->model('pooja_model', 'pooja');
-		if(empty($postdata['id'])){
-			unset($postdata['id']);
-			$return = $this->pooja->addPoojaPrice($postdata);
-		}else{
-			$where["id"]= $postdata['id'];
-			unset($postdata['id']);
-			$return =$this->pooja->updatePoojaPrice($postdata, $where );
-		}
-		if ($return) {
-			$response = array('type' => 'success', 'message' => "Price updated!");
-		} else {
-			$response = array('type' => 'error', 'message' => "Unable to delete record there could be a DB issue.");
-		}
-		
-		$this->output->set_content_type('application/json')->set_output(json_encode($response));
-	}
+	 
 	
-	public function add_pooja()
+	public function add_addon()
 	{
 		$postdata = $this->input->post(); 
-		$this->load->model('pooja_model', 'pooja');
-		$check = $this->pooja->isExist($postdata['slug'], $postdata['id']);
+		$this->load->model('addon_model', 'addon');
+		$check = $this->addon->isExist($postdata['title'], $postdata['id']);
 		if (!$check) { 
 			$user_id = current_user(); 
 			$time = date("Y-m-d H:i:s");
 
 			$inital_data = array(
-					'title' => $postdata['title'],
-					'slug' => $postdata['slug']
+					'title' => $postdata['title']					 
 			);
 			if (empty($postdata['id'])) {
 				$inital_data['added_on'] = $time;
 				$inital_data['created_by'] = $user_id;
 				$inital_data['updated_by'] = $user_id;
-				$id = $this->pooja->add($inital_data); 
+				$id = $this->addon->add($inital_data); 
 				$postdata['id'] = $id;
 			} 
-			$postdata['path_to_upload'] = "pooja/".$postdata['id']; 
-			$pooja_data = array(
-				'title' => $postdata['title'],
-				'slug' => $postdata['slug'],
-				'meta_title' => $postdata['meta_title'],
-				'meta_description' => $postdata['meta_description'], 
-				'description' => $postdata['description'],
-				'start_date' => ($postdata['start_date']) ? $postdata['start_date']:"1970-01-01",
-				'end_date' => ($postdata['end_date']) ? $postdata['end_date']:"1970-01-01",
+			$postdata['path_to_upload'] = "addon/".$postdata['id']; 
+			$addon_data = array(
+				'title' => $postdata['title'], 
 				'status' => $postdata['status'],
-				'service_charge' => $postdata['service_charge'],
-				'prasad_charge' => $postdata['prasad_charge'],
+				'price' => $postdata['price'],				 
 				'updated_on'=>$time
 			);  
 		
 			if (!empty($_FILES['image']['name'])) {
 				$postdata = uploadFile($_FILES, $postdata); 
-				$pooja_data['image'] = $postdata['image'];
+				$addon_data['image'] = $postdata['image'];
 			} 
 			 
 			if (!empty($postdata['id'])){
 				$where['id'] = $postdata['id'];
-				$pooja_data['updated_by'] = $user_id;
-				$id = $this->pooja->update($pooja_data, $where);
+				$addon_data['updated_by'] = $user_id;
+				$id = $this->addon->update($addon_data, $where);
 				$message = "Data Added/Updated Successfully!";
 			} 
 
 			if ($id) {
-				$url = base_url('admin/pooja/all');
+				$url = base_url('admin/addon/all');
 				$response = array('type' => 'success', 'message' => $message, 'url' => $url);
 			} else {
 				$response = array('type' => 'error', 'message' => "Unable to save data.", 'url' => $url);
 			}
 		} else {
-			$response = array('type' => 'error', 'message' => $postdata['slug'] . " is already exist");
+			$response = array('type' => 'error', 'message' => $postdata['title'] . " is already exist");
 		}
 		$this->output->set_content_type('application/json')->set_output(json_encode($response));
 	}
 	
-	public function deleteprice($id)
+	public function delete($id)
 	{
 		if (empty($id)) {
 			$response = array('type' => 'error', 'message' => "Unable to delete record 'ID' meessing.", 'url' => $url);
 		} else {
-			$this->load->model('pooja_model', 'pooja');
-			$return = $this->pooja->deletePoojaPrice($id);
-			$url = base_url('admin/pooja/all');
+			$this->load->model('addon_model', 'addon');
+			$return = $this->addon->deleteaddon($id);
+			$url = base_url('admin/addon/all');
 			if ($return) {
 				$response = array('type' => 'success', 'message' => "Record deleted!", 'url' => $url);
 			} else {

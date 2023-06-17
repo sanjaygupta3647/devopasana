@@ -442,3 +442,7 @@ function profilepic($profile_pic)
     }
     return '<div class="icon-object nopadding"><i class="icon-user"></i></div>';
 }
+
+function showprice($price){
+    return "Rs. ".number_format($price);
+}

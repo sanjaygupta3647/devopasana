@@ -82,6 +82,19 @@
 							<input type="date" name="end_date" class="form-control" value="<?php echo ($pooja->end_date!='1970-01-01') ? $pooja->end_date : ''; ?>" placeholder="End date">
 						</div>
 					</div>
+
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Service charge: </label>
+							<input type="text" name="service_charge" class="form-control integeronly" value="<?php echo ($pooja->start_date) ? $pooja->service_charge : ''; ?>" placeholder="Service charge">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Prasad charge: </label>
+							<input type="text" name="prasad_charge" class="form-control integeronly" value="<?php echo ($pooja->end_date) ? $pooja->prasad_charge : ''; ?>" placeholder="Prasad charge">
+						</div>
+					</div>
 					
 					 
 					<div class="col-md-12">

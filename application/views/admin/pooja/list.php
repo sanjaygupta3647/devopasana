@@ -4,6 +4,11 @@
  		<div class="page-title">
  			<h4><a href="javascript:history.back()"><i class="icon-arrow-left52 position-left"></i></a> <span class="text-semibold">Pooja</span> - List</h4>
  		</div>
+		<div class="heading-elements">
+			<div class="heading-btn-group">
+				<a href="<?php echo base_url('admin/pooja/add'); ?>" class="btn btn-link btn-float has-text"><i class="icon-plus-circle2 text-primary"></i> <span>Add New</span></a>
+			</div>
+		</div>
  	</div>
 
  	<div class="breadcrumb-line">

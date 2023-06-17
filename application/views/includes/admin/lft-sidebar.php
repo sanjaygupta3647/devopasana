@@ -67,6 +67,14 @@ $userdata = getUserData($sess["user_id"]);
 						</ul>
 					</li>
 
+					<li>
+						<a href="#"><i class="icon-ticket"></i> <span>Addon</span></a>
+						<ul>
+								<li <?php echo ($this->router->class == "addon" && $this->router->method == "add") ? 'class="active"' : ''; ?>><a href="<?php echo base_url('admin/addon/add'); ?>">Add</a></li>
+								<li <?php echo ($this->router->class == "addon" && $this->router->method == "all") ? 'class="active"' : ''; ?>><a href="<?php echo base_url('admin/addon/all'); ?>">List</a></li>
+						</ul>
+					</li>
+
 					<?php if ($role_id == 1) : ?>
 
 						<li>
