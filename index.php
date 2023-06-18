@@ -53,7 +53,21 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+if(isset($_SERVER['HTTP_HOST'])){
+    switch ($_SERVER['HTTP_HOST']) {
+        case 'https://devopasana.com':
+            define('ENVIRONMENT', 'production'); 
+            break;
+		case 'devopasana.com':
+            define('ENVIRONMENT', 'production'); 
+            break;  
+        default:
+            define('ENVIRONMENT', 'development'); 
+            break;
+    }
+}else{
+    define('ENVIRONMENT', 'development');
+}
 
 /*
  *---------------------------------------------------------------
