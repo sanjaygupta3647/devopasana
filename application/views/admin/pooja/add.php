@@ -143,7 +143,7 @@
 				
 				<div class="row" id="poojaprice">
 				    
-					<?php if(count($pricelist)): ?> 
+					<?php if(!empty($pricelist) && count($pricelist)): ?> 
 					<?php foreach($pricelist as $val): ?> 
 					<div class="pricesection">
 						<div class="col-md-6">

@@ -131,7 +131,7 @@
 	</div>
 	<div class="row" >
 				    
-		<?php if(count($all_camapaign_pooja)): ?> 
+		<?php if(!empty($all_camapaign_pooja) && count($all_camapaign_pooja)): ?> 
 		<?php foreach($all_camapaign_pooja as $val): ?> 
 		<div class="pricesection">
 			<div class="col-md-9">

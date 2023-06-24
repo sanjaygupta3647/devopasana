@@ -1,5 +1,5 @@
 <!-- partial:partia/__subheader.html -->
-<div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(assets/img/banner/varanasi.jpg);padding:180px 0 210px">
+<div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(assets/frontend/img/banner/varanasi.jpg);padding:180px 0 210px">
 
 <div class="container">
   <div class="sigma_subheader-inner"> 

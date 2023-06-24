@@ -5,14 +5,13 @@
 
       <!-- Banner Item Start -->
       <div class="light-bg sigma_banner-slider-inner bg-cover bg-center bg-norepeat"
-        style="background-image: url('assets/frontend/img/banner/1280_720.jpg');">
+        style="background-image: url('assets/frontend/img/banner/devopasan-online-pooja.jpg');">
         <div class="sigma_banner-text">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-6">
-                <h1 class="title">Some Important Life Lessons From Gita</h1>
-                <p class="blockquote mb-0 bg-transparent"> We are a Hindu that belives in Lord Rama and Vishnu Deva the
-                  followers and We are a Hindu that belives in Lord Rama and Vishnu Deva. This is where you should start
+                <h4 class="title">Connect with the Divine: Online Pujas for Inner Harmony and Balanced Living</h4>
+                <p class="blockquote mb-0 bg-transparent">Experience the sacred rituals and connect with the divine through our online pujas. Embrace the path of inner harmony, balance, and spiritual growth from the comfort of your home. Join our vibrant community of devotees.
                 </p>
                 <div class="section-button d-flex align-items-center">
                   <a href="contact-us.html" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
@@ -28,14 +27,35 @@
 
       <!-- Banner Item Start -->
       <div class="light-bg sigma_banner-slider-inner bg-cover bg-center bg-norepeat"
-        style="background-image: url('assets/frontend/img/banner/nature.jpg');">
+        style="background-image: url('assets/frontend/img/banner/banner-2.jpg');">
         <div class="sigma_banner-text">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-6">
-                <h1 class="title">We are a Hindu that believe in Ram</h1>
-                <p class="blockquote mb-0 bg-transparent"> We are a Hindu that belives in Lord Rama and Vishnu Deva the
-                  followers and We are a Hindu that belives in Lord Rama and Vishnu Deva. This is where you should start
+                <h4 class="title">Online Puja for Dosh Nivaran: Seek Divine Intervention and Blessings Delivered to Your Doorstep</h4>
+                <p class="blockquote mb-0 bg-transparent">Are you troubled by doshas or negative energies? Experience the power of dosh nivaran pujas performed by expert pandits from Varanasi to mitigate doshas and bring positive energy into your life. Embrace spiritual healing and transform your life today.
+                </p>
+                <div class="section-button d-flex align-items-center">
+                  <a href="contact-us.html" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
+                  <a href="services.html" class="ms-3 sigma_btn-custom white">View Services <i
+                      class="far fa-arrow-right"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Banner Item End -->
+	  
+	  <!-- Banner Item Start -->
+      <div class="light-bg sigma_banner-slider-inner bg-cover bg-center bg-norepeat"
+        style="background-image: url('assets/frontend/img/banner/banner-3.jpg');">
+        <div class="sigma_banner-text">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <h4 class="title">Prasadam and Blessings Delivered to Your Doorstep</h4>
+                <p class="blockquote mb-0 bg-transparent">Experience the joy of receiving prasadam and blessings from your chosen deity from our network of temples. Devopasana ensures a seamless and convenient way to connect with divine grace. No more worries, just pure spiritual bliss.
                 </p>
                 <div class="section-button d-flex align-items-center">
                   <a href="contact-us.html" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>

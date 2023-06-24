@@ -1538,7 +1538,7 @@ p.blockquote.light-border:after {
 }
 
 .blockquote.bg-transparent {
-  color: #020202;
+  color: #fff;
 }
 
 .blockquote.light-border,
@@ -6861,7 +6861,7 @@ td.remove {
 .banner-3.sigma_banner .sigma_banner-slider-inner {
   overflow: hidden;
   position: relative;
-  padding: 180px 0 210px;
+  padding: 180px 0 120px;
 }
 
 .header-absolute+.banner-3.sigma_banner .sigma_banner-slider-inner {

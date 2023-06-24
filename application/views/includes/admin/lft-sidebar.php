@@ -86,7 +86,7 @@ $userdata = getUserData($sess["user_id"]);
 							</ul>
 						</li>
 
-						<li>
+						<li style="display: none;">
 							<a href="#"><i class="icon-stack2"></i> <span>Static Pages</span></a>
 							<ul>
 								<li <?php echo ($this->router->class == "page" && $this->router->method == "add") ? 'class="active"' : ''; ?>><a href="<?php echo base_url('admin/page/add'); ?>">Add</a></li>

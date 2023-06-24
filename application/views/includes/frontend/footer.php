@@ -126,23 +126,23 @@
   </footer>
   <!-- partial -->
   <!-- partial:partia/__scripts.html -->
-  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery-3.4.1.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/popper.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/bootstrap.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/imagesloaded.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.magnific-popup.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.countdown.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.waypoints.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.counterup.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.zoom.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.inview.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.event.move.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/wow.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/isotope.pkgd.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/slick.min.js");?>"></script>
-  <script src="<?php echo base_url("assets/frontend/js/plugins/ion.rangeSlider.min.js");?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery-3.4.1.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/popper.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/bootstrap.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/imagesloaded.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.magnific-popup.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.countdown.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.waypoints.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.counterup.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.zoom.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.inview.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/jquery.event.move.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/wow.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/isotope.pkgd.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/slick.min.js").VERSION;?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/plugins/ion.rangeSlider.min.js").VERSION;?>"></script>
 
-  <script src="<?php echo base_url("assets/frontend/js/main.js");?>"></script>
+  <script src="<?php echo base_url("assets/frontend/js/main.js").VERSION;?>"></script>
   <!-- partial -->
 
 </body>
