@@ -7,7 +7,7 @@
             <img class="d-none d-lg-block" src="assets/frontend/img/kalash.png" alt="cta">
             <div class="sigma_cta-content">
               <span class="fw-600 custom-primary">Need Help, Call Our HOTLINE!</span>
-              <h4 class="text-white">+1 212-683-9756</h4>
+              <h4 class="text-white"><?php echo PHONE; ?></h4>
             </div>
           </div>
         </div>

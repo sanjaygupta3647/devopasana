@@ -87,7 +87,7 @@
             <i class="fal fa-phone"></i>
             <div class="sigma_header-contact-inner">
               <span>Get Support</span>
-              <h6>222-121-428-48</h6>
+              <h6><?php echo PHONE; ?></h6>
             </div>
           </a>
           <a class="sigma_btn-custom" href="#"> Login </a>

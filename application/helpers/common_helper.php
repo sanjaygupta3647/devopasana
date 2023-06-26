@@ -446,3 +446,89 @@ function profilepic($profile_pic)
 function showprice($price){
     return "Rs. ".number_format($price);
 }
+
+
+function getThumb($img, $subfolder, $w, $h = null, $overwirde = 'no')
+{
+    $ext = end(explode('.', $img));
+    if (in_array($ext, ['webp', 'svg', 'gif'])) {
+        return $img;
+    }
+    $CI = & get_instance();
+    $CI->load->library('image_lib');
+
+    $name = explode("/", $img);
+    $imgname = end($name);
+    if (empty($imgname)) {
+        return false;
+    }
+    $arr = explode(".", $imgname);
+    $hight = "";
+    if (!empty($h)) {
+        $hight = "_" . $h;
+    }
+    $new_name = slugify($arr[0]) . $hight . "_" . $w . "." . $arr[1];
+
+    $thumb_cache_path = "assets/thumb_cache/" . $new_name;
+    $thumb_path = "assets/thumb/" . $subfolder . "/" . $new_name;
+    if (file_exists($thumb_path)) {
+        if ($overwirde == 'yes') {
+            unlink($thumb_path);
+        } else {
+            return base_url($thumb_path);
+        }
+    }
+
+    $data = curl_get($img);
+    if (empty($data)) {
+        return false;
+    }
+
+    if (!file_exists("assets/thumb/" . $subfolder)) {
+        mkdir("assets/thumb/" . $subfolder, 0777, true);
+    }
+
+
+    /*store image in server*/
+    file_put_contents($thumb_cache_path, $data);
+
+    $config_man_thumb = array(
+        'image_library' => 'GD2',
+        'quality' => 50,
+        'file_permissions' => 0644,
+        'source_image' => $thumb_cache_path,
+        'new_image' => $thumb_path,
+        'maintain_ratio' => TRUE,
+        'width' => $w
+
+    );
+
+    if (!empty($h)) {
+        $config_man_thumb['maintain_ratio'] = false;
+        $config_man_thumb['height'] = $h;
+    }
+
+    $CI->load->library('image_lib', $config_man_thumb);
+    $CI->image_lib->initialize($config_man_thumb);
+    $CI->image_lib->resize();
+    $CI->image_lib->clear();
+    unlink($thumb_cache_path);
+    return base_url($thumb_path);
+}
+
+function curl_get($url)
+{
+    $ch = curl_init();
+    $headers = array(); 
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_REFERER, $_SERVER['HTTP_REFERER']);
+    // Timeout in seconds
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+
+    $response = curl_exec($ch);
+    return $response;
+}

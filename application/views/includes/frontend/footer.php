@@ -15,18 +15,18 @@
         <div class="row">
           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget">
             <h5 class="widget-title">About Us</h5>
-            <p class="mb-4">You need to be sure there isn’t anything embarrassing hidden in the middle of text. </p>
+             
             <div class="d-flex align-items-center justify-content-md-start justify-content-center">
               <i class="far fa-phone custom-primary me-3"></i>
-              <span>987-987-930-302</span>
+              <span><?php echo PHONE; ?></span>
             </div>
             <div class="d-flex align-items-center justify-content-md-start justify-content-center mt-2">
               <i class="far fa-envelope custom-primary me-3"></i>
-              <span>info@example.com</span>
+              <span><?php echo ADMIN_EMAIL; ?></span>
             </div>
             <div class="d-flex align-items-center justify-content-md-start justify-content-center mt-2">
               <i class="far fa-map-marker custom-primary me-3"></i>
-              <span>14/A, Poor Street City Tower, New York USA</span>
+              <span><?php echo ADDRRESS; ?></span>
             </div>
           </div>
           <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12 footer-widget">
@@ -93,7 +93,7 @@
     <div class="sigma_footer-bottom">
       <div class="container-fluid">
         <div class="sigma_footer-copyright">
-          <p> Copyright © devopasana.com - <a href="#" class="custom-primary">2023</a> </p>
+          <p> Copyright © devopasana.com - <a href="#" class="custom-primary"><?php echo date("Y"); ?></a> </p>
         </div>
         <div class="sigma_footer-logo">
           <img src="assets/frontend/img/logo.jpg" alt="logo">
@@ -143,6 +143,19 @@
   <script src="<?php echo base_url("assets/frontend/js/plugins/ion.rangeSlider.min.js").VERSION;?>"></script>
 
   <script src="<?php echo base_url("assets/frontend/js/main.js").VERSION;?>"></script>
+  <?php
+	if (isset($pageJs) && !empty($pageJs) && is_array($pageJs)) {
+		foreach ($pageJs as $j => $j_val) { // $j_val -- true for external url
+			if ($j != "") {
+				if ($j_val == "false") {
+					echo '<script src="' . media_url($j).VERSION . '"></script>' . "\n";
+				} else {
+					echo '<script src="' . $j . '"></script>' . "\n";
+				}
+			}
+		}
+	}
+	?>
   <!-- partial -->
 
 </body>

@@ -25,6 +25,12 @@ $(document).ready(function () {
 			'start_date': {
 				required: true
 			},
+			'short_description': {
+				required: true,
+				minlength: 150,
+				maxlength: 255
+				 				 
+			},
 			'end_date': {
 				required: true
 			},
@@ -35,6 +41,9 @@ $(document).ready(function () {
 				required: true
 			},
 			'description': {
+				required: true
+			},
+			'slug': {
 				required: true
 			}
 

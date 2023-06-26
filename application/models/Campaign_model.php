@@ -42,16 +42,30 @@ class Campaign_model extends CI_Model
 			return false;
 		}
 	}
+	
+	function getDetailBySlug($slug)
+	{
+		$this->db->select('*');
+		$this->db->from('campaign'); 
+		$this->db->where('slug', $slug);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			$row = $query->result();
+			return $row[0];
+		} else {
+			return false;
+		}
+	}
 
 	function getAllData($postData = array())
 	{
-		$this->db->select('t.*');
+		$this->db->select('*');
 		$this->db->from('campaign'); 
 		 
 		if (!empty($postData['status'])) {
-			$this->db->where('t.status', $postData['status']);
+			$this->db->where('status', $postData['status']);
 		}
-		$this->db->order_by('t.id', 'desc');
+		$this->db->order_by('id', 'desc');
 
 		$query = $this->db->get();
 		return $query->result();
@@ -176,5 +190,37 @@ class Campaign_model extends CI_Model
 		$this->db->where('campaign_id', $campaign_id);
 		$this->db->where('pooja_id', $pooja_id);
 		return $this->db->delete("campaign_pooja");
+	}
+
+	function getAllCampaignPoojaDetails($campaign_id)
+	{
+		$this->load->model('pooja_model', 'pooja');
+		//$this->load->model('addon_model', 'addon');
+		$this->db->select('p.*');
+        $this->db->from('pooja p');
+		$this->db->join('campaign_pooja cp','cp.pooja_id = p.id'); 
+        $this->db->where('cp.campaign_id', $campaign_id);
+		$this->db->where('p.status', 'Active');
+		$query = $this->db->get();
+		$data = $query->result();
+
+		$pooja = array();
+		if(count($data)){
+			foreach($data as $key=>$val){
+				$pooja[$key]['id'] = $val->id;
+				$pooja[$key]['title'] = $val->title;
+				//$pooja[$key]['addons'] = $this->addon->getAllData($val->addons);
+				$pooja[$key]['image'] = $val->image;
+				$pooja[$key]['description'] = $val->description;
+				$pooja[$key]['start_date'] = $val->start_date;
+				$pooja[$key]['end_date'] = $val->end_date;
+				$pooja[$key]['service_charge'] = $val->service_charge;
+				$pooja[$key]['prasad_charge'] = $val->prasad_charge; 
+				$pooja[$key]['pooja_price'] = $this->pooja->getAllPriceList($val->id); 
+			}
+		}
+		return $pooja;
+         
+		 
 	}
 }

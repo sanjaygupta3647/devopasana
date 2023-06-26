@@ -80,6 +80,12 @@
 					</div>
 					<div class="col-md-12">
 						<div class="form-group">
+							<label>Short Description <span class="text-danger">*(max 255 char)</span>: </label>
+							<textarea name="short_description" class="form-control" placeholder="Short Description"><?php echo ($campaign->short_description) ? $campaign->short_description : ''; ?></textarea> 
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
 							<label>Description: <span class="text-danger">*</span></label>
 							<textarea required class="summernote" name="description"><?php echo (!empty($campaign->description)) ? $campaign->description : ""; ?></textarea>
 						</div>

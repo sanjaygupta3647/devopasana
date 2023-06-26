@@ -19,7 +19,11 @@ class Home extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{		
+	{	
+		$this->load->model('campaign_model', 'campaign'); 
+		$arr['status'] = "Active";
+		$campaigns = $this->campaign->getAllData($arr);	 
+		$this->_view_data['campaigns'] = $campaigns;
 		$this->_view_data['pageContent'] = 'frontend/index';
 		$this->load->view('frontend-template',$this->_view_data);
 	}

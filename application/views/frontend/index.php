@@ -120,153 +120,35 @@
         <p class="subtitle">Running Campigns</p>
         <h4>Books seva and get our best services in world!</h4>
       </div>
-
+	  <?php if(!empty($campaigns) && count($campaigns)>0): ?>
       <div class="row">
+	    <?php foreach($campaigns as $key=>$val): ?>
         <div class="col-lg-3 col-md-6">
           <div class="sigma_service style-2">
             <div class="sigma_service-thumb">
-              <img src="assets/frontend/img/campaign/16_9.jpg" width="370" height="171" alt="img">
+              <img class="responsive" src="<?php echo getThumb(base_url('uploads/campaign/' . $val->image),"campaign",370);?>" width="370" height="209" alt="img">
             </div>
             <div class="sigma_service-body">
-              <h5>
-                <a href="#">Ganga Arti Kashi1</a>
-              </h5>
-              <p>Temple is place where hindu worship consectetur adipisicing elit, sed do Temple is place where hindu
-                worship consectetur adipisicing elit, sed do </p>
-              <a href="#" class="sigma_btn-custom">
-                Book This Pooja
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="sigma_service style-2">
-            <div class="sigma_service-thumb">
-              <img src="assets/frontend/img/campaign/16_9.jpg" alt="img">
-            </div>
-            <div class="sigma_service-body">
-              <h5>
-                <a href="#">Ganga Arti Kashi</a>
-              </h5>
-              <p>Temple is place where hindu worship consectetur adipisicing elit, sed do Temple is place where hindu
-                worship consectetur adipisicing elit, sed do </p>
-              <a href="#" class="sigma_btn-custom">
-                Book This Pooja
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="sigma_service style-2">
-            <div class="sigma_service-thumb">
-              <img src="assets/frontend/img/campaign/16_9.jpg" alt="img">
-            </div>
-            <div class="sigma_service-body">
-              <h5>
-                <a href="#">Ganga Arti Kashi</a>
-              </h5>
-              <p>Temple is place where hindu worship consectetur adipisicing elit, sed do Temple is place where hindu
-                worship consectetur adipisicing elit, sed do </p>
-              <a href="#" class="sigma_btn-custom">
-                Book This Pooja
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="sigma_service style-2">
-            <div class="sigma_service-thumb">
-              <img src="assets/frontend/img/campaign/16_9.jpg" alt="img">
-            </div>
-            <div class="sigma_service-body">
-              <h5>
-                <a href="#">Ganga Arti Kashi</a>
-              </h5>
-              <p>Temple is place where hindu worship consectetur adipisicing elit, sed do Temple is place where hindu
-                worship consectetur adipisicing elit, sed do </p>
-              <a href="#" class="sigma_btn-custom">
+               
+                <a href="<?php echo base_url("campaign/").$val->slug; ?>"><b><?php echo $val->title; ?></b></a>
+              
+              <p class="camp_home_short_text"><?php echo $val->short_description; ?></p>
+              <a href="<?php echo base_url("campaign/").$val->slug; ?>" class="sigma_btn-custom">
                 Book This Pooja
               </a>
             </div>
           </div>
         </div> 
-		<div class="col-lg-3 col-md-6">
-          <div class="sigma_service style-2">
-            <div class="sigma_service-thumb">
-              <img src="assets/frontend/img/campaign/16_9.jpg" alt="img">
-            </div>
-            <div class="sigma_service-body">
-              <h5>
-                <a href="#">Ganga Arti Kashi</a>
-              </h5>
-              <p>Temple is place where hindu worship consectetur adipisicing elit, sed do Temple is place where hindu
-                worship consectetur adipisicing elit, sed do </p>
-              <a href="#" class="sigma_btn-custom">
-                Book This Pooja
-              </a>
-            </div>
-          </div>
-        </div>
-		<div class="col-lg-3 col-md-6">
-          <div class="sigma_service style-2">
-            <div class="sigma_service-thumb">
-              <img src="assets/frontend/img/campaign/16_9.jpg" alt="img">
-            </div>
-            <div class="sigma_service-body">
-              <h5>
-                <a href="#">Ganga Arti Kashi</a>
-              </h5>
-              <p>Temple is place where hindu worship consectetur adipisicing elit, sed do Temple is place where hindu
-                worship consectetur adipisicing elit, sed do </p>
-              <a href="#" class="sigma_btn-custom">
-                Book This Pooja
-              </a>
-            </div>
-          </div>
-        </div>
-		<div class="col-lg-3 col-md-6">
-          <div class="sigma_service style-2">
-            <div class="sigma_service-thumb">
-              <img src="assets/frontend/img/campaign/16_9.jpg" alt="img">
-            </div>
-            <div class="sigma_service-body">
-              <h5>
-                <a href="#">Ganga Arti Kashi</a>
-              </h5>
-              <p>Temple is place where hindu worship consectetur adipisicing elit, sed do Temple is place where hindu
-                worship consectetur adipisicing elit, sed do </p>
-              <a href="#" class="sigma_btn-custom">
-                Book This Pooja
-              </a>
-            </div>
-          </div>
-        </div>
-		<div class="col-lg-3 col-md-6">
-          <div class="sigma_service style-2">
-            <div class="sigma_service-thumb">
-              <img src="assets/frontend/img/campaign/16_9.jpg" alt="img">
-            </div>
-            <div class="sigma_service-body">
-              <h5>
-                <a href="#">Ganga Arti Kashi</a>
-              </h5>
-              <p>Temple is place where hindu worship consectetur adipisicing elit, sed do Temple is place where hindu
-                worship consectetur adipisicing elit, sed do </p>
-              <a href="#" class="sigma_btn-custom">
-                Book This Pooja
-              </a>
-            </div>
-          </div>
-        </div>
+		<?php endforeach; ?>
+		
+		 
       </div>
-	  <div class="row">
+	  <div class="row hide">
         <div class="col-lg-12 col-md-6 text-center">
 		<button class="sigma_btn-custom primary">Load More Poojas..</button>
 		</div>
 	  </div>
+	  <?php endif; ?>
 
     </div>
   </div>

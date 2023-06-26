@@ -1,10 +1,10 @@
 <!-- Banner Start -->
-  <div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(assets/frontend/img/campaign/16_9.jpg);padding:180px 0 210px">
+  <div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(<?php echo base_url('uploads/campaign/' . $campaign->image);  ?>);padding:180px 0 120px">
 
     <div class="container">
       <div class="sigma_subheader-inner">
         <div class="sigma_subheader-text">
-          <h1>Celebrate Kalashtami to invoke the divine blessings of Lord Kaal Bhairav</h1>
+          <h1><?php echo $campaign->title;  ?></h1>
         </div>
          
       </div>
@@ -30,65 +30,42 @@
         <div class="tab-content" id="bordered-tabContent">
           <div class="tab-pane fade show active" id="tab-product-desc" role="tabpanel" aria-labelledby="tab-product-desc-tab">
             <div class="row">
-			<div class="col-lg-4 col-md-6">
-			  <div class="sigma_service style-2">
-				<div class="sigma_service-thumb">
-				  <img src="assets/frontend/img/campaign/16_9.jpg" width="370" height="171" alt="img">
-				</div>
-				<div class="sigma_service-body form-row sigma_donation-form">
-				  <h6 class="mb-0">
-					Chandi Homa - Individual (June 19th - 25th)<br/> 
-				  </h6>
-				  <ul class="sigma_select-amount mt-0">
-					<li><strike>Rs. 215.00</strike></li> 
-					<li class="active">Rs. 150.00</li> 
-				  </ul>
-				  <div class="pt-10">
-					  <p>Ashadha Gupta Navaratri is dedicated to the worship of Varahi Devi. We call this Varahi Navaratri too. Varahi Devi is the Army Chief of Lalita Devi. She is the inherent Shakti of Adi Varaha Swamy. Worshipping her will save is from Land disputes and court issues. She gives fortune in the form of Bhoomi (land, property, agriculture, etc.). The Goddess saves you from health issues and protects you always. On Ashadha Shukla Navami day which falls on June 27th, the Purohits will perform Varahi Homa in the Shaktipeetha Kshetra of Srisailam. The Seva happens in an ashram located in the Kshetra. You can participate in the Homa and attain the grace of the Goddess during the Navaratri. The Pandits will chant you Gotra-naamas in the Sankalpa and ensure that you receive the blessings and benefits of the Homa. You can watch the Seva live on youtube. The links and timings will be shared with you through SMS/WhatsApp. Upon completing the Seva, Prasadam containing Akshatas, Kumkum, blouse piece, Raksha thread and an edible item will be sent to your address.</p>
-					  <a href="#" class="sigma_btn-custom">
-						Book This Pooja
-					  </a>
-				  </div>
-				</div>
-			  </div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-			  <div class="sigma_service style-2">
-				<div class="sigma_service-thumb">
-				  <img src="assets/frontend/img/campaign/16_9.jpg" width="370" height="171" alt="img">
-				</div>
-				<div class="sigma_service-body form-row sigma_donation-form">
-				  <h6 class="mb-0">
-					Chandi Homa - Individual (June 19th - 25th)<br/> 
-				  </h6>
-				  <ul class="sigma_select-amount mt-0">
-					<li><strike>Rs. 115.00</strike></li> 
-					<li class="active">Rs. 100.00</li> 
-				  </ul>
-				  <div class="pt-10">
-					  <p>Ashadha Gupta Navaratri is dedicated to the worship of Varahi Devi. We call this Varahi Navaratri too. Varahi Devi is the Army Chief of Lalita Devi. She is the inherent Shakti of Adi Varaha Swamy. Worshipping her will save is from Land disputes and court issues. She gives fortune in the form of Bhoomi (land, property, agriculture, etc.). The Goddess saves you from health issues and protects you always. On Ashadha Shukla Navami day which falls on June 27th, the Purohits will perform Varahi Homa in the Shaktipeetha Kshetra of Srisailam. The Seva happens in an ashram located in the Kshetra. You can participate in the Homa and attain the grace of the Goddess during the Navaratri. The Pandits will chant you Gotra-naamas in the Sankalpa and ensure that you receive the blessings and benefits of the Homa. You can watch the Seva live on youtube. The links and timings will be shared with you through SMS/WhatsApp. Upon completing the Seva, Prasadam containing Akshatas, Kumkum, blouse piece, Raksha thread and an edible item will be sent to your address.</p>
-					  <a href="#" class="sigma_btn-custom">
-						Book This Pooja
-					  </a>
-				  </div>
-				</div>
-			  </div>
-			</div>
 			
+			<?php if(!empty($pooja) && count($pooja)>0): ?>
+			<?php foreach($pooja as $key=>$val): ?>
 			<div class="col-lg-4 col-md-6">
 			  <div class="sigma_service style-2">
 				<div class="sigma_service-thumb">
-				  <img src="assets/frontend/img/campaign/16_9.jpg" width="370" height="171" alt="img">
+				  <img src="<?php echo getThumb(base_url('uploads/pooja/'.$val["id"]. '/' . $val['image']),"pooja",370,222) ?>" width="370" height="222" alt="img">
 				</div>
 				<div class="sigma_service-body form-row sigma_donation-form">
 				  <h6 class="mb-0">
-					Chandi Homa - Individual (June 19th - 25th)<br/> 
+					<?php echo $val['title']; ?><br/> 
 				  </h6>
-				  <ul class="sigma_select-amount mt-0"> 
-					<li class="active">Rs. 100.00</li> 
-				  </ul>
+				  <?php if(count($val['pooja_price'])): ?>
+				  <div class="form-group  w-100 <?php echo (count($val['pooja_price'])==1) ? 'hide':'' ?>"> 
+				   <select class="form-control pooja_price" data-pooja_id="<?php echo $val["id"]; ?>" name="pooja_price" ">
+				  <?php foreach($val['pooja_price'] as $k=>$p): ?> 
+					<option  value="<?php echo $p->id; ?>"><?php echo $p->lable; ?></option> 
+				  <?php endforeach; ?>
+				  </select>
+				  </div>
+				  <?php foreach($val['pooja_price'] as $k=>$p): ?> 
+				  
+				  <ul class="sigma_select-amount mt-0  <?php echo "all_price_list_".$val["id"]; ?>" <?php echo ($k==0) ? "":'style="display: none;"' ?> id="<?php echo $val["id"]; ?>_price_<?php echo $p->id; ?>">
+				    <?php if($p->discount_price > 0 && $p->discount_price < $p->price): ?>
+					<li><strike><?php echo showprice($p->price); ?></strike></li> 
+					<li class="active"><?php echo showprice($p->discount_price); ?></li>
+					<?php else: ?>
+					<li class="active"><?php echo showprice($p->price); ?></li>
+					<?php endif; ?>
+					
+				  </ul> 
+				   
+				  <?php endforeach; ?>
+				  <?php endif; ?>
 				  <div class="pt-10">
-					  <p>Ashadha Gupta Navaratri is dedicated to the worship of Varahi Devi. We call this Varahi Navaratri too. Varahi Devi is the Army Chief of Lalita Devi. She is the inherent Shakti of Adi Varaha Swamy. Worshipping her will save is from Land disputes and court issues. She gives fortune in the form of Bhoomi (land, property, agriculture, etc.). The Goddess saves you from health issues and protects you always. On Ashadha Shukla Navami day which falls on June 27th, the Purohits will perform Varahi Homa in the Shaktipeetha Kshetra of Srisailam. The Seva happens in an ashram located in the Kshetra. You can participate in the Homa and attain the grace of the Goddess during the Navaratri. The Pandits will chant you Gotra-naamas in the Sankalpa and ensure that you receive the blessings and benefits of the Homa. You can watch the Seva live on youtube. The links and timings will be shared with you through SMS/WhatsApp. Upon completing the Seva, Prasadam containing Akshatas, Kumkum, blouse piece, Raksha thread and an edible item will be sent to your address.</p>
+					  <p><?php echo $val['description']; ?></p>
 					  <a href="#" class="sigma_btn-custom">
 						Book This Pooja
 					  </a>
@@ -96,19 +73,15 @@
 				</div>
 			  </div>
 			</div>
+			<?php endforeach; ?>
+			<?php endif; ?>
+			 
+			
+			 
 		</div>
           </div>
           <div class="tab-pane fade" id="tab-product-info" role="tabpanel" aria-labelledby="tab-product-info-tab">
-             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-              <p>  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                <?php echo $campaign->description; ?>
           </div>
            
         </div>

@@ -136,6 +136,7 @@ class Campaign extends MY_Controller
 		$campaign_data = array(
 			'title' => $postdata['title'],
 			'slug' => $postdata['slug'],
+			'short_description' => $postdata['short_description'],
 			'meta_title' => $postdata['meta_title'],
 			'meta_description' => $postdata['meta_description'],
 			'target' => $postdata['target'],

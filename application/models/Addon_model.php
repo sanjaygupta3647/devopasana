@@ -54,16 +54,13 @@ class Addon_model extends CI_Model
 		 
 	}
 
-	function getAllData($postData = array())
+	function getAllData($ids)
 	{
-		$this->db->select('t.*');
+		$this->db->select('*');
 		$this->db->from('addon'); 
-		 
-		if (!empty($postData['status'])) {
-			$this->db->where('t.status', $postData['status']);
-		}
-		$this->db->order_by('t.id', 'desc');
-
+		$this->db->where('status', 'Active'); 
+		$this->db->where("id in ($ids)"); 
+		$this->db->order_by('id', 'desc'); 
 		$query = $this->db->get();
 		return $query->result();
 	}

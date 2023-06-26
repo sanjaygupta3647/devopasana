@@ -1101,8 +1101,7 @@ hr {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+  max-width: 100%; 
 }
 
 .imgs-wrapper {
@@ -2136,7 +2135,7 @@ input[type=radio]:checked+label:after {
   color: #fff;
   font-size: 14px;
   text-transform: uppercase;
-  padding: 15px 30px;
+  padding: 7px 15px;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -9733,6 +9732,7 @@ td.remove {
   box-shadow: none;
   text-align: left;
   padding: 0;
+  height: auto;
 }
 
 .sigma_service.style-3 .sigma_service-thumb,
@@ -10672,4 +10672,17 @@ form label{
 }
 .pt-10{
 	padding-top:10px !important;
+}
+
+.hide{
+	display:none;
+}
+
+.camp_home_short_text{
+	font-size: 12px!important;
+	line-height: 1.5!important;
+}
+
+.w-100{
+	width: 100% !important;
 }
