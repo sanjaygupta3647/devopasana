@@ -7,4 +7,6 @@ define('REPLYTO_EMAIL', 'info@devopasana.com ');
 define('REPLYTO_NAME', 'Devopasana');   
 define('GMAPAPI','');
 define('VERSION', '?v=1.0');
+define('PHONE', '8794793316');
+define('ADDRRESS', 'H-1403, Aditya Mega City, Indirapuram, Ghaziabad, Uttar Pradesh - 201014');
 
