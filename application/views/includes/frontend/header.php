@@ -21,7 +21,7 @@
 
   <!-- partial:partia/__mobile-nav.html -->
   <aside class="sigma_aside sigma_aside-left">
-    <a class="navbar-brand" href="index.html"> <img src="<?php echo base_url("assets/frontend/img/logo.jpg");?>" alt="logo"> </a>
+    <a class="navbar-brand" href="<?php echo base_url(); ?>"> <img src="<?php echo base_url("assets/frontend/img/logo.jpg");?>" alt="logo"> </a>
 
     <!-- Menu MOBILE -->
     <ul>

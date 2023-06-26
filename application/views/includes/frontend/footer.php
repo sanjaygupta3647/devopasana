@@ -93,29 +93,29 @@
     <div class="sigma_footer-bottom">
       <div class="container-fluid">
         <div class="sigma_footer-copyright">
-          <p> Copyright © devopasana.com - <a href="#" class="custom-primary"><?php echo date("Y"); ?></a> </p>
+          <p> Copyright © devopasana.com - <?php echo date("Y"); ?></p>
         </div>
         <div class="sigma_footer-logo">
           <img src="assets/frontend/img/logo.jpg" alt="logo">
         </div>
         <ul class="sigma_sm square">
           <li>
-            <a href="#">
+            <a href="https://www.facebook.com/Devopasana-Digital-Services-115404771574082/">
               <i class="fab fa-facebook-f"></i>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://www.linkedin.com/posts/devopasana-digital-services">
               <i class="fab fa-linkedin-in"></i>
             </a>
           </li>
           <li>
-            <a href="#">
-              <i class="fab fa-twitter"></i>
+            <a href="https://www.instagram.com/devopasana/">
+              <i class="fab fa-instagram"></i>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://youtube.com/@Devopasana">
               <i class="fab fa-youtube"></i>
             </a>
           </li>
