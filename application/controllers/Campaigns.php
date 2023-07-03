@@ -14,6 +14,10 @@ class Campaigns extends CI_Controller {
 				$meta['meta_description'] = $campaign->meta_description;
 				$meta['og_img'] = base_url('uploads/campaign/' . $campaign->image);
 				$this->_view_data['pooja'] = $this->campaign->getAllCampaignPoojaDetails($campaign->id);
+
+				$this->load->model('faq_model', 'faq'); 
+				$this->_view_data['faqs'] = $this->faq->getAllFaq($campaign->id,'Active');
+
 				//p($this->_view_data['pooja']);
 				$this->_view_data['meta'] = $meta; 
 				$this->_view_data['pageCss'] = array("" => "true");

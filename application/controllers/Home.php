@@ -21,9 +21,11 @@ class Home extends CI_Controller {
 	public function index()
 	{	
 		$this->load->model('campaign_model', 'campaign'); 
+		$this->load->model('faq_model', 'faq');
 		$arr['status'] = "Active";
 		$campaigns = $this->campaign->getAllData($arr);	 
-		$this->_view_data['campaigns'] = $campaigns;
+		$this->_view_data['faqs'] = $this->faq->getAllFaq(null,'Active'); 
+		$this->_view_data['campaigns'] = $campaigns; 
 		$this->_view_data['pageContent'] = 'frontend/index';
 		$this->load->view('frontend-template',$this->_view_data);
 	}

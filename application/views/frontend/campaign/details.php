@@ -38,7 +38,7 @@
 				<div class="sigma_service-thumb">
 				  <img src="<?php echo getThumb(base_url('uploads/pooja/'.$val["id"]. '/' . $val['image']),"pooja",370,222) ?>" width="370" height="222" alt="img">
 				</div>
-				<div class="sigma_service-body form-row sigma_donation-form">
+				<div class="sigma_service-body form-row sigma_donation-form p-15">
 				  <h6 class="mb-0">
 					<?php echo $val['title']; ?><br/> 
 				  </h6>

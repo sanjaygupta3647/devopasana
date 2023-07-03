@@ -14,8 +14,8 @@
                 <p class="blockquote mb-0 bg-transparent">Experience the sacred rituals and connect with the divine through our online pujas. Embrace the path of inner harmony, balance, and spiritual growth from the comfort of your home. Join our vibrant community of devotees.
                 </p>
                 <div class="section-button d-flex align-items-center">
-                  <a href="contact-us.html" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
-                  <a href="services.html" class="ms-3 sigma_btn-custom white">View Services <i
+                  <a href="javascript:void(0);" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
+                  <a href="javascript:void(0);" class="ms-3 sigma_btn-custom white">View Services <i
                       class="far fa-arrow-right"></i> </a>
                 </div>
               </div>
@@ -36,8 +36,8 @@
                 <p class="blockquote mb-0 bg-transparent">Are you troubled by doshas or negative energies? Experience the power of dosh nivaran pujas performed by expert pandits from Varanasi to mitigate doshas and bring positive energy into your life. Embrace spiritual healing and transform your life today.
                 </p>
                 <div class="section-button d-flex align-items-center">
-                  <a href="contact-us.html" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
-                  <a href="services.html" class="ms-3 sigma_btn-custom white">View Services <i
+                  <a href="javascript:void(0);" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
+                  <a href="javascript:void(0);" class="ms-3 sigma_btn-custom white">View Services <i
                       class="far fa-arrow-right"></i> </a>
                 </div>
               </div>
@@ -58,8 +58,8 @@
                 <p class="blockquote mb-0 bg-transparent">Experience the joy of receiving prasadam and blessings from your chosen deity from our network of temples. Devopasana ensures a seamless and convenient way to connect with divine grace. No more worries, just pure spiritual bliss.
                 </p>
                 <div class="section-button d-flex align-items-center">
-                  <a href="contact-us.html" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
-                  <a href="services.html" class="ms-3 sigma_btn-custom white">View Services <i
+                  <a href="javascript:void(0);" class="sigma_btn-custom">Join Today <i class="far fa-arrow-right"></i> </a>
+                  <a href="javascript:void(0);" class="ms-3 sigma_btn-custom white">View Services <i
                       class="far fa-arrow-right"></i> </a>
                 </div>
               </div>
@@ -128,7 +128,7 @@
             <div class="sigma_service-thumb">
               <img class="responsive" src="<?php echo getThumb(base_url('uploads/campaign/' . $val->image),"campaign",370);?>" width="370" height="209" alt="img">
             </div>
-            <div class="sigma_service-body">
+            <div class="sigma_service-body p-10">
                
                 <a href="<?php echo base_url("campaign/").$val->slug; ?>"><b><?php echo $val->title; ?></b></a>
               

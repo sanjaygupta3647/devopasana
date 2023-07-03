@@ -46,6 +46,22 @@ class Faq_model extends MY_Model
         return $query->result();
     }
 
+    function getAllFaq($campaign_id)
+    {
+        $this->db->select('id,subject,status,body');
+        $this->db->from('faq'); 
+        $this->db->where('status', 'Active'); 
+        if (!empty($campaign_id)) {
+            $this->db->where("campaign_id = $campaign_id or campaign_id = 0");
+        }else{
+            $this->db->where('campaign_id', 0);
+        }
+        
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     function getDetail($id)
     {
 
