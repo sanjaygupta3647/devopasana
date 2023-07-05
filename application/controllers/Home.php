@@ -33,24 +33,26 @@ class Home extends CI_Controller {
 	public function about_us()
 	{		
 		$this->_view_data['pageContent'] = 'frontend/about-us';
+		$this->load->model('faq_model', 'faq'); 
+		$this->_view_data['faqs'] = $this->faq->getAllFaq(null,'Active'); 
 		$this->load->view('frontend-template',$this->_view_data);
 	}
 
-	public function contact_us()
-	{		
-		$this->_view_data['pageContent'] = 'frontend/contact-us';
-		$this->load->view('frontend-template',$this->_view_data);
-	}
+ 
 	
 	public function privacy_policy()
 	{		
 		$this->_view_data['pageContent'] = 'frontend/privacy-policy';
+		$this->load->model('faq_model', 'faq'); 
+		$this->_view_data['faqs'] = $this->faq->getAllFaq(null,'Active'); 
 		$this->load->view('frontend-template',$this->_view_data);
 	}
 
 	public function terms_of_services()
 	{		
 		$this->_view_data['pageContent'] = 'frontend/terms-of-services';
+		$this->load->model('faq_model', 'faq'); 
+		$this->_view_data['faqs'] = $this->faq->getAllFaq(null,'Active'); 
 		$this->load->view('frontend-template',$this->_view_data);
 	}
 
