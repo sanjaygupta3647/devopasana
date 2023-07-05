@@ -44,10 +44,7 @@
                 <i class="fas fa-om"></i>
                 <a href="<?php echo base_url("about-us"); ?>">About Us</a>
               </li>
-              <li>
-                <i class="fas fa-om"></i>
-                <a href="<?php echo base_url("contact-us"); ?>">Contact Us</a>
-              </li>
+              
             </ul>
           </div>
           <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12 footer-widget">
