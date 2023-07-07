@@ -24,8 +24,9 @@ class Page_model extends MY_Model
     function getAll($status = null)
     {
 
-        $this->db->select('page.id,page.porder,page.title,page.slug,page.status,page.created_at,u.username');
+        $this->db->select('page.id,page.porder,page.title,page.slug,page.status,page.created_at,u.username,c.title as category');
         $this->db->from('page');
+        $this->db->join('devine_category c', 'c.id = page.category_id');
         $this->db->join('users u', 'u.id = page.created_by');
         if (!empty($status)) {
             $this->db->where('page.status', $status);

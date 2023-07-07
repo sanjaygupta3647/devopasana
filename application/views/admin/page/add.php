@@ -43,13 +43,23 @@
 							<input type="text" required name="title" class="form-control" value="<?php echo ($page->title) ? $page->title : ''; ?>" placeholder="Page title">
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-2">
 						<div class="form-group">
 							<label>Status: <span class="text-danger">*</span></label>
 							<select name="status" class="select" required>
 								<option value="Active" <?php echo (!empty($page->status) && $page->status == 'Active') ? 'selected' : ''; ?>>Active</option>
 								<option value="Inactive" <?php echo (!empty($page->status) && $page->status == 'Inactive') ? 'selected' : ''; ?>>Inactive</option>
 
+							</select>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Category: <span class="text-danger">*</span></label>
+							<select name="category_id" class="select" required>
+							    <?php foreach($category as $val): ?>
+								<option value="<?php echo $val->id ?>" <?php echo (!empty($page->category_id) && $page->category_id == $val->id) ? 'selected' : ''; ?>><?php echo $val->title ?></option>
+								<?php endforeach; ?>
 							</select>
 						</div>
 					</div>
