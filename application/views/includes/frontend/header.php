@@ -28,9 +28,7 @@
       <li class="menu-item">
         <a href="<?php echo base_url(); ?>">Home</a>
       </li>
-      <li class="menu-item">
-        <a href="<?php echo base_url("about-us"); ?>">About Us</a>
-      </li>
+       
     
     </ul>
   </aside>
@@ -68,9 +66,7 @@
           <li class="menu-item">
             <a href="<?php echo base_url(); ?>">Home</a>
           </li>
-          <li class="menu-item">
-            <a href="<?php echo base_url("about-us"); ?>">About Us</a>
-          </li>
+      
           
         </ul>
 
@@ -78,7 +74,7 @@
 
         <!-- Button & Phone -->
         <div class="sigma_header-controls sigma_header-button"> 
-          <a href="https://wa.me/8794793316" class="sigma_header-contact">
+          <a href="https://wa.me/+918794793316" class="sigma_header-contact">
             <img src="<?php echo base_url("assets/frontend/img/whatsapp.png");?>" width="60" height="43"> 
           </a>
           <a class="sigma_btn-custom" href="#"> Login </a>

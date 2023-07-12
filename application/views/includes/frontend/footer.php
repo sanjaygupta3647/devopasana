@@ -22,7 +22,7 @@
               </li> 
             </ul>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget" style="text-align:center;">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget" >
              
             <ul>
               
@@ -32,7 +32,7 @@
               </li> 
             </ul>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget" style="text-align:right;">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget">
             
             <ul>
               <li>
