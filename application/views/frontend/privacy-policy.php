@@ -80,3 +80,8 @@
       <div><br></div>
    </div>
 </div>
+
+
+<?php $this->load->view('frontend/common/testimonials'); ?>
+ 
+<?php $this->load->view('frontend/common/faq'); ?>

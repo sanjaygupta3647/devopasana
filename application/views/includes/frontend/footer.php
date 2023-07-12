@@ -8,80 +8,40 @@
 
   <!-- partial:partia/__footer.html -->
   <footer class="sigma_footer footer-2">
-
+	
     <!-- Middle Footer -->
     <div class="sigma_footer-middle">
+	  <div class="box-shadow-img"></div>
       <div class="container">
         <div class="row">
           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget">
-            <h5 class="widget-title">About Us</h5>
-             
-            <div class="d-flex align-items-center justify-content-md-start justify-content-center">
-              <i class="far fa-phone custom-primary me-3"></i>
-              <span><?php echo PHONE; ?></span>
-            </div>
-            <div class="d-flex align-items-center justify-content-md-start justify-content-center mt-2">
-              <i class="far fa-envelope custom-primary me-3"></i>
-              <span><?php echo ADMIN_EMAIL; ?></span>
-            </div>
-            <div class="d-flex align-items-center justify-content-md-start justify-content-center mt-2">
-              <i class="far fa-map-marker custom-primary me-3"></i>
-              <span><?php echo ADDRRESS; ?></span>
-            </div>
+             <ul>
+              <li>
+                <i class="fas fa-om"></i>
+                <a href="<?php echo base_url("about-us"); ?>">About Us</a>
+              </li> 
+            </ul>
           </div>
-          <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12 footer-widget">
-            <h5 class="widget-title">Information</h5>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget" style="text-align:center;">
+             
+            <ul>
+              
+              <li>
+                <i class="fas fa-om"></i>
+                <a href="<?php echo base_url("terms-of-services"); ?>">Terms of Services</a>
+              </li> 
+            </ul>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget" style="text-align:right;">
+            
             <ul>
               <li>
                 <i class="fas fa-om"></i>
                 <a href="<?php echo base_url("privacy-policy"); ?>">Privacy Policy</a>
-              </li>
-              <li>
-                <i class="fas fa-om"></i>
-                <a href="<?php echo base_url("terms-of-services"); ?>">Terms of Services</a>
-              </li>
-              <li>
-                <i class="fas fa-om"></i>
-                <a href="<?php echo base_url("about-us"); ?>">About Us</a>
-              </li>
-              
+              </li> 
             </ul>
           </div>
-          <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12 footer-widget">
-            <h5 class="widget-title">Services</h5>
-            <ul>
-              <li>
-                <i class="fas fa-om"></i>
-                <a href="<?php echo base_url(); ?>#campaign">Campaigns</a>
-              </li>
-
-
-            </ul>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-3 col-sm-12 d-none d-lg-block footer-widget widget-recent-posts">
-            <h5 class="widget-title">Recent Campaigns</h5>
-            <article class="sigma_recent-post">
-              <a href="blog-details.html"><img src="assets/frontend/img/blog/sm/1.jpg" alt="post"></a>
-              <div class="sigma_recent-post-body">
-                <a href="blog-details.html"> <i class="far fa-calendar"></i> May 20, 2022</a>
-                <h6> <a href="blog-details.html">Temple companies are being so transparent with their work</a> </h6>
-              </div>
-            </article>
-            <article class="sigma_recent-post">
-              <a href="blog-details.html"><img src="assets/frontend/img/blog/sm/2.jpg" alt="post"></a>
-              <div class="sigma_recent-post-body">
-                <a href="blog-details.html"> <i class="far fa-calendar"></i> May 20, 2022</a>
-                <h6> <a href="blog-details.html">Testimony love offering so blessed</a> </h6>
-              </div>
-            </article>
-            <article class="sigma_recent-post">
-              <a href="blog-details.html"><img src="assets/frontend/img/blog/sm/3.jpg" alt="post"></a>
-              <div class="sigma_recent-post-body">
-                <a href="blog-details.html"> <i class="far fa-calendar"></i> May 20, 2022</a>
-                <h6> <a href="blog-details.html">As we've all discovered by now, the world can change</a> </h6>
-              </div>
-            </article>
-          </div>
+           
         </div>
       </div>
     </div>

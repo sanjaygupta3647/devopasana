@@ -48,5 +48,5 @@ the divine and nurture a sense of profound spirituality in the digital era.<o:p>
 </div>
 
 <?php $this->load->view('frontend/common/testimonials'); ?>
-<?php $this->load->view('frontend/common/subscribe'); ?>
+<?php //$this->load->view('frontend/common/subscribe'); ?>
 <?php $this->load->view('frontend/common/faq'); ?>

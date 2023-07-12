@@ -120,5 +120,5 @@
   <!-- Icons End -->
 
 <?php $this->load->view('frontend/common/testimonials'); ?>
-<?php $this->load->view('frontend/common/subscribe'); ?>
+ 
 <?php $this->load->view('frontend/common/faq'); ?>

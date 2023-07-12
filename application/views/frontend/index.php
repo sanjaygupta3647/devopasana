@@ -73,9 +73,33 @@
 
   </div>
   <!-- Banner End -->
+  
+  <section class="section" >
+    <div class="container">
+
+      <div class="row align-items-center"> 
+        <div class="col-lg-12">
+          <div class="me-lg-30">
+            <div class="section-title mb-0 text-start">
+              <p class="subtitle">Devine corner for all your devotional need</p>
+              <p>Welcome to Devine Corner, your one-stop destination for all your devotional needs. Discover a heavenly collection of sacred artifacts, ancient scriptures, and serene chants. Our knowledgeable staff is here to guide you on a spiritual journey, offering divine insights and blessings. Immerse yourself in the tranquility of our sacred space, where devotion meets solace. Let the ethereal fragrances uplift your soul as you explore our vast selection of prayer items, idols, and spiritual literature. Experience the essence of devotion at Devine Corner and unlock the boundless power of faith. Visit us today and embrace the divine within you.</p>
+            </div>
+            <ul class="sigma_list list-2 mb-0">
+			  <?php foreach($categories as $cat): ?>
+              <li><?php echo $cat->title; ?></li> 
+			  <?php endforeach; ?>
+			  
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   <!-- About Start -->
-  <section class="section" >
+  <section class="section hide" >
     <div class="container">
 
       <div class="row align-items-center">
@@ -155,5 +179,5 @@
   <!-- Donation End -->
 
 <?php $this->load->view('frontend/common/testimonials'); ?>
-<?php $this->load->view('frontend/common/subscribe'); ?>
+<?php //$this->load->view('frontend/common/subscribe'); ?>
 <?php $this->load->view('frontend/common/faq'); ?>

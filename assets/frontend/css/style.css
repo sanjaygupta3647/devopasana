@@ -1804,7 +1804,7 @@ blockquote::before {
 .section-title {
   position: relative;
   margin-bottom: 50px;
-  max-width: 500px;
+  /* max-width: 500px;*/
 }
 
 .section-title.text-center {
@@ -4356,7 +4356,7 @@ table img {
 
 .sigma_footer-bottom {
   border-top: 1px solid #efefef;
-  padding: 30px 0;
+  padding: 10px 0;
   position: relative;
 }
 
@@ -10705,4 +10705,10 @@ form label{
 
 .w-100{
 	width: 100% !important;
+}
+
+.box-shadow-img {
+    background: url(https://dbuljtmtylo1z.cloudfront.net/production/frontend/img/menushadow.png) left top repeat-x rgba(255,255,255,.9);
+    height: 24px;
+    margin-bottom: 10px;
 }

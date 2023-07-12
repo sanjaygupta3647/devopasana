@@ -77,14 +77,9 @@
 
 
         <!-- Button & Phone -->
-        <div class="sigma_header-controls sigma_header-button">
-
-          <a href="tel:+123456789" class="sigma_header-contact">
-            <i class="fal fa-phone"></i>
-            <div class="sigma_header-contact-inner">
-              <span>Get Support</span>
-              <h6><?php echo PHONE; ?></h6>
-            </div>
+        <div class="sigma_header-controls sigma_header-button"> 
+          <a href="https://wa.me/8794793316" class="sigma_header-contact">
+            <img src="<?php echo base_url("assets/frontend/img/whatsapp.png");?>" width="60" height="43"> 
           </a>
           <a class="sigma_btn-custom" href="#"> Login </a>
         </div>

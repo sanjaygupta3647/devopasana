@@ -22,10 +22,12 @@ class Home extends CI_Controller {
 	{	
 		$this->load->model('campaign_model', 'campaign'); 
 		$this->load->model('faq_model', 'faq');
+		$this->load->model('Devine_model', 'devine');
 		$arr['status'] = "Active";
 		$campaigns = $this->campaign->getAllData($arr);	 
 		$this->_view_data['faqs'] = $this->faq->getAllFaq(null,'Active'); 
 		$this->_view_data['campaigns'] = $campaigns; 
+		$this->_view_data['categories'] = $this->devine->getActivedevine_category();	 
 		$this->_view_data['pageContent'] = 'frontend/index';
 		$this->load->view('frontend-template',$this->_view_data);
 	}
