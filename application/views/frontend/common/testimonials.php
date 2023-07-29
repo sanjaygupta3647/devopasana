@@ -4,9 +4,8 @@
     <div class="container testimonial-section bg-contain bg-norepeat bg-center"
       style="background-image: url(assets/frontend/img/textures/map-2.png)">
 
-      <div class="section-title text-center">
-        <p class="subtitle">Testimonials</p>
-        <h4 class="title">What Our Congregation Say</h4>
+      <div class="section-title text-center"> 
+        <h2 >Read What Our Devotees Say</h2>
       </div>
 
       <div class="sigma_testimonial style-2">
@@ -27,13 +26,13 @@
                     <i class="far fa-star"></i>
                   </div>
                 </div>
-                <p>If money help a man to do well to others, it is of some value; but if not, it is simply a mass of
+                <p class="text-black text-18">If money help a man to do well to others, it is of some value; but if not, it is simply a mass of
                   evil, and the sooner it is got rid of, the better.</p>
               </div>
               <div class="sigma_testimonial-footer">
                 <div class="sigma_testimonial-author">
-                  <cite>Mukesh Singh</cite>
-                  <span>Pandit, Varanasi</span>
+                  <cite class="text-20">Mukesh Singh</cite>
+                  <span class="text-18">Pandit, Varanasi</span>
                 </div>
               </div>
             </div>
@@ -54,13 +53,13 @@
                     <i class="far fa-star"></i>
                   </div>
                 </div>
-                <p>If money help a man to do well to others, it is of some value; but if not, it is simply a mass of
+                <p class="text-black text-18">If money help a man to do well to others, it is of some value; but if not, it is simply a mass of
                   evil, and the sooner it is got rid of, the better.</p>
               </div>
               <div class="sigma_testimonial-footer">
                 <div class="sigma_testimonial-author">
-                  <cite>Das Gupta</cite>
-                  <span>Executive, Mathura</span>
+                  <cite class="text-20">Das Gupta</cite>
+                  <span class="text-18">Executive, Mathura</span>
                 </div>
               </div>
             </div>
@@ -81,13 +80,13 @@
                     <i class="far fa-star"></i>
                   </div>
                 </div>
-                <p>If money help a man to do well to others, it is of some value; but if not, it is simply a mass of
+                <p class="text-black text-18">If money help a man to do well to others, it is of some value; but if not, it is simply a mass of
                   evil, and the sooner it is got rid of, the better.</p>
               </div>
               <div class="sigma_testimonial-footer">
                 <div class="sigma_testimonial-author">
-                  <cite>Mukesh Singh</cite>
-                  <span>Pandit, Ayodhya</span>
+                  <cite class="text-20">Mukesh Singh</cite>
+                  <span class="text-18">Pandit, Ayodhya</span>
                 </div>
               </div>
             </div>

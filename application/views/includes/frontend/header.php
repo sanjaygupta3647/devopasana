@@ -66,6 +66,12 @@
           <li class="menu-item">
             <a href="<?php echo base_url(); ?>">Home</a>
           </li>
+          <li class="menu-item">
+            <a href="<?php echo base_url(); ?>">Puja</a>
+          </li>
+          <li class="menu-item">
+            <a href="<?php echo base_url(); ?>">Divine Corner</a>
+          </li>
       
           
         </ul>
@@ -75,7 +81,7 @@
         <!-- Button & Phone -->
         <div class="sigma_header-controls sigma_header-button"> 
           <a href="https://wa.me/+918794793316" class="sigma_header-contact">
-            <img src="<?php echo base_url("assets/frontend/img/whatsapp.png");?>" width="60" height="43"> 
+            <img src="<?php echo base_url("assets/frontend/img/whatsapp.jpg");?>" width="50" height="37"> 
           </a>
           <a class="sigma_btn-custom" href="#"> Login </a>
         </div>

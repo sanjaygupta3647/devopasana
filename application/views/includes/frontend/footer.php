@@ -17,7 +17,7 @@
           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget">
              <ul>
               <li>
-                <i class="fas fa-om"></i>
+                <i class="fas fa-place-of-worship"></i>
                 <a href="<?php echo base_url("about-us"); ?>">About Us</a>
               </li> 
             </ul>
@@ -27,7 +27,7 @@
             <ul>
               
               <li>
-                <i class="fas fa-om"></i>
+                <i class="fas fa-place-of-worship"></i>
                 <a href="<?php echo base_url("terms-of-services"); ?>">Terms of Services</a>
               </li> 
             </ul>
@@ -36,7 +36,7 @@
             
             <ul>
               <li>
-                <i class="fas fa-om"></i>
+                <i class="fas fa-place-of-worship"></i>
                 <a href="<?php echo base_url("privacy-policy"); ?>">Privacy Policy</a>
               </li> 
             </ul>

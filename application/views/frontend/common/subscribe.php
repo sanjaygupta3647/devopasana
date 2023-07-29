@@ -1,5 +1,5 @@
 <!-- CTA Start -->
-  <div class="section pb-5">
+  <div class="section pb-5 hide">
     <div class="container"> 
       <div class="row align-items-center position-relative">
         <div class="col-md-6">

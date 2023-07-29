@@ -40,8 +40,7 @@
     height: 55px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: #7E4555;
+    justify-content: center; 
     color: #fff;
   }
   .header-4 .sigma_header-contact{

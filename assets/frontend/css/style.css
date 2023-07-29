@@ -620,7 +620,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #7E4555;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1449,7 +1449,7 @@ ol li {
   align-items: center;
   position: relative;
   font-size: 16px;
-  color: #f15a29;
+  color: #333;
   font-weight: 600;
 }
 
@@ -1743,7 +1743,7 @@ blockquote::before {
 
 .section-title .subtitle::after,
 .section-title .subtitle::before {
-  content: "\f679";
+  
   font-family: "Font Awesome 5 Pro";
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -2155,7 +2155,7 @@ input[type=radio]:checked+label:after {
   left: 0;
   right: 0;
   border-radius: 30px;
-  background-color: #f15a29;
+  background-color: #FCA311;
   transform: scaleY(0);
   transform-origin: 50%;
   transition: 0.3s;
@@ -3230,7 +3230,7 @@ table img {
 }
 
 .sigma_header-middle .navbar>.navbar-nav>.menu-item>a {
-  color: #000000;
+  color: #333333;
   padding: 30px 15px;
   text-transform: uppercase;
   font-size: 13px;
@@ -4248,7 +4248,7 @@ table img {
 }
 
 .sigma_header-inner ul>li>a {
-  color: #000000;
+  color: #333333;
   padding: 20px 15px;
   text-transform: uppercase;
   font-size: 13px;
@@ -4368,14 +4368,13 @@ table img {
 
 .sigma_footer-bottom .sigma_footer-logo {
   background-color: #fff;
-  height: 120px;
-  padding: 0 40px;
+  
   position: absolute;
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  box-shadow: 0px 10px 50px 0px rgba(53, 82, 99, 0.09);
+  
   align-items: center;
 }
 
@@ -4401,7 +4400,7 @@ table img {
 }
 
 .footer-widget {
-  padding-bottom: 80px;
+  padding-bottom: 30px;
 }
 
 .footer-widget .sigma_sm {
@@ -4846,7 +4845,7 @@ table img {
 .sigma_subheader .breadcrumb-item+.breadcrumb-item::before {
   color: #777;
   font-family: 'Font Awesome 5 Pro';
-  content: "\f679";
+ 
   margin-left: auto;
   -webkit-transition: .3s;
   -o-transition: .3s;
@@ -10664,11 +10663,12 @@ small {
 .black{
   background-color: #7E4555;
 }
+ 
 .text-black{
-  color: #000!important;
+  color: #333!important;
 }
 form label{
-  color: #000!important;
+  color: #333!important;
 }
 .pt-10{
 	padding-top:10px !important;
@@ -10712,3 +10712,7 @@ form label{
     height: 24px;
     margin-bottom: 10px;
 }
+
+.text-25{font-size: 25px!important;}
+.text-20{font-size: 20px!important;}
+.text-18{font-size: 18px!important;}

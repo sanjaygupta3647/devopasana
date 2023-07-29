@@ -1,7 +1,7 @@
- <div class="section pb-0 pt-0">
+ <div class="section pb-0 pt-20">
     <div class="container">
       <div class="section-title text-center">
-        <p class="subtitle">Frequently Asked Questions</p>
+        <h2>Frequently Asked Questions</h2>
       </div>
       <div class="row">
         <div class="col-lg-12">

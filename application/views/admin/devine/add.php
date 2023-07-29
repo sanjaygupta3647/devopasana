@@ -35,18 +35,35 @@
 			<fieldset class="step" id="add-edit-devine">
 
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<div class="form-group">
 							<label>Devine name: <span class="text-danger">*</span></label>
 							<input type="text" name="title" class="form-control" value="<?php echo ($devine->title) ? $devine->title : ''; ?>" placeholder="devine name">
 						</div>
 					</div>
+					
+					 
+					<div class="col-md-12">
+						<div class="form-group">
+							<label>Image: </label>
+							<input type="file" name="img" class="form-control">
+							<?php if (!empty($devine->img)) : ?>
+								<a target="_blank" href="<?php echo base_url('uploads/profile/' . $devine->img) ?>"> View Image </a>
+							<?php endif; ?>
+						</div>
+					</div>
+
+					
+
+			 
+
+
 
 					<?php if (!empty($id)) : ?>
 						<input type="hidden" name="id" value="<?php echo $id; ?>">
 					<?php endif; ?>
 
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<div class="form-group">
 							<label>Status: <span class="text-danger">*</span></label>
 							<select name="status" class="select">
