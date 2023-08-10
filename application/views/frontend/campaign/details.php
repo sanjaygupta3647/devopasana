@@ -39,7 +39,7 @@
 				  <img src="<?php echo getThumb(base_url('uploads/pooja/'.$val["id"]. '/' . $val['image']),"pooja",370,222) ?>" width="370" height="222" alt="img">
 				</div>
 				<div class="sigma_service-body form-row sigma_donation-form p-15">
-				  <h6 class="mb-0">
+				  <h6 class="text-black">
 					<?php echo $val['title']; ?><br/> 
 				  </h6>
 				  <?php if(count($val['pooja_price'])): ?>
@@ -65,8 +65,8 @@
 				  <?php endforeach; ?>
 				  <?php endif; ?>
 				  <div class="pt-10">
-					  <p><?php echo $val['description']; ?></p>
-					  <a href="#" class="sigma_btn-custom">
+					  <div class="text-black"><?php echo $val['description']; ?></div>
+					  <a href="#" class="sigma_btn-custom" style="width:395px;">
 						Book This Pooja
 					  </a>
 				  </div>
@@ -80,7 +80,7 @@
 			 
 		</div>
           </div>
-          <div class="tab-pane fade" id="tab-product-info" role="tabpanel" aria-labelledby="tab-product-info-tab">
+          <div class="tab-pane fade text-black" id="tab-product-info" role="tabpanel" aria-labelledby="tab-product-info-tab">
                 <?php echo $campaign->description; ?>
           </div>
            

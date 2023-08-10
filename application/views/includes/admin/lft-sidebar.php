@@ -87,16 +87,16 @@ $userdata = getUserData($sess["user_id"]);
 						</li>
 						
 						<li>
-							<a href="#"><i class="icon-question3"></i> <span>Devine Category</span></a>
+							<a href="#"><i class="icon-question3"></i> <span>Divine Category</span></a>
 							<ul>
-								<li <?php echo ($this->router->class == "devine" && $this->router->method == "add") ? 'class="active"' : ''; ?>><a href="<?php echo base_url('admin/devine/add'); ?>">Add</a></li>
-								<li <?php echo ($this->router->class == "devine" && $this->router->method == "all") ? 'class="active"' : ''; ?>><a href="<?php echo base_url('admin/devine/all'); ?>">List</a></li>
+								<li <?php echo ($this->router->class == "divine" && $this->router->method == "add") ? 'class="active"' : ''; ?>><a href="<?php echo base_url('admin/divine/add'); ?>">Add</a></li>
+								<li <?php echo ($this->router->class == "divine" && $this->router->method == "all") ? 'class="active"' : ''; ?>><a href="<?php echo base_url('admin/divine/all'); ?>">List</a></li>
 
 							</ul>
 						</li>
 
 						<li>
-							<a href="#"><i class="icon-stack2"></i> <span>Devine Pages</span></a>
+							<a href="#"><i class="icon-stack2"></i> <span>Divine Pages</span></a>
 							<ul>
 								<li <?php echo ($this->router->class == "page" && $this->router->method == "add") ? 'class="active"' : ''; ?>><a href="<?php echo base_url('admin/page/add'); ?>">Add</a></li>
 								<li <?php echo ($this->router->class == "page" && $this->router->method == "all") ? 'class="active"' : ''; ?>><a href="<?php echo base_url('admin/page/all'); ?>">List</a></li>

@@ -37,7 +37,7 @@
 					<input type="hidden" name="id" value="<?php echo $id; ?>">
 				<?php endif; ?>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<div class="form-group">
 							<label>Campaign:</label>
 							<select name="campaign_id" class="select" >
@@ -49,7 +49,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<div class="form-group">
 							<label>Status: <span class="text-danger">*</span></label>
 							<select name="status" class="select" required>
@@ -57,6 +57,12 @@
 								<option value="Inactive" <?php echo (!empty($faq->status) && $faq->status == 'Inactive') ? 'selected' : ''; ?>>Inactive</option>
 
 							</select>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Order: <span class="text-danger">*</span></label>
+							<input type="text" name="porder" class="form-control" value="<?php echo ($faq->porder) ? $faq->porder : ''; ?>" placeholder="Order">
 						</div>
 					</div>
 				</div>

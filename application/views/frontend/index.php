@@ -95,9 +95,9 @@
             </div>
             <div class="sigma_service-body p-10">
                
-                <a href="<?php echo base_url("campaign/").$val->slug; ?>"><b><?php echo $val->title; ?></b></a>
+                <a href="<?php echo base_url("campaign/").$val->slug; ?>"><h6 class="text-black"><?php echo $val->title; ?></h6></a>
               
-              <p class="camp_home_short_text"><?php echo $val->short_description; ?></p>
+              <p class="text-black"><?php echo $val->short_description; ?></p>
               <a href="<?php echo base_url("campaign/").$val->slug; ?>" class="sigma_btn-custom" style="width:395px;">
                 Book Now
               </a>
@@ -127,16 +127,27 @@
             <div class="section-title mb-0 text-center">
               <h2>Divine corner for all your devotional needs</h2>
               <p class="text-black text-25">Discover fascinating articles on upcoming festivals, fasts, arti, mantra and much more in Sanatana Dharma.</p>
-            </div>
-            <ul class="sigma_list list-2 mb-0">
-			  <?php foreach($categories as $cat): ?>
-              <li><?php echo $cat->title; ?></li> 
-			  <?php endforeach; ?>
-			  
-            </ul>
-            
+            </div> 
           </div>
         </div>
+		<?php foreach($categories as $cat): ?>
+		<?php  $link = "divine-corner/".$cat->slug; ?>
+		<div class="col-lg-6"> 
+            <div class="sigma_icon-block icon-block-3">
+              <div class="icon-wrapper">
+                <a class="link" href="<?php echo base_url($link); ?>"><img src="<?php echo base_url('uploads/divine/' . $cat->img) ?>" alt="<?php echo $cat->title; ?>" title="<?php echo $cat->title; ?>"></a>
+              </div>
+              <div class="sigma_icon-block-content">
+                <h5 class="text-black"> <a class="link" href="<?php echo base_url($link); ?>"><?php echo $cat->title; ?></a> </h5>
+                <p class="text-black"><?php echo $cat->short_description; ?></p>
+				<a class="link" href="<?php echo base_url($link); ?>">Read all</a>
+              </div>
+            </div>
+           
+        </div>
+		<?php endforeach; ?>
+		
+		 
       </div>
 
     </div>

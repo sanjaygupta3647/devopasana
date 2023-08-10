@@ -37,13 +37,13 @@
 					<input type="hidden" name="id" value="<?php echo $id; ?>">
 				<?php endif; ?>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<div class="form-group">
 							<label>Title: <span class="text-danger">*</span></label>
 							<input type="text" required name="title" class="form-control" value="<?php echo ($page->title) ? $page->title : ''; ?>" placeholder="Page title">
 						</div>
 					</div>
-					<div class="col-md-2">
+					<div class="col-md-4">
 						<div class="form-group">
 							<label>Status: <span class="text-danger">*</span></label>
 							<select name="status" class="select" required>
@@ -63,8 +63,29 @@
 							</select>
 						</div>
 					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Page Order:</label>
+							<input type="text" name="porder" class="form-control" value="<?php echo ($page->porder) ? $page->porder : '0'; ?>">
+						</div>
+					</div>
 				</div> 
 				<div class="row">
+				    <div class="col-md-6">
+						<div class="form-group">
+							<label>Image: </label>
+							<input type="file" name="img" data-image-name="<?php echo $page->img; ?>" class="form-control">
+							<?php if (!empty($page->img)) : ?>
+								<a target="_blank" href="<?php echo base_url('uploads/divine_post/' . $page->img) ?>"> View Image </a>
+							<?php endif; ?>
+						</div>
+					</div>
+				    <div class="col-md-6">
+						<div class="form-group">
+							<label>Short Description: <span class="text-danger">*</span></label>
+							<textarea required class="form-control"  name="short_description"><?php echo (!empty($page->short_description)) ? $page->short_description : ""; ?></textarea>
+						</div>
+					</div>
 					<div class="col-md-12">
 						<div class="form-group">
 							<label>Description: <span class="text-danger">*</span></label>
@@ -74,13 +95,13 @@
 				</div>
 				
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<div class="form-group">
 							<label>Meta Title:</label>
 							<input type="text" name="meta_title" class="form-control" value="<?php echo ($page->meta_title) ? $page->meta_title : ''; ?>">
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<div class="form-group">
 							<label>Meta Keywords:</label>
 							<input type="text" name="meta_keyword" class="form-control" value="<?php echo ($page->meta_keyword) ? $page->meta_keyword : ''; ?>">
@@ -90,18 +111,13 @@
 				
 				
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<div class="form-group">
 							<label>Meta Description:</label>
-							<input type="text" name="meta_description" class="form-control" value="<?php echo ($page->meta_description) ? $page->meta_description : ''; ?>">
+							<textarea  class="form-control"  name="meta_description"><?php echo (!empty($page->meta_description)) ? $page->meta_description : ""; ?></textarea>
+							  
 						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label>Page Order:</label>
-							<input type="text" name="porder" class="form-control" value="<?php echo ($page->porder) ? $page->porder : '0'; ?>">
-						</div>
-					</div>
+					</div> 
 				</div>
 				
 

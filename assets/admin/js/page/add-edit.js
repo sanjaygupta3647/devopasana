@@ -11,6 +11,9 @@ $(document).ready(function () {
 			'status': {
 				required: true
 			},
+			'short_description': {
+				required: true
+			},
 			'porder': {
 				required: true,
 				number: true

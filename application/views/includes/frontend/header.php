@@ -69,8 +69,16 @@
           <li class="menu-item">
             <a href="<?php echo base_url(); ?>">Puja</a>
           </li>
-          <li class="menu-item">
+		  <?php $category  =  getDivineLink();  ?>
+          <li class="menu-item menu-item-has-children">
             <a href="<?php echo base_url(); ?>">Divine Corner</a>
+			<ul class="sub-menu">
+			   <?php if(!empty($category)):  ?>
+			   <?php foreach($category as $cat): ?>
+			   <li class="menu-item"> <a href="<?php echo base_url("divine-corner/".$cat->slug); ?>"><?php echo $cat->title; ?></a> </li>
+			   <?php endforeach; ?>
+			   <?php endif; ?> 
+            </ul>
           </li>
       
           

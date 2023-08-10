@@ -40,7 +40,7 @@
  					<th>#</th> 
  					<th>Subject</th> 
  					<th>Campaign</th> 
- 					<th>Added On</th>
+ 					<th>Order</th>
  					<th>Status</th>
  					<th class="text-center">Actions</th>
  				</tr>
@@ -51,7 +51,7 @@
  						<td><?php echo ($key + 1) ?></td> 
  						<td><a href="<?php echo base_url("admin/faq/add/" . $val->id) ?>"><?php echo $val->subject; ?></a></td> 
  						<td><?php echo ($val->campaign) ? $val->campaign: 'N/A'; ?></td>
- 						<td><?php echo db2userDate($val->created_at); ?></td>
+ 						<td><?php echo $val->porder; ?></td>
  						<td><span class="label label-<?php echo ($val->status == 'Active') ? 'success' : 'danger'; ?>"><?php echo $val->status; ?></span></td>
 
  						<td class="text-center">

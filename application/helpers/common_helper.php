@@ -298,6 +298,12 @@ function getPages()
     return  $ci->page->getAll('Active');
 }
 
+function getDivineLink(){
+    $ci = &get_instance();
+    $ci->load->model('divine_model', 'divine');
+    return  $ci->divine->getActivedivine_category('Active'); 
+}
+
 function getUserName($user_id)
 {
     $ci = &get_instance();

@@ -1,13 +1,13 @@
 <?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Devine_model extends MY_Model
+class Divine_model extends MY_Model
 {
     function __construct()
     {
         // Call the Model constructor
         parent::__construct();
-        $this->table_name = 'devine_category';
+        $this->table_name = 'divine_category';
         $this->primary_key = 'id';
         $this->order_by = 'id';
     }
@@ -29,23 +29,36 @@ class Devine_model extends MY_Model
         if (!empty($post['status'])) {
             $this->db->where('status', $post['status']);
         }
-        if (!empty($post['devine_category_ids'])) {
-            $arr = explode(",", $post['devine_category_ids']);
+        if (!empty($post['divine_category_ids'])) {
+            $arr = explode(",", $post['divine_category_ids']);
             $this->db->where_in('id', $arr);
         }
-        $this->db->order_by('id', 'desc');
+        $this->db->order_by('porder', 'asc');
 
         $query = $this->db->get();
         return $query->result();
     }
-
-    function getActivedevine_category()
+    
+    function getActivedivine_category()
     {
 
-        $this->db->select('id,title,slug');
+        $this->db->select('*');
         $this->db->from($this->table_name);
         $this->db->where('status', 'Active');
         $this->db->order_by('title', 'asc');
+        $this->db->order_by('porder', 'asc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getDivineLink()
+    {
+
+        $this->db->select('title, slug');
+        $this->db->from($this->table_name);
+        $this->db->where('status', 'Active');
+        $this->db->order_by('title', 'asc');
+        $this->db->order_by('porder', 'asc');
         $query = $this->db->get();
         return $query->result();
     }
@@ -53,9 +66,10 @@ class Devine_model extends MY_Model
     function getDetailBySlug($slug)
     {
 
-        $this->db->select('id,title,slug');
+        $this->db->select('*');
         $this->db->from($this->table_name);
         $this->db->where('slug', $slug);
+        $this->db->where('status', 'Active');
         $query = $this->db->get();
         $rows =  $query->result();
         if (!empty($rows)) {

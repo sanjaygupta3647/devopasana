@@ -26,7 +26,7 @@ class Page_model extends MY_Model
 
         $this->db->select('page.id,page.porder,page.title,page.slug,page.status,page.created_at,u.username,c.title as category');
         $this->db->from('page page');
-        $this->db->join('devine_category c', 'c.id = page.category_id');
+        $this->db->join('divine_category c', 'c.id = page.category_id');
         $this->db->join('users u', 'u.id = page.created_by');
         if (!empty($status)) {
             $this->db->where('page.status', $status);
@@ -49,7 +49,19 @@ class Page_model extends MY_Model
         }
         return $rows;
     }
-
+    function getPostDetails($cate_id,$slug){
+        $this->db->select('*');
+        $this->db->from($this->table_name);
+        $this->db->where('slug', $slug);
+        $this->db->where('category_id', $cate_id);
+        $this->db->where('status', 'Active');
+        $query = $this->db->get();
+        $rows =  $query->result();
+        if (!empty($rows)) {
+            return $rows[0];
+        }
+        return false;
+    }
     function getDetailBySlug($slug)
     {
 
@@ -62,6 +74,17 @@ class Page_model extends MY_Model
             return $rows[0];
         }
         return false;
+    }
+
+    function getAllByCategory($cate_id)
+    {
+
+        $this->db->select('*');
+        $this->db->from($this->table_name);
+        $this->db->where('category_id', $cate_id);
+        $this->db->where('status', 'Active');
+        $query = $this->db->get();
+        return  $query->result(); 
     }
 
     function update($data, $where)

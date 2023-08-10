@@ -18,8 +18,8 @@ class Page extends MY_Controller
 	{
 
 		$this->_view_data['pagetitle'] = 'Add Page';
-		$this->load->model('devine_model', 'devine');
-		$this->_view_data['category'] = $this->devine->getActivedevine_category(); 
+		$this->load->model('divine_model', 'divine');
+		$this->_view_data['category'] = $this->divine->getActivedivine_category(); 
 		$page = array();
 		if ($id) {
 			$this->load->model('page_model', 'page');
@@ -95,6 +95,17 @@ class Page extends MY_Controller
 		$user_id = current_user();
 		$currrent_ts = current_ts();
 		$postdata['slug'] = slugify($postdata['title']);
+
+		if (!empty($_FILES)) {
+			$subpath = date("Y")."/".date("m");
+			$postdata['path_to_upload'] = "divine_post/".$subpath;
+			$postdata = uploadFile($_FILES, $postdata); 
+			if(!empty($postdata['img'])){
+				$postdata['img'] = $subpath."/".$postdata['img'];
+			}
+			
+			unset($postdata['path_to_upload']);
+		}
 		if (empty($postdata['id'])) {
 			$postdata['created_by'] = $user_id;
 			$postdata['created_at'] = $currrent_ts;

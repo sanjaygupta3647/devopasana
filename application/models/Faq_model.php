@@ -29,7 +29,7 @@ class Faq_model extends MY_Model
         if (!empty($status)) {
             $this->db->where('status', $status);
         }
-        $this->db->order_by('f.id', 'desc');
+        $this->db->order_by('f.porder', 'asc');
         $query = $this->db->get();
         return $query->result();
     }
@@ -41,7 +41,7 @@ class Faq_model extends MY_Model
         if (!empty($campaign_id)) {
             $this->db->where('campaign_id', $campaign_id);
         }
-        $this->db->order_by('id', 'desc');
+        $this->db->order_by('porder', 'asc');
         $query = $this->db->get();
         return $query->result();
     }
@@ -57,7 +57,7 @@ class Faq_model extends MY_Model
             $this->db->where('campaign_id', 0);
         }
         
-        $this->db->order_by('id', 'desc');
+        $this->db->order_by('porder', 'asc');
         $query = $this->db->get();
         return $query->result();
     }

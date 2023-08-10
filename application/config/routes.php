@@ -58,5 +58,7 @@ $route['campaign/(:any)'] = 'campaigns/details/$1';
 $route['checkout'] = 'user/checkout';
 $route['authlogin'] = "login/authlogin";
 $route['page-(:any)'] = 'home/pagedetail/$1';
+$route['divine-corner/(:any)'] = 'home/divine_list/$1';
+$route['divine-corner/(:any)/(:any)'] = 'home/post_details/$1/$2';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

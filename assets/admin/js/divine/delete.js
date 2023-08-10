@@ -1,12 +1,12 @@
-$(document).ready(function () {  
+$(document).ready(function () {
 	$(document).on("click", '.delete', function () {
-		$this = $(this); 
+		$this = $(this);
 		bootbox.confirm("Are you sure? You want to delete this record.", function (result) {
 
 			$id = $($this).data("id");
 			if (result) {
 				$.ajax({
-					url: base_url + 'admin/devine/delete_devine/' + $id + '/',
+					url: base_url + 'admin/divine/delete_divine/' + $id + '/',
 					type: 'POST',
 					data: { 'status': 'Active' },
 					success: function (response) {

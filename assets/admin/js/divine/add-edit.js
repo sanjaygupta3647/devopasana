@@ -1,10 +1,18 @@
 $(document).ready(function () {
-
-	$("#add-devine").validate({
+    function is_image_added(){
+		if($("input[name=img]").data('image-name')){
+			return false;
+		}
+		return true;
+	}
+	$("#add-divine").validate({
 
 		rules: {
 			'title': {
 				required: true
+			},
+			'img': {
+				required: is_image_added()
 			},
 			'status': {
 				required: true
@@ -25,11 +33,14 @@ $(document).ready(function () {
 		ignore: ":hidden:not(.select-chosen)",
 		submitHandler: function (form) {
 
-			$url = base_url + "admin/devine/add_devine",
+			$url = base_url + "admin/divine/add_divine",
 				$.ajax({
 					type: "POST",
 					url: $url,
-					data: $("#add-devine").serialize(),
+					contentType: false,
+					processData: false,
+					encode: true,
+					data: new FormData(document.getElementById('add-divine')), 
 					success: function (response) {
 
 						if (response.type == 'success') {
@@ -54,7 +65,7 @@ $(document).ready(function () {
 
 			$id = $($this).data("id");
 			$.ajax({
-				url: base_url + 'admin/devine/delete_devine/' + $id + '/',
+				url: base_url + 'admin/divine/delete_divine/' + $id + '/',
 				type: 'POST',
 				data: { 'status': 'Active' },
 				success: function (response) {
