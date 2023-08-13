@@ -91,7 +91,14 @@
           <a href="https://wa.me/+918794793316" class="sigma_header-contact">
             <img src="<?php echo base_url("assets/frontend/img/whatsapp.jpg");?>" width="50" height="37"> 
           </a>
-          <a class="sigma_btn-custom" href="#"> Login </a>
+		  <?php $session = getCustomerSessionData();  ?>
+		  <?php if($session['id']): ?>
+		  <a class="sigma_btn-custom" href="<?php echo base_url('checkout');?>"> Cart </a>
+          <a class="sigma_btn-custom" href="<?php echo base_url('customer/logout');?>"> Logout </a>
+		  <?php else: ?>
+		  <a class="sigma_btn-custom" href="<?php echo base_url('login');?>"> Login </a>
+		  <?php endif; ?>
+		  
         </div>
 		
 		<div class="sigma_header-controls style-1">

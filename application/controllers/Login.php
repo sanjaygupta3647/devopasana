@@ -158,7 +158,7 @@ class Login extends CI_Controller
 										</p>';
 
 						//Send username password
-						$mailStatus = taxreturnMailto($to, $subject, $message);
+						$mailStatus = siteMail($to, $subject, $message);
 						if ($mailStatus) {
 							$url = 'authlogin';
 							$response = array('type' => 'success', 'message' => "Your password has now been reset.<br />Please log-in to your designated email account in order to access your new password.", 'url' => base_url('login'));
@@ -252,7 +252,7 @@ class Login extends CI_Controller
 				            </tr>';
 
 					//Send username password
-					taxreturnMailto($to, $subject, $message);
+					siteMail($to, $subject, $message);
 				}
 
 				redirect(base_url('authlogin?success=password'));

@@ -232,6 +232,12 @@ function getSessionData()
     return $CI->session->userdata('logged_in');
 }
 
+function getCustomerSessionData()
+{
+    $CI = &get_instance();
+    return $CI->session->userdata('customer');
+}
+
 function getUserAccess($role_id, $third_parameter)
 {
     $CI = &get_instance();
