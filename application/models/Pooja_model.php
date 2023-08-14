@@ -171,4 +171,21 @@ class Pooja_model extends CI_Model
         $rows =  $query->result();
         return (!empty($rows[0]->cnt)) ? $rows[0]->cnt : false;
     }
+
+	function getPoojaPrice($price_id)
+    {
+
+        $this->db->select('price,discount_price');
+        $this->db->from("pooja_price");
+        $this->db->where('id', $price_id); 
+        $query = $this->db->get();
+        $rows =  $query->result();
+		if(!empty($rows[0]->discount_price) && $rows[0]->discount_price <= $rows[0]->price && $rows[0]->discount_price > 0){
+			return $rows[0]->discount_price;
+		}else{
+			return $rows[0]->price;
+		}
+		return 0;
+         
+    }
 }

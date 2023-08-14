@@ -13,10 +13,12 @@ class Campaign_model extends CI_Model
 
 	 
 
-	function add($insert_data)
+	function add($insert_data,$table = "")
 	{
-
-		$this->db->insert($this->table_name, $insert_data);
+        if(empty($table)){
+			$table = $this->table_name;
+		} 
+		$this->db->insert($table, $insert_data);
 		$id = $this->db->insert_id();
 		return $id;
 	}

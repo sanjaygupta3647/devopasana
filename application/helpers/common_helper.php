@@ -544,3 +544,11 @@ function curl_get($url)
     $response = curl_exec($ch);
     return $response;
 }
+
+function generateTransactionId() {
+    $uniquePart = uniqid(); // Generates a unique identifier based on the current time in microseconds
+    $randomPart = mt_rand(1000, 9999); // Generates a random 4-digit number
+
+    $transactionId = date('YmdHis') . '-' . $uniquePart . '-' . $randomPart;
+    return $transactionId;
+}

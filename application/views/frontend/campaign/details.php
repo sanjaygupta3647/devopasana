@@ -33,18 +33,25 @@
 			
 			<?php if(!empty($pooja) && count($pooja)>0): ?>
 			<?php foreach($pooja as $key=>$val): ?>
+			
 			<div class="col-lg-4 col-md-6">
 			  <div class="sigma_service style-2">
 				<div class="sigma_service-thumb">
 				  <img src="<?php echo getThumb(base_url('uploads/pooja/'.$val["id"]. '/' . $val['image']),"pooja",370,222) ?>" width="370" height="222" alt="img">
 				</div>
 				<div class="sigma_service-body form-row sigma_donation-form p-15">
+				<?php $form_id = "addpuja-$key"; ?>
+				<form id="<?php echo $form_id; ?>">
 				  <h6 class="text-black">
 					<?php echo $val['title']; ?><br/> 
 				  </h6>
+				  <input type="hidden" name="pooja_id" value="<?php echo $val['id']; ?>">
+				  <input type="hidden" name="service_charge" value="<?php echo $val['service_charge']; ?>">
+				  <input type="hidden" name="prasad_charge" value="<?php echo $val['prasad_charge']; ?>">
+				  <input type="hidden" name="campaign_id" value="<?php echo $campaign->id; ?>">
 				  <?php if(count($val['pooja_price'])): ?>
 				  <div class="form-group  w-100 <?php echo (count($val['pooja_price'])==1) ? 'hide':'' ?>"> 
-				   <select class="form-control pooja_price" data-pooja_id="<?php echo $val["id"]; ?>" name="pooja_price" ">
+				   <select class="form-control pooja_price" data-pooja_id="<?php echo $val["id"]; ?>" name="price_id" >
 				  <?php foreach($val['pooja_price'] as $k=>$p): ?> 
 					<option  value="<?php echo $p->id; ?>"><?php echo $p->lable; ?></option> 
 				  <?php endforeach; ?>
@@ -57,7 +64,7 @@
 					<li><strike><?php echo showprice($p->price); ?></strike></li> 
 					<li class="active"><?php echo showprice($p->discount_price); ?></li>
 					<?php else: ?>
-					<li class="active"><?php echo showprice($p->price); ?></li>
+					<li class="active"><?php echo showprice($p->price); ?></li> 
 					<?php endif; ?>
 					
 				  </ul> 
@@ -66,13 +73,17 @@
 				  <?php endif; ?>
 				  <div class="pt-10">
 					  <div class="text-black"><?php echo $val['description']; ?></div>
-					  <a href="#" class="sigma_btn-custom" style="width:395px;">
-						Book This Pooja
-					  </a>
+					  <?php $session = getCustomerSessionData();  ?>
+					   
+					  <input type="button" class="sigma_btn-custom add_to_cart" data-form_id="<?php echo $form_id; ?>" data-customer="<?php echo $session['id'];?>" style="width:395px;" value="Book This Pooja"> 
+					  
+					  
 				  </div>
+				  </form>
 				</div>
 			  </div>
 			</div>
+			
 			<?php endforeach; ?>
 			<?php endif; ?>
 			 

@@ -18,8 +18,8 @@
   <!--Cart Start -->
   <div class="section">
     <div class="container">
-
-      <!-- Cart Table Start -->
+     <div class="row"> 
+        <div class="col-md-8">  
 		<table class="sigma_responsive-table">
 		<thead>
 		  <tr> 
@@ -30,31 +30,32 @@
 		</thead>
 		<tbody>
 		  <tr> 
-			<td colspan="2" data-title="Product">
+			<td colspan="3" data-title="Product">
 			  <div class="sigma_cart-product-wrapper">
-				<img src="assets/frontend/img/products/1.jpg" alt="prod1">
-				<div class="sigma_cart-product-body">
-				  Ashtabhairava Homam 
+			     
+				<img src="<?php echo getThumb(base_url('uploads/pooja/'.$cart->pooja_id. '/' . $cart->image),"pooja",100) ?>" alt="<?php echo $cart->title; ?>">
+				<div class="sigma_cart-product-body text-black">
+				 <?php echo $cart->title; ?> 
 				   
 				</div>
 			  </div>
 			</td>
-			<td data-title="Price">Rs. 1200</td> 
-			<td data-title="Total">Rs. 1200</td>
+			 
+			<td data-title="Total"><?php echo showprice($cart->puja_price); ?> </td>
 		  </tr>
 		  
 		  <tr class="total">
 			<td colspan="3">
 				 Service charge 
 			</td> 
-			<td> Rs. 0 </td>
+			<td> <?php echo showprice($cart->service_charge); ?> </td>
 		</tr>
 		
 		<tr class="total">
 			<td colspan="3">
 				 Prasad charge 
 			</td> 
-			<td> Rs. 100 </td>
+			<td> <?php echo showprice($cart->prasad_charge); ?> </td>
 		</tr>
 		  
 		  <tr> 
@@ -119,6 +120,66 @@
 
 		</tbody>
 		</table>
+		</div>
+		
+		
+		<div class="col-md-4">  
+		<table class="sigma_responsive-table">
+		
+		<tbody> 
+		  <tr> 
+			<td colspan="3" data-title="Product"> 
+				  <h6 class="text-black"> Add Ons with this pooja </h6>  
+			</td> 
+		  </tr>
+		 
+		  <tr> 
+			<th colspan="2" class="text-black">Item</th>
+			<th class="text-black">Amount</th>  
+		  </tr>
+		 
+		  <tr>
+			<td class="remove">
+			  <button type="button">+</button>
+			</td>
+			<td data-title="Add on">
+			  <div class="sigma_cart-product-wrapper">
+				<img src="assets/frontend/img/products/4.jpg" alt="prod1">
+				<div class="sigma_cart-product-body  text-black">
+				   Ganga Pushkar Jal 
+				</div>
+			  </div>
+			</td>
+			<td data-title="Price">  Rs. 151 </td> 
+		  </tr>		 
+		  
+		  <tr>
+			<td class="add">
+			  <button type="button">+</button>
+			</td>
+			<td data-title="Product">
+			  <div class="sigma_cart-product-wrapper">
+				<img src="assets/frontend/img/products/5.jpg" alt="prod1">
+				<div class="sigma_cart-product-body text-black">
+				   Energized Silver bel patra (1 pc) 
+				</div>
+			  </div>
+			</td>
+			<td data-title="Price">  Rs. 400 </td> 
+			 
+		  </tr>
+		  
+		
+		  
+		 
+
+
+		</tbody>
+		</table>
+		</div>
+		
+		
+		</div>
       <!-- Cart Table End -->
  
  <!-- Checkout Start -->
