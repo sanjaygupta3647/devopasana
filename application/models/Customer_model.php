@@ -11,10 +11,12 @@ class Customer_model extends CI_Model
 		$this->order_by = 'id';
 	}
 
-	function add($insert_data)
+	function add($insert_data,$table="")
 	{
-
-		$this->db->insert($this->table_name, $insert_data);
+		if(empty($table)){
+			$table = $this->table_name;
+		}
+		$this->db->insert($table, $insert_data);
 		$id = $this->db->insert_id();
 
 		return $id;
@@ -54,6 +56,14 @@ class Customer_model extends CI_Model
 			return false;
 		}
 	} 
+
+	function getAllDevotee($customer_id){
+		$this->db->select('*');
+		$this->db->from('devotee');  
+		$this->db->where('customer_id', $customer_id); 
+		$query = $this->db->get();  
+		return  $query->result(); 
+	}
 	   
 
 	function isExist($username, $id = null)
@@ -86,9 +96,12 @@ class Customer_model extends CI_Model
 	}
 
 
-	function updateUser($data, $where)
+	function update($data, $where,$table = "")
 	{
-		return $this->db->update('users', $data, $where);
+		if(empty($table)){
+			$table = $this->table_name;
+		}
+		return $this->db->update($table, $data, $where);
 	}
 
 	 

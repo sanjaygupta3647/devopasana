@@ -75,4 +75,30 @@ class Customer extends CI_Controller
 		$this->session->sess_destroy();
 		redirect(base_url('login')); 
 	}
+	
+	public function saveRelation()
+	{
+		$this->load->model('customer_model', 'customer');
+		$postdata = $this->input->post(); 
+		$postdata['customer_id'] = getCustomerID();
+		if(empty($postdata['relation_id'])){ 
+			unset($postdata['relation_id']);
+			$id = $this->customer->add($postdata,'devotee');
+			if($id){ 
+				$response = array('type' => 'success', 'message' => 'Devotee registerd successfully!','url'=>$url);
+			}else{
+				$response = array('type' => 'error', 'message' => 'Could not process data!');
+			}
+		}else{
+			$postdata['update_time'] = date("Y-m-d H:i:s");
+			$where['customer_id'] = $postdata['customer_id'];
+			$where['id'] = $postdata['relation_id'];
+			unset($postdata['relation_id']);
+			$this->customer->update($postdata,$where,'devotee');
+			$response = array('type' => 'success', 'message' => 'Devotee details updated!');
+		}
+		
+		$this->output->set_content_type('application/json')->set_output(json_encode($response));		 
+		 
+	}
 }

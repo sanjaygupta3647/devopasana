@@ -150,4 +150,18 @@ class Addon_model extends CI_Model
         $rows =  $query->result();
         return (!empty($rows[0]->cnt)) ? $rows[0]->cnt : false;
     }
+
+	function getPrice($id)
+	{
+		$this->db->select('price');
+		$this->db->from($this->table_name);
+		$this->db->where('id', $id); 
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			$row = $query->result();
+			return $row[0]->price;
+		} else {
+			return 0;
+		}
+	}
 }

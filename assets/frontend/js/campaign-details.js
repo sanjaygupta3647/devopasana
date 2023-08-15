@@ -44,6 +44,107 @@ $(document).ready(function(){
 			});
 		}
 	});
+	
+	$(".addon_with_pooja").click(function(){
+		let cart_id = $(this).data('cart_id');
+		let addon_id = $(this).data('addon_id');
+		 
+		if(cart_id=="" || addon_id=="" ){
+			bootbox.alert("Invalid access!");
+		}else{
+			let url = base_url + "campaigns/addpoojaAddon"; 
+			$.ajax({
+				type: "POST",
+				url: url, 
+				data: ({cart_id:cart_id,addon_id:addon_id}), 
+				dataType: 'json',
+				success: function (response) {
+
+					if (response.type == 'success') {
+						bootbox.alert(response.message, function () {
+							window.location.href = self.location;
+						});
+
+					} else {
+						if (response.message) {
+							var message = response.message;
+						} else {
+							var message = "There is some issue in form submission";
+						}
+						bootbox.alert(message);
+					}
+
+				}
+			});
+		}
+	});
+	
+	
+	
+	$("#final_submission").validate({
+		rules: {
+			 
+			'name': {
+				required: true
+			},
+			'phone': {
+				required: true
+			},
+			'email': {
+				required: true
+			},
+			'town': {
+				required: true
+			},
+			'town': {
+				required: true
+			},
+			'state': {
+				required: true
+			},
+			'password': {
+				required: true
+			}
+
+		},
+
+		errorElement: 'span',
+		errorClass: 'validation-error-label',
+		successClass: 'validation-valid-label',
+		highlight: function (element, errorClass) {
+			$(element).removeClass(errorClass);
+		},
+		unhighlight: function (element, errorClass) {
+			$(element).removeClass(errorClass);
+		},
+
+		ignore: ":hidden:not(.select-chosen)",
+		submitHandler: function (form) {
+			if (!$(".relation").is(":checked")) {  
+				bootbox.alert("Please choose/add Devotee.", function () {
+					
+					$('html, body').animate({
+						scrollTop: $("#selectmember").offset().top -20
+					}, 600);
+				}); 
+				//return false;
+			}
+			$url = base_url + "campaigns/finalCheckout",
+				$.ajax({
+					type: "POST",
+					url: $url,
+					data: $("#register").serialize(),
+					success: function (response) {
+						if (response.type == 'success') {
+							//window.location.href = response.url;
+						} else {
+							bootbox.alert(response.message);
+						}
+
+					}
+				});
+		}
+	});
 	 
 	 
 });

@@ -80,6 +80,71 @@ class Campaigns extends CI_Controller {
 		 
 	}
 	
+
+	public function checkout($status = null)
+	{ 
+		$this->load->model('cart_model', 'cart');
+		$this->load->model('Addon_model', 'addons');
+		$this->load->model('customer_model', 'customer');
+		$customer_id = getCustomerID(); 
+		$customer = $this->customer->getUserData($customer_id);
+		$devotees = $this->customer->getAllDevotee($customer_id); 
+
+		$cart = $this->cart->getDetails(session_id());  
+		if(empty($cart->addons)){
+			$addons_ids = 0;
+			$cart_id = 0;
+		}else{
+			$addons_ids = $cart->addons;
+			$cart_id = $cart->id;
+		}
+		$addons = $this->addons->getAllData($addons_ids); 
+		$add_addons = $this->cart->addOnWithPooja($cart_id);  
+
+		$this->_view_data['devotees'] = $devotees;
+		$this->_view_data['cart'] = $cart;
+		$this->_view_data['customer'] = $customer;
+		$this->_view_data['addons'] = $addons;
+		$this->_view_data['add_addons'] = $add_addons;
+		$this->_view_data['pageJs'] = array( 
+			"frontend/js/validate.min.js" => "false",
+			"frontend/js/campaign-details.js" => "false",
+			"frontend/js/profile.js" => "false",
+			"frontend/js/bootbox.min.js" => "false"  
+		); 
+		$this->_view_data['pageContent'] = 'frontend/checkout';
+		$this->load->view('frontend-template', $this->_view_data);
+	}
+
+	function addpoojaAddon(){
+		$postData = $this->input->post(); 
+		$this->load->model('cart_model', 'cart');
+		$this->load->model('Addon_model', 'addons');
+        $price  = $this->addons->getPrice($postData['addon_id']); 
+		$current_time = date("Y-m-d H:i:s");
+		$addOnData = array(
+			"cart_id"=>$postData['cart_id'],
+			"addon_id"=>$postData['addon_id'], 
+			"addon_price"=>$price,			 
+			"create_time"=>$current_time
+
+		); 
+		 
+		$is_added = $this->cart->isExistAddOn($postData);
+		$url = base_url("checkout");
+		if(!$is_added){ 
+			$id = $this->cart->add($addOnData,'cart_addons');
+			if($id){
+				$response = array('type' => 'success', 'message' => "Added successfully!", 'url' => $url);
+			}else{
+				$response = array('type' => 'error', 'message' => "There is some error!");
+			} 
+		}else{ 
+			$response = array('type' => 'error', 'message' => "Already added!");
+		} 
+		
+		$this->output->set_content_type('application/json')->set_output(json_encode($response));
+	}
 	 
 	
 	

@@ -56,6 +56,7 @@ $route['privacy-policy'] = 'home/privacy_policy';
 $route['terms-of-services'] = 'home/terms_of_services';
 $route['login'] = 'home/login';
 $route['signup'] = 'home/signup';
+$route['checkout'] = 'campaigns/checkout';
 $route['campaign/(:any)'] = 'campaigns/details/$1';
 //$route['checkout'] = 'user/checkout';
 $route['authlogin'] = "login/authlogin";

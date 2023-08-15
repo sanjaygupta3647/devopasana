@@ -238,6 +238,16 @@ function getCustomerSessionData()
     return $CI->session->userdata('customer');
 }
 
+function getCustomerID()
+{
+    $CI = &get_instance();
+    $data = $CI->session->userdata('customer');
+    if(!empty($data['id'])){
+        return $data['id'];
+    }
+    return false;
+}
+
 function getUserAccess($role_id, $third_parameter)
 {
     $CI = &get_instance();
