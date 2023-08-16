@@ -238,6 +238,11 @@ function getCustomerSessionData()
     return $CI->session->userdata('customer');
 }
 
+function transaction_id()
+{
+    $CI = &get_instance();
+    return $CI->session->userdata('transaction_id');
+}
 function getCustomerID()
 {
     $CI = &get_instance();

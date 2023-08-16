@@ -1,12 +1,12 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Cart_model extends CI_Model
+class Orders_model extends CI_Model
 {
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->table_name = 'cart_temp';
+		$this->table_name = 'orders';
 		$this->primary_key = 'id';
 		$this->order_by = 'id';
 	}
@@ -87,17 +87,6 @@ class Cart_model extends CI_Model
 		$this->db->join('cart_temp cart','cart.id = cart_addons.cart_id');  
 		$this->db->join('addon addon','addon.id = cart_addons.addon_id');  
 		$this->db->where('cart_addons.cart_id', $cart_id); 
-		$query = $this->db->get();
-        $rows =  $query->result();
-		//return $this->db->last_query();
-		return $rows;
-		 
-	}
-
-	function getAddOnWithPooja($cart_id){
-		$this->db->select('*');
-		$this->db->from('cart_addons');   
-		$this->db->where('cart_id', $cart_id); 
 		$query = $this->db->get();
         $rows =  $query->result();
 		//return $this->db->last_query();

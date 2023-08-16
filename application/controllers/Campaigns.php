@@ -22,6 +22,7 @@ class Campaigns extends CI_Controller {
 				$this->_view_data['meta'] = $meta; 
 				$this->_view_data['pageCss'] = array("" => "true");
 				$this->_view_data['pageJs'] = array( 
+					"frontend/js/validate.min.js" => "false",
 					"frontend/js/campaign-details.js" => "false",
 					"frontend/js/bootbox.min.js" => "false"  
 				);
@@ -41,8 +42,7 @@ class Campaigns extends CI_Controller {
 	function addpooja(){
 		$postData = $this->input->post();
 		$this->load->model('cart_model', 'cart');
-		$this->load->model('pooja_model', 'pooja');
-        $session_id = session_id();
+		$this->load->model('pooja_model', 'pooja'); 
 		$sess = $this->session->userdata('customer');
 		$current_time = date("Y-m-d H:i:s");
 		$cartData = array(
@@ -56,13 +56,14 @@ class Campaigns extends CI_Controller {
 			"update_time"=>$current_time
 
 		); 
-
-		$is_added = $this->cart->isExist($session_id);
+		$transaction_id = $this->session->userdata('transaction_id');
+		$is_added = $this->cart->isExist($transaction_id);
 		$url = base_url("checkout");
 		if(!$is_added){
 			$cartData['create_time'] = $current_time;
-			$cartData['session_id'] = $session_id;
+			 
 			$cartData['transaction_id'] = generateTransactionId();
+			$this->session->set_userdata('transaction_id', $cartData['transaction_id']);
 			$id = $this->cart->add($cartData);
 			if($id){
 				$response = array('type' => 'success', 'message' => "Puja added successfully!", 'url' => $url);
@@ -70,7 +71,7 @@ class Campaigns extends CI_Controller {
 				$response = array('type' => 'error', 'message' => "There is some error!");
 			} 
 		}else{
-			$where['session_id'] = $session_id;
+			$where['transaction_id'] = $transaction_id;
 			$id = $this->cart->update($cartData,$where);
 			$response = array('type' => 'success', 'message' => "Puja updated successfully!", 'url' => $url);
 		} 
@@ -90,7 +91,7 @@ class Campaigns extends CI_Controller {
 		$customer = $this->customer->getUserData($customer_id);
 		$devotees = $this->customer->getAllDevotee($customer_id); 
 
-		$cart = $this->cart->getDetails(session_id());  
+		$cart = $this->cart->getDetails(transaction_id());  
 		if(empty($cart->addons)){
 			$addons_ids = 0;
 			$cart_id = 0;
@@ -143,6 +144,40 @@ class Campaigns extends CI_Controller {
 			$response = array('type' => 'error', 'message' => "Already added!");
 		} 
 		
+		$this->output->set_content_type('application/json')->set_output(json_encode($response));
+	}
+
+	function removePoojaAddon(){
+		$this->load->model('Cart_model', 'cart');
+		$postData = $this->input->post(); 
+		 
+		$remove = $this->cart->removePoojaAddon($postData);
+		if($remove){
+			$response = array('type' => 'success', 'message' => "removed successfully!");
+		}else{
+			$response = array('type' => 'error', 'message' => "There is some error!");
+		}
+
+		$this->output->set_content_type('application/json')->set_output(json_encode($response));
+	}
+
+	function finalCheckout(){
+		$postData = $this->input->post(); 
+		$this->load->model('Cart_model', 'cart');
+		$postData['devotees'] = implode(",",array_values($postData['relation']));
+		unset($postData['relation']);
+		$postData['update_time'] = date("Y-m-d H:i:s");
+		$postData['status'] = "Initiated";
+		$where['id'] = $postData['cart_id'];
+		unset($postData['cart_id']);
+		$id = $this->cart->update($postData,$where);
+		$url = base_url("payment/".$postData['transaction_id']);
+		if($id){
+			$response = array('type' => 'success', 'message' => "Added successfully!", 'url' => $url);
+		}else{
+			$response = array('type' => 'error', 'message' => "There is some error!");
+		} 
+
 		$this->output->set_content_type('application/json')->set_output(json_encode($response));
 	}
 	 

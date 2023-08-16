@@ -64,4 +64,8 @@ $route['page-(:any)'] = 'home/pagedetail/$1';
 $route['divine-corner/(:any)'] = 'home/divine_list/$1';
 $route['divine-corner/(:any)/(:any)'] = 'home/post_details/$1/$2';
 $route['404_override'] = '';
+$route['payment/response'] = 'payment/response';
+$route['payment/(:any)'] = 'payment/index/$1';
+$route['profile'] = 'customer/profile';
+
 $route['translate_uri_dashes'] = FALSE;

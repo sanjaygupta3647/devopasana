@@ -20,7 +20,7 @@
     <div class="container">
      <div class="row"> 
         <div class="col-md-8">  
-		<table class="sigma_responsive-table ">
+		<table class="sigma_responsive-table" id="ordersummary">
 		<thead>
 		  <tr> 
 			<th colspan="2" class="text-black">Order summary</th>
@@ -72,7 +72,7 @@
 		 <?php foreach($add_addons as $ads): ?>
 		  <tr>
 			<td class="remove">
-			  <button type="button" class="close-btn close-danger remove-from-cart">
+			  <button type="button" class="close-btn close-danger remove-from-cart" data-addon_id="<?php echo $ads->addon_id; ?>" data-cart_id="<?php echo $cart->id; ?>">
 				<span></span>
 				<span></span>
 			  </button>
@@ -95,13 +95,7 @@
 			<td  colspan="3"data-title="Add on">Grand Total: </td> 
 			<td data-title="Total">  <b class="text-black"><?php echo showprice($total) ?></b>  </td>
 			 
-		  </tr>
-		  
-		  
-		
-		  
-		 
-
+		  </tr> 
 
 		</tbody>
 		</table>
@@ -145,12 +139,7 @@
 				  <p class="text-black"> Sorry, no Add Ons available with this pooja </p>  
 			</td> 
 		  </tr>
-		  <?php endif; ?>
-		  
-		
-		  
-		 
-
+		  <?php endif; ?> 
 
 		</tbody>
 		</table>
@@ -165,7 +154,9 @@
     <div class="container"> 
       <form method="post" id="final_submission">
         <div class="row">
-		   
+		  <input type="hidden" name="total_price" value="<?php echo $total; ?>"> 
+		  <input type="hidden" name="cart_id" value="<?php echo $cart->id; ?>"> 
+		  <input type="hidden" name="transaction_id" value="<?php echo $cart->transaction_id; ?>">
           <div class="col-xl-12">   
             <h5 class="text-black" id="selectmember">Billing Details</h5>
             <div class="row">  
@@ -174,7 +165,7 @@
                 
 				<?php foreach($devotees as $key=>$devot): ?>
 				<div class="custom-control custom-checkbox">
-					<input type="checkbox" name="relation[]" class="custom-control-input relation" id="<?php echo $key+1; ?>">
+					<input type="checkbox" value="<?php echo $devot->id;?>" name="relation[]" class="custom-control-input relation" id="<?php echo $key+1; ?>">
 					<label class="custom-control-label text-black" for="<?php echo $key+1; ?>"><?php echo $devot->relation;?>-<?php echo $devot->name;?>   -    <a href="javascript:void(0)" class="edit_relation" 
 					data-id="<?php echo $devot->id;?>" 
 					data-name="<?php echo $devot->name;?>" 
@@ -224,7 +215,7 @@
 			   
               <div class="form-group col-xl-12 mb-0">
                 <label>Order Notes</label>
-                <textarea name="name" rows="5" class="form-control" placeholder="Order Notes (Optional)"></textarea>
+                <textarea name="additional_info" rows="5" class="form-control" placeholder="Order Notes (Optional)"></textarea>
               </div>
 			  
 			  <div class="form-group col-xl-12 pt-10"> 

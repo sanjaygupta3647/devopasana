@@ -1,4 +1,5 @@
 <!-- Preloader Start -->
+<?php $session = getCustomerSessionData();  ?>
   <div class="sigma_preloader">
     <img src="<?php echo base_url("assets/frontend/img/om.svg");?>" alt="preloader">
   </div>
@@ -83,23 +84,36 @@
       
           
         </ul>
+		
+		<?php if($session['id']): ?>
+		<ul class="navbar-nav mr-auto"> 
+		  <li class="menu-item menu-item-has-children">
+			<a href="#"  aria-expanded="false">
+			  My Account
+			</a>
+			<ul class="sub-menu">
+			  <li class="menu-item"> <a href="<?php echo base_url('checkout');?>">Cart</a> </li>
+			  <li class="menu-item"> <a href="<?php echo base_url('customer/logout');?>">Logout</a> </li>
+			</ul>
+		  </li>
+		   
+		</ul>
+		<?php endif; ?>
 
 
-
+		 
+		<?php if(empty($session['id'])): ?> 
         <!-- Button & Phone -->
         <div class="sigma_header-controls sigma_header-button"> 
           <a href="https://wa.me/+918794793316" class="sigma_header-contact">
             <img src="<?php echo base_url("assets/frontend/img/whatsapp.jpg");?>" width="50" height="37"> 
           </a>
-		  <?php $session = getCustomerSessionData();  ?>
-		  <?php if($session['id']): ?>
-		  <a class="sigma_btn-custom" href="<?php echo base_url('checkout');?>"> Cart </a>
-          <a class="sigma_btn-custom" href="<?php echo base_url('customer/logout');?>"> Logout </a>
-		  <?php else: ?>
-		  <a class="sigma_btn-custom" href="<?php echo base_url('login');?>"> Login </a>
-		  <?php endif; ?>
-		  
+		 
+		  <a class="sigma_btn-custom" href="<?php echo base_url('login');?>"> Login </a> 
         </div>
+		<?php endif; ?>
+		
+		
 		
 		<div class="sigma_header-controls style-1">
 

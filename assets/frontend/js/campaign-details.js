@@ -79,6 +79,40 @@ $(document).ready(function(){
 		}
 	});
 	
+	$(".remove-from-cart").click(function(){
+		let cart_id = $(this).data('cart_id');
+		let addon_id = $(this).data('addon_id');
+		 
+		if(cart_id=="" || addon_id=="" ){
+			bootbox.alert("Invalid access!");
+		}else{
+			let url = base_url + "campaigns/removePoojaAddon"; 
+			$.ajax({
+				type: "POST",
+				url: url, 
+				data: ({cart_id:cart_id,addon_id:addon_id}), 
+				dataType: 'json',
+				success: function (response) {
+
+					if (response.type == 'success') {
+						bootbox.alert(response.message, function () {
+							window.location.href = self.location;
+						});
+
+					} else {
+						if (response.message) {
+							var message = response.message;
+						} else {
+							var message = "There is some issue in form submission";
+						}
+						bootbox.alert(message);
+					}
+
+				}
+			});
+		}
+	});
+	
 	
 	
 	$("#final_submission").validate({
@@ -127,16 +161,16 @@ $(document).ready(function(){
 						scrollTop: $("#selectmember").offset().top -20
 					}, 600);
 				}); 
-				//return false;
+				return false; 
 			}
 			$url = base_url + "campaigns/finalCheckout",
 				$.ajax({
 					type: "POST",
 					url: $url,
-					data: $("#register").serialize(),
+					data: $("#final_submission").serialize(),
 					success: function (response) {
 						if (response.type == 'success') {
-							//window.location.href = response.url;
+							window.location.href = response.url;
 						} else {
 							bootbox.alert(response.message);
 						}
@@ -145,6 +179,10 @@ $(document).ready(function(){
 				});
 		}
 	});
-	 
+	
+	
+	$('html, body').animate({
+		scrollTop: $("#ordersummary").offset().top -20
+	}, 600); 
 	 
 });

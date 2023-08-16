@@ -101,4 +101,9 @@ class Customer extends CI_Controller
 		$this->output->set_content_type('application/json')->set_output(json_encode($response));		 
 		 
 	}
+	
+	function profile(){
+		$this->_view_data['pageContent'] = 'frontend/customer/profile';
+		$this->load->view('frontend-template', $this->_view_data);
+	}
 }
