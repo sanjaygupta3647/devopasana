@@ -253,6 +253,17 @@ function getCustomerID()
     return false;
 }
 
+function getCustomerDetails()
+{
+    $CI = &get_instance();
+    $data = $CI->session->userdata('customer');
+    if(!empty($data['id'])){
+        $CI->load->model('Customer_model', 'customer'); 
+        return  $CI->customer->getUserData($data['id']);
+    }
+    return false;
+}
+
 function getUserAccess($role_id, $third_parameter)
 {
     $CI = &get_instance();

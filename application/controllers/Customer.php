@@ -103,7 +103,7 @@ class Customer extends CI_Controller
 	}
 	
 	function profile(){
-		$this->_view_data['pageContent'] = 'frontend/customer/profile';
-		$this->load->view('frontend-template', $this->_view_data);
+		$this->_view_data['pageContent'] = 'user/profile';
+		$this->load->view('user-template', $this->_view_data);
 	}
 }

@@ -88,7 +88,7 @@
 		<?php if($session['id']): ?>
 		<ul class="navbar-nav mr-auto"> 
 		  <li class="menu-item menu-item-has-children">
-			<a href="#"  aria-expanded="false">
+			<a href="<?php echo base_url("profile"); ?>"  aria-expanded="false">
 			  My Account
 			</a>
 			<ul class="sub-menu">
