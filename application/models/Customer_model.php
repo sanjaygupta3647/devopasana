@@ -55,7 +55,23 @@ class Customer_model extends CI_Model
 		} else {
 			return false;
 		}
-	} 
+	}
+	
+	function getDeviteeDetails($id,$customer_id)
+	{
+		$this->db->select('*');
+		$this->db->from('devotee');  
+		$this->db->where('id', $id);
+		$this->db->where('customer_id', $customer_id);
+		$this->db->limit(1);
+		$query = $this->db->get(); 
+		if ($query->num_rows() == 1) {
+			$row = $query->result();
+			return $row[0];
+		} else {
+			return false;
+		}
+	}
 
 	function getAllDevotee($customer_id){
 		$this->db->select('*');
@@ -96,13 +112,19 @@ class Customer_model extends CI_Model
 	}
 
 
-	function update($data, $where,$table = "")
+	function update($data, $where, $table = "")
 	{
 		if(empty($table)){
 			$table = $this->table_name;
 		}
 		return $this->db->update($table, $data, $where);
 	}
+
+	function deleteDevotee($data){ 
+		$this->db->where('customer_id', $data['customer_id']);
+		$this->db->where('id', $data['id']);
+		return $this->db->delete("devotee"); 
+}
 
 	 
 	 

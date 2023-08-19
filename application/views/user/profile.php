@@ -5,14 +5,14 @@ $userdata = getCustomerDetails();
 <div class="page-header page-header-default">
 	<div class="page-header-content">
 		<div class="page-title">
-			<h4><a href="javascript:history.back()"><i class="icon-arrow-left52 position-left"></i></a> <span class="text-semibold">My Profile</span> </h4>
+			<h4><span class="text-semibold">My Profile Details</span> </h4>
 		</div>
 
 		<div class="heading-elements">
 			<div class="heading-btn-group">
 				 
 				<a class="change_status"  href="javascript:void(0)" >
-					<span class="label label-info updatepassword" data-id="<?php echo $user_basic->id ?>"  data-username="<?php echo $user_basic->username ?>">Change Password</span>
+					<span class="label label-info updatepassword" data-id="<?php echo $userdata->id ?>"  data-username="<?php echo $userdata->email ?>">Change Password</span>
 
 				</a>
 
@@ -28,21 +28,17 @@ $userdata = getCustomerDetails();
 <!-- Content area -->
 <div class="content">
 	<!-- Wizard with validation -->
-	<div class="panel panel-white">
-		<div class="panel-heading">
-			<h6 class="panel-title"><?php echo (!$id) ? 'Add' : 'Edit'; ?> User</h6>
-		</div>
-
-		<form class="form-validation p-20" id="add-edit-user" action="" method="post" enctype="multipart/form-data">
+	<div class="panel panel-white"> 
+		<form class="form-validation p-20" id="register" action="" method="post" enctype="multipart/form-data">
 			<fieldset class="step" id="myform">
-				<input type="hidden" id="user-id" name="id" value="<?php echo $id; ?>"> 
+				<input type="hidden" id="user-id" name="id" value="<?php echo $userdata->id; ?>"> 
 				 
 				<div class="row"> 
 				
 				    <div class="col-md-6">
 						<div class="form-group">
 							<label>Name: <span class="text-danger">*</span></label>
-							<input type="text" name="fname" class="form-control" value="<?php echo ($userdata->name) ? $userdata->name : ''; ?>" placeholder="Name">
+							<input type="text" name="name" class="form-control" value="<?php echo ($userdata->name) ? $userdata->name : ''; ?>" placeholder="Name">
 						</div>
 					</div>
 					<div class="col-md-6">

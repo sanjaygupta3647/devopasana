@@ -32,8 +32,8 @@ $userdata = getCustomerDetails();
 						<a href="<?php echo base_url('profile') ?>"><i class="icon-home4"></i> <span>Personal Details</span></a>
 					</li>
 					
-					<li <?php echo ($this->router->class == "dashboard" && $this->router->method == "index") ? 'class="active"' : ''; ?>>
-						<a href="<?php echo base_url('user/dashboard') ?>"><i class="icon-users"></i> <span>Family Details</span></a>
+					<li <?php echo ($this->router->class == "customer" && $this->router->method == "family") ? 'class="active"' : ''; ?>>
+						<a href="<?php echo base_url('family') ?>"><i class="icon-users"></i> <span>Family Details</span></a>
 					</li> 
 						 
 				</ul>

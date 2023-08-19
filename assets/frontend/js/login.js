@@ -24,7 +24,7 @@ $(document).ready(function () {
 		ignore: ":hidden:not(.select-chosen)",
 		submitHandler: function (form) {
 
-			$url = base_url + "customer/login",
+			$url = base_url + "customer/authenticate",
 				$.ajax({
 					type: "POST",
 					url: $url,

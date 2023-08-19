@@ -110,35 +110,7 @@ class Home extends CI_Controller {
 	}
 
 	
-	public function login()
-	{		
-		$this->_view_data['pageContent'] = 'frontend/login'; 
-		$meta['title'] = "User login - Devopasana";
-		$meta['description'] = "User login - Devopasana";
-		$meta['og_img'] = base_url('assets/frontend/img/logo.jpg');
-		$this->_view_data['meta'] = $meta; 
-		$this->_view_data['pageJs'] = array( 
-			"frontend/js/validate.min.js" => "false",
-			"frontend/js/bootbox.min.js" => "false",
-			"frontend/js/login.js" => "false" 
-		);
-		$this->load->view('frontend-template',$this->_view_data);
-	}
-
-	public function signup()
-	{	
-		$meta['title'] = "User registartion - Devopasana";
-		$meta['description'] = "User registartion - Devopasana";
-		$meta['og_img'] = base_url('assets/frontend/img/logo.jpg');
-		$this->_view_data['meta'] = $meta;	
-		$this->_view_data['pageJs'] = array( 
-			"frontend/js/validate.min.js" => "false",
-			"frontend/js/bootbox.min.js" => "false",
-			"frontend/js/register.js" => "false" 
-		);
-		$this->_view_data['pageContent'] = 'frontend/signup'; 
-		$this->load->view('frontend-template',$this->_view_data);
-	} 
+	 
 	
 	
 }

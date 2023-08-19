@@ -54,8 +54,6 @@ $route['about-us'] = 'home/about_us';
 $route['contact-us'] = 'home/contact_us';
 $route['privacy-policy'] = 'home/privacy_policy';
 $route['terms-of-services'] = 'home/terms_of_services';
-$route['login'] = 'home/login';
-$route['signup'] = 'home/signup';
 $route['checkout'] = 'campaigns/checkout';
 $route['campaign/(:any)'] = 'campaigns/details/$1';
 //$route['checkout'] = 'user/checkout';
@@ -66,6 +64,10 @@ $route['divine-corner/(:any)/(:any)'] = 'home/post_details/$1/$2';
 $route['404_override'] = '';
 $route['payment/response'] = 'payment/response';
 $route['payment/(:any)'] = 'payment/index/$1';
+
+$route['login'] = 'customer/login';
+$route['signup'] = 'customer/signup';
 $route['profile'] = 'customer/profile';
+$route['family'] = 'customer/family';
 
 $route['translate_uri_dashes'] = FALSE;

@@ -8,10 +8,8 @@ $(function () {
             title: '<h4>Change password for ' + $username + '</h4>',
             message: '<div class="row"><form class="form" id="changepassword">' +
                 '<div class="col-sm-12 col-xs-12">' +
-                '<div class="form-group">' +
-                '<input type="hidden" name="id" value="' + $id + '">' +
-				'<input type="hidden" name="username" value="' + $username + '">' +
-                '<input type="password" name="password"   class="form-control" autocomplete="off" placeholder="">' +
+                '<div class="form-group">' + 
+                '<input type="password" name="pass" class="form-control" autocomplete="off" placeholder="">' +
                 '</div>' +
                 '</div>' +
                 '<div class="col-sm-12 col-xs-12">' +
@@ -80,10 +78,10 @@ $(function () {
             validClass: "validation-valid-label",
             submitHandler: function (form) {
                 var $data = $(form).serializeArray();
-                $url = base_url + "admin/users/changepassword",
+					let url = base_url + "customer/changepassword";
                     $.ajax({
                         type: "POST",
-                        url: $url,
+                        url: url,
                         data: $data,
                         beforeSend: function () {
                             $(".formbtn span").html('Submitting...');

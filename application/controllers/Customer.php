@@ -5,8 +5,38 @@ class Customer extends CI_Controller
 { 
 
 	public function login()
+	{		
+		$this->_view_data['pageContent'] = 'frontend/login'; 
+		$meta['title'] = "User login - Devopasana";
+		$meta['description'] = "User login - Devopasana";
+		$meta['og_img'] = base_url('assets/frontend/img/logo.jpg');
+		$this->_view_data['meta'] = $meta; 
+		$this->_view_data['pageJs'] = array( 
+			"frontend/js/validate.min.js" => "false",
+			"frontend/js/bootbox.min.js" => "false",
+			"frontend/js/login.js" => "false" 
+		);
+		$this->load->view('frontend-template',$this->_view_data);
+	}
+
+	public function signup()
+	{	
+		$meta['title'] = "User registartion - Devopasana";
+		$meta['description'] = "User registartion - Devopasana";
+		$meta['og_img'] = base_url('assets/frontend/img/logo.jpg');
+		$this->_view_data['meta'] = $meta;	
+		$this->_view_data['pageJs'] = array( 
+			"frontend/js/validate.min.js" => "false",
+			"frontend/js/bootbox.min.js" => "false",
+			"frontend/js/register.js" => "false" 
+		);
+		$this->_view_data['pageContent'] = 'frontend/signup'; 
+		$this->load->view('frontend-template',$this->_view_data);
+	}
+
+	public function authenticate()
 	{ 
-		// authenticate
+		 
 		$email = $this->input->post('email');
 		$password = $this->input->post('pass');
 
@@ -50,16 +80,25 @@ class Customer extends CI_Controller
 	{
 		$this->load->model('customer_model', 'customer');
 		$postdata = $this->input->post();
-		
-		$check_email_exist = $this->customer->isEmailExist($postdata['email']);
+		$postdata['id']  = getCustomerID();
+		$check_email_exist = $this->customer->isEmailExist($postdata['email'],$postdata['id']);
 		if(!$check_email_exist){
-			$postdata['pass'] = base64_encode($postdata['pass']);
-			$id = $this->customer->add($postdata);
-			if($id){
-				$sess_array = array('id' => $id); 
-				$this->session->set_userdata('customer', $sess_array);
+			if(empty($postdata['id'])){
+				if(!empty($postdata['pass'])){
+					$postdata['pass'] = base64_encode($postdata['pass']);
+				} 
+				$id = $this->customer->add($postdata);
+				if($id){
+					$sess_array = array('id' => $id); 
+					$this->session->set_userdata('customer', $sess_array);
+					$url = base_url("profile");
+					$response = array('type' => 'success', 'message' => 'You are registerd successfully!','url'=>$url);
+				}
+			}else{
+				$where['id'] = $postdata['id'];
+				$this->customer->update($postdata,$where);
 				$url = base_url("profile");
-				$response = array('type' => 'success', 'message' => 'Customer registerd successfully!','url'=>$url);
+				$response = array('type' => 'success', 'message' => 'Your details updated successfully!','url'=>$url);
 			}
 		}else{
 			$response = array('type' => 'error', 'message' => 'You are already registerd with us, please login!');
@@ -81,6 +120,7 @@ class Customer extends CI_Controller
 		$this->load->model('customer_model', 'customer');
 		$postdata = $this->input->post(); 
 		$postdata['customer_id'] = getCustomerID();
+		 
 		if(empty($postdata['relation_id'])){ 
 			unset($postdata['relation_id']);
 			$id = $this->customer->add($postdata,'devotee');
@@ -101,9 +141,77 @@ class Customer extends CI_Controller
 		$this->output->set_content_type('application/json')->set_output(json_encode($response));		 
 		 
 	}
+
+	function changepassword(){
+		$postdata = $this->input->post();
+		if(!empty($postdata['pass'])){
+			$this->load->model('customer_model', 'customer');
+			$postdata['pass'] = base64_encode($postdata['pass']); 
+			$postdata['id']  = getCustomerID();
+			$where['id'] = $postdata['id'];
+			$this->customer->update($postdata,$where); 
+			$response = array('type' => 'success', 'message' => 'Your password changed successfully!');
+		}else{
+			$response = array('type' => 'error', 'message' => 'Could not process data!');
+		}
+
+		$this->output->set_content_type('application/json')->set_output(json_encode($response));	
+	}
 	
 	function profile(){
+		$this->_view_data['pageJs'] = array( 
+			"frontend/js/validate.min.js" => "false",
+			"frontend/js/bootbox.min.js" => "false",
+			"frontend/js/register.js" => "false",
+			"user/js/user/password.js" => "false" 
+		);
 		$this->_view_data['pageContent'] = 'user/profile';
 		$this->load->view('user-template', $this->_view_data);
+	}
+
+	function family(){
+		$this->load->model('customer_model', 'customer');
+		$customer_id = getCustomerID(); 
+		$customer = $this->customer->getUserData($customer_id);
+		$devotees = $this->customer->getAllDevotee($customer_id);
+		$this->_view_data['customer'] = $customer;
+		$this->_view_data['devotees'] = $devotees;
+		$this->_view_data['pageJs'] = array( 
+			"frontend/js/validate.min.js" => "false",
+			"frontend/js/bootbox.min.js" => "false", 
+			"user/js/user/delete.js" => "false", 
+		); 
+		$this->_view_data['pageContent'] = 'user/devotee';
+		$this->load->view('user-template', $this->_view_data);
+	}
+
+	function add_members($id){
+		$this->load->model('customer_model', 'customer');
+		$customer_id = getCustomerID();  
+		$devotee = $this->customer->getDeviteeDetails($id,$customer_id); 
+		$this->_view_data['devotee'] = $devotee;
+		$this->_view_data['pageJs'] = array( 
+			"frontend/js/validate.min.js" => "false",
+			"frontend/js/bootbox.min.js" => "false",  
+			"user/js/plugins/forms/selects/select2.min.js" => "false",
+			"frontend/js/profile.js" => "false",
+		); 
+		$this->_view_data['pageContent'] = 'user/add_edit_devotee';
+		$this->load->view('user-template', $this->_view_data);
+	}
+
+	function delete_devotee($id){
+		$this->load->model('customer_model', 'customer');
+		$data['id'] = $id;
+		$data['customer_id'] = getCustomerID();  
+		$delete  = $this->customer->deleteDevotee($data); 
+		if($delete){
+			$response = array('type' => 'success', 'message' => 'Member Deleted successfully!');
+		}else{
+			$response = array('type' => 'error', 'message' => 'Could not delete record!');
+		}
+
+		$this->output->set_content_type('application/json')->set_output(json_encode($response));	
+		 
 	}
 }

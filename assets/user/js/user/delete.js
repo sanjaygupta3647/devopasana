@@ -1,19 +1,19 @@
 $(document).ready(function () {
-	$(document).on("click", '.delete', function () {
-		$this = $(this);
+	 $(".delete-devotee").click(function(){ 
+	    $this = $(this);
 		bootbox.confirm("Are you sure? You want to delete this record.", function (result) {
 
-			$id = $($this).data("id");
+			let id = $this.data("id");
 			if (result) {
 				$.ajax({
-					url: base_url + 'admin/users/delete_user/' + $id + '/',
+					url: base_url + 'customer/delete_devotee/' + id,
 					type: 'POST',
-					data: { 'status': 'Active' },
+					data: {},
 					success: function (response) {
 
 						if (response.type == 'success') {
 							bootbox.alert(response.message, function () {
-								window.location.href = response.url;
+								window.location.href = self.location;
 							});
 
 						} else {
@@ -25,7 +25,6 @@ $(document).ready(function () {
 			}
 
 		});
-
-	});
+	})
 
 });

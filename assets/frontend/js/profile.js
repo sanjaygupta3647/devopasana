@@ -56,4 +56,6 @@ $(document).ready(function(){
 		$("#relation-form select[name=relation]").val($(this).data('relation')).trigger("change"); 
 		$('#relationModel').modal('show');
 	});
+	
+	
 });

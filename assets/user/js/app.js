@@ -17,11 +17,7 @@ if($('.select').length)	{
 	$('.select').select2();
 }
 
-if($('.form-validation').length){
-	$(".form-validation").formwizard({
-		disableUIStyles: true  
-	});
-}
+ 
 
 
 $('.integeronly').on('keyup', function() {

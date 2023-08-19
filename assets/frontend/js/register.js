@@ -46,7 +46,9 @@ $(document).ready(function () {
 					data: $("#register").serialize(),
 					success: function (response) {
 						if (response.type == 'success') {
-							window.location.href = response.url;
+							bootbox.alert(response.message, function () {
+								window.location.href = response.url;
+							});
 						} else {
 							bootbox.alert(response.message);
 						}
