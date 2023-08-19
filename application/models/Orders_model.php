@@ -100,5 +100,45 @@ class Orders_model extends CI_Model
 			return $this->db->delete("cart_addons"); 
 	}
 
+	function getAllOrdersByCustomerId($customer_id, $id="")
+	{
+		$this->db->select('o.*, c.title as campaign, p.title as puja,p.image as poojaimage');
+		$this->db->from("orders o"); 	
+		$this->db->join('campaign c','c.id = o.campaign_id');  
+		$this->db->join('pooja p','p.id = o.pooja_id');
+		if(!empty($id)){
+			$this->db->where('o.id', $id); 
+		}  	 
+		$this->db->where('o.customer_id', $customer_id); 
+		$this->db->order_by('o.id', 'desc'); 
+		$query = $this->db->get();  
+		$row = $query->result();
+		return $row;
+		 
+	}
+
+	function getAddOnOrder($order_id){
+		$this->db->select('addon.title,addon.image, order_addons.*');
+		$this->db->from('order_addons order_addons');  
+		$this->db->join('orders order','order.id = order_addons.order_id');  
+		$this->db->join('addon addon','addon.id = order_addons.addon_id');  
+		$this->db->where('order_addons.order_id', $order_id); 
+		$query = $this->db->get();
+        $rows =  $query->result();
+		//return $this->db->last_query();
+		return $rows;
+		 
+	}
+
+	function devoteeDetailOfOrder($ids){
+		$this->db->select('*');
+		$this->db->from('devotee'); 
+		$this->db->where("id in ($ids) "); 
+		$query = $this->db->get();
+        $rows =  $query->result();
+		//return $this->db->last_query();
+		return $rows;
+	}
+
 	 
 }

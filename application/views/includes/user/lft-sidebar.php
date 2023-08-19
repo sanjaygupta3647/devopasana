@@ -35,6 +35,10 @@ $userdata = getCustomerDetails();
 					<li <?php echo ($this->router->class == "customer" && $this->router->method == "family") ? 'class="active"' : ''; ?>>
 						<a href="<?php echo base_url('family') ?>"><i class="icon-users"></i> <span>Family Details</span></a>
 					</li> 
+					
+					<li <?php echo ($this->router->class == "customer" && $this->router->method == "orders") ? 'class="active"' : ''; ?>>
+						<a href="<?php echo base_url('orders') ?>"><i class="icon-cart"></i> <span>My Orders</span></a>
+					</li>
 						 
 				</ul>
 			</div>

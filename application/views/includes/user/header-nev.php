@@ -6,7 +6,7 @@ $userdata = getUserData($sess["user_id"]);
 <div class="navbar navbar-inverse">
 	<div class="navbar-header">
 		 
-			<a class="navbar-brand" href="<?php echo base_url('user/dashboard'); ?>">Devopasana Customer Panel</a>
+			<a class="navbar-brand" href="<?php echo base_url('profile'); ?>">Devopasana Customer Panel</a>
 		 
 
 		<ul class="nav navbar-nav visible-xs-block">
@@ -33,10 +33,8 @@ $userdata = getUserData($sess["user_id"]);
 
 					<ul class="dropdown-menu dropdown-menu-right">
 					   <li><a href="<?php echo base_url('checkout'); ?>"><i class="icon-cart"></i> Cart</a></li>
-						<li class="divider"></li>
-						<li><a href="<?php echo base_url('user/users/profile'); ?>"><i class="icon-cog5"></i> Account settings</a></li>
-						<li class="divider"></li>
-						<li><a href="<?php echo base_url('login/logout') ?>"><i class="icon-switch2"></i> Logout</a></li>
+						<li class="divider"></li> 
+						<li><a href="<?php echo base_url('customer/logout') ?>"><i class="icon-switch2"></i> Logout</a></li>
 					</ul>
 				</li>
 			</ul>

@@ -111,7 +111,7 @@ class Customer extends CI_Controller
 	public function logout()
 	{
 		$this->session->unset_userdata('customer');
-		$this->session->sess_destroy();
+		//$this->session->sess_destroy();
 		redirect(base_url('login')); 
 	}
 	
@@ -125,7 +125,7 @@ class Customer extends CI_Controller
 			unset($postdata['relation_id']);
 			$id = $this->customer->add($postdata,'devotee');
 			if($id){ 
-				$response = array('type' => 'success', 'message' => 'Devotee registerd successfully!','url'=>$url);
+				$response = array('type' => 'success', 'message' => 'Member registerd successfully!','url'=>$url);
 			}else{
 				$response = array('type' => 'error', 'message' => 'Could not process data!');
 			}
@@ -185,7 +185,7 @@ class Customer extends CI_Controller
 		$this->load->view('user-template', $this->_view_data);
 	}
 
-	function add_members($id){
+	function add_members($id=null){
 		$this->load->model('customer_model', 'customer');
 		$customer_id = getCustomerID();  
 		$devotee = $this->customer->getDeviteeDetails($id,$customer_id); 
@@ -194,7 +194,7 @@ class Customer extends CI_Controller
 			"frontend/js/validate.min.js" => "false",
 			"frontend/js/bootbox.min.js" => "false",  
 			"user/js/plugins/forms/selects/select2.min.js" => "false",
-			"frontend/js/profile.js" => "false",
+			"user/js/user/profile.js" => "false",
 		); 
 		$this->_view_data['pageContent'] = 'user/add_edit_devotee';
 		$this->load->view('user-template', $this->_view_data);
@@ -213,5 +213,35 @@ class Customer extends CI_Controller
 
 		$this->output->set_content_type('application/json')->set_output(json_encode($response));	
 		 
+	}
+
+	function orders(){
+		$this->load->model('Orders_model', 'order');
+		$customer_id = getCustomerID(); 
+		$orders = $this->order->getAllOrdersByCustomerId($customer_id);  
+		$this->_view_data['orders'] = $orders; 
+		$this->_view_data['pageJs'] = array(); 
+		$this->_view_data['pageContent'] = 'user/orders';
+		$this->load->view('user-template', $this->_view_data);
+	}
+
+	function order_detail($id){
+
+		$this->load->model('Orders_model', 'order');
+		$customer_id = getCustomerID(); 
+		$orders = $this->order->getAllOrdersByCustomerId($customer_id,$id);  
+		if(empty($orders)){
+			show_404();
+		}
+		$order = (!empty($orders[0])) ? $orders[0]:[];
+		 
+		$addons = $this->order->getAddOnOrder($order->id); 
+		$devotees = $this->order->devoteeDetailOfOrder($order->devotees);  		 
+		$this->_view_data['devotees'] = $devotees; 
+		$this->_view_data['order'] = $order; 
+		$this->_view_data['addons'] = $addons; 
+		$this->_view_data['pageJs'] = array(); 
+		$this->_view_data['pageContent'] = 'user/order_details';
+		$this->load->view('user-template', $this->_view_data);
 	}
 }

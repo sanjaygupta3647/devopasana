@@ -69,5 +69,7 @@ $route['login'] = 'customer/login';
 $route['signup'] = 'customer/signup';
 $route['profile'] = 'customer/profile';
 $route['family'] = 'customer/family';
+$route['orders'] = 'customer/orders';
+$route['order/detail/(:any)'] = 'customer/order_detail/$1';
 
 $route['translate_uri_dashes'] = FALSE;

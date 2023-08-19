@@ -238,6 +238,15 @@ function getCustomerSessionData()
     return $CI->session->userdata('customer');
 }
 
+function restrictWithoutLogin()
+{
+    $CI = &get_instance();
+    $data = $CI->session->userdata('customer');
+    if(empty($data['id'])){
+        redirect(base_url('login'));   
+    }
+}
+
 function transaction_id()
 {
     $CI = &get_instance();

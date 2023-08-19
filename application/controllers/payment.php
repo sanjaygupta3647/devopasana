@@ -45,10 +45,11 @@ class Payment extends CI_Controller {
 						if(count($addons)){
 							foreach($addons as $ads){
 								$data  = array(
-									"cart_id"=>$id,
+									"order_id"=>$id,
 									"addon_id"=>$ads->addon_id,
 									"addon_price"=>$ads->addon_price									  
 								);
+								$this->orders->add($data,'order_addons');
 							}
 						}
 					}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2023 at 10:06 PM
+-- Generation Time: Aug 19, 2023 at 09:17 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -121,38 +121,9 @@ CREATE TABLE `cart_addons` (
 --
 
 INSERT INTO `cart_addons` (`id`, `cart_id`, `addon_id`, `addon_price`, `create_time`) VALUES
-(1, 15, 2, 450, '2023-08-15 08:46:05'),
-(2, 15, 1, 21, '2023-08-15 08:47:16'),
-(3, 17, 2, 450, '2023-08-15 09:22:50'),
-(4, 17, 1, 21, '2023-08-15 09:22:53'),
-(5, 18, 2, 450, '2023-08-15 09:28:48'),
-(6, 18, 1, 21, '2023-08-15 09:33:35'),
-(7, 19, 2, 450, '2023-08-15 09:33:49'),
-(8, 19, 1, 21, '2023-08-15 09:33:52'),
-(9, 20, 2, 450, '2023-08-15 09:39:11'),
-(10, 20, 1, 21, '2023-08-15 09:39:16'),
-(11, 21, 1, 21, '2023-08-15 09:52:15'),
-(12, 24, 2, 450, '2023-08-15 19:52:28'),
-(13, 24, 1, 21, '2023-08-15 19:54:50'),
-(14, 25, 2, 450, '2023-08-15 19:57:36'),
-(16, 26, 1, 21, '2023-08-15 20:10:16'),
-(17, 26, 2, 450, '2023-08-15 20:10:19'),
-(20, 27, 1, 21, '2023-08-15 20:14:08'),
-(21, 27, 2, 450, '2023-08-15 20:14:17'),
-(22, 28, 2, 450, '2023-08-15 20:20:24'),
-(23, 28, 1, 21, '2023-08-15 20:20:27'),
-(24, 29, 1, 21, '2023-08-15 20:27:00'),
-(25, 30, 2, 450, '2023-08-15 20:33:21'),
-(26, 31, 2, 450, '2023-08-15 20:41:13'),
-(27, 32, 2, 450, '2023-08-15 20:55:35'),
-(28, 33, 2, 450, '2023-08-15 21:10:16'),
-(29, 33, 1, 21, '2023-08-15 21:10:49'),
-(30, 35, 1, 21, '2023-08-16 17:17:26'),
-(31, 36, 2, 450, '2023-08-16 19:42:35'),
-(32, 36, 1, 21, '2023-08-16 19:42:38'),
-(33, 37, 1, 21, '2023-08-16 20:41:04'),
-(34, 38, 1, 21, '2023-08-16 20:44:31'),
-(35, 39, 1, 21, '2023-08-16 20:48:45');
+(1, 1, 2, 450, '2023-08-19 20:20:58'),
+(2, 1, 1, 21, '2023-08-19 20:21:01'),
+(3, 2, 2, 450, '2023-08-19 21:13:04');
 
 -- --------------------------------------------------------
 
@@ -190,43 +161,8 @@ CREATE TABLE `cart_temp` (
 --
 
 INSERT INTO `cart_temp` (`id`, `customer_id`, `campaign_id`, `pooja_id`, `price_id`, `puja_price`, `create_time`, `status`, `update_time`, `service_charge`, `prasad_charge`, `devotees`, `name`, `phone`, `email`, `address1`, `address2`, `town`, `state`, `additional_info`, `total_price`, `transaction_id`) VALUES
-(2, 2, 1, 2, 3, 900, '2023-08-14 22:37:55', 'Pending', '2023-08-14 22:44:03', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230814223755-64da90a3b873d-7310'),
-(3, 2, 1, 1, 4, 500, '2023-08-14 22:51:30', 'Pending', '2023-08-14 22:51:30', 101, 51, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230814225130-64da93d24b797-9868'),
-(4, 2, 1, 1, 4, 500, '2023-08-14 22:56:57', 'Pending', '2023-08-14 22:56:57', 101, 51, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230814225657-64da9519eb241-5725'),
-(5, 2, 1, 2, 3, 900, '2023-08-14 23:07:45', 'Pending', '2023-08-14 23:07:45', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230814230745-64da97a19277f-7698'),
-(6, 2, 1, 2, 2, 650, '2023-08-14 23:08:45', 'Pending', '2023-08-14 23:08:45', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230814230845-64da97dd1d492-5995'),
-(7, 2, 1, 2, 2, 650, '2023-08-14 23:15:02', 'Pending', '2023-08-14 23:15:02', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230814231502-64da99568f2f6-3237'),
-(8, 2, 2, 1, 4, 500, '2023-08-15 07:54:46', 'Pending', '2023-08-15 07:54:46', 101, 51, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815075446-64db132648172-4484'),
-(9, 2, 1, 2, 2, 650, '2023-08-15 08:01:38', 'Pending', '2023-08-15 08:01:38', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815080138-64db14c2c0d5c-2513'),
-(10, 2, 1, 2, 2, 650, '2023-08-15 08:07:23', 'Pending', '2023-08-15 08:07:23', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815080723-64db161bc9058-6080'),
-(11, 2, 1, 2, 2, 650, '2023-08-15 08:16:19', 'Pending', '2023-08-15 08:16:19', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815081619-64db1833684cc-1264'),
-(12, 2, 1, 2, 2, 650, '2023-08-15 08:20:46', 'Pending', '2023-08-15 08:20:46', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815082046-64db193e36e6f-8026'),
-(13, 2, 1, 2, 2, 650, '2023-08-15 08:29:08', 'Pending', '2023-08-15 08:29:08', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815082908-64db1b34c4ec2-4537'),
-(14, 2, 1, 2, 2, 650, '2023-08-15 08:34:45', 'Pending', '2023-08-15 08:34:45', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815083445-64db1c85d0631-9868'),
-(15, 2, 1, 2, 2, 650, '2023-08-15 08:45:28', 'Pending', '2023-08-15 08:45:28', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815084528-64db1f08532ae-8284'),
-(16, 2, 1, 2, 2, 650, '2023-08-15 09:17:35', 'Pending', '2023-08-15 09:17:35', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815091735-64db268fdc59e-4546'),
-(17, 2, 1, 2, 2, 650, '2023-08-15 09:22:43', 'Pending', '2023-08-15 09:22:43', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815092243-64db27c3773a9-9715'),
-(18, 2, 1, 2, 2, 650, '2023-08-15 09:28:38', 'Pending', '2023-08-15 09:28:38', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815092838-64db292679f32-4836'),
-(19, 2, 1, 2, 2, 650, '2023-08-15 09:33:45', 'Pending', '2023-08-15 09:33:45', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815093345-64db2a5907590-6179'),
-(20, 2, 1, 2, 2, 650, '2023-08-15 09:39:04', 'Pending', '2023-08-15 09:39:04', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815093904-64db2b983f721-1548'),
-(21, 2, 1, 2, 2, 650, '2023-08-15 09:52:04', 'Pending', '2023-08-15 09:52:04', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815095204-64db2ea462817-2298'),
-(22, 3, 1, 2, 2, 650, '2023-08-15 11:38:50', 'Pending', '2023-08-15 11:38:50', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815113850-64db47aa61871-4364'),
-(23, 2, 1, 2, 2, 650, '2023-08-15 11:54:33', 'Pending', '2023-08-15 11:54:33', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815115433-64db4b59e2d35-9382'),
-(24, 2, 1, 2, 2, 650, '2023-08-15 19:51:55', 'Pending', '2023-08-15 19:51:55', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815195155-64dbbb3bab21c-7861'),
-(25, 2, 1, 2, 2, 650, '2023-08-15 19:57:28', 'Pending', '2023-08-15 19:57:28', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815195728-64dbbc88b96d0-3951'),
-(26, 2, 1, 2, 2, 650, '2023-08-15 20:05:33', 'Pending', '2023-08-15 20:05:33', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815200533-64dbbe6d98222-5927'),
-(27, 2, 1, 2, 2, 650, '2023-08-15 20:11:04', 'Pending', '2023-08-15 20:11:04', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815201104-64dbbfb80b14a-6413'),
-(28, 2, 2, 1, 4, 500, '2023-08-15 20:20:19', 'Pending', '2023-08-15 20:22:48', 101, 51, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815202019-64dbc1e3ba290-1977'),
-(29, 2, 1, 2, 2, 650, '2023-08-15 20:26:56', 'Pending', '2023-08-15 20:26:56', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815202656-64dbc37074fb8-6827'),
-(30, 2, 1, 2, 2, 650, '2023-08-15 20:33:14', 'Pending', '2023-08-15 20:33:14', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815203314-64dbc4ea1a2d9-5920'),
-(31, 2, 1, 2, 2, 650, '2023-08-15 20:41:07', 'Pending', '2023-08-15 20:41:07', 200, 101, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '20230815204107-64dbc6c36c6d4-2744'),
-(32, 2, 1, 2, 2, 650, '2023-08-15 20:55:31', 'Pending', '2023-08-15 20:59:29', 200, 101, '1,2,5', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh', 'YYY', 1401, '20230815205531-64dbca23149e8-1510'),
-(33, 2, 1, 2, 2, 650, '2023-08-15 21:10:12', 'Pending', '2023-08-15 21:11:00', 200, 101, '1,2,3,4,5', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh', '', 1422, '20230815211012-64dbcd94aa9d8-7614'),
-(35, 2, 1, 1, 4, 500, '2023-08-16 17:10:54', 'Initiated', '2023-08-16 17:17:49', 101, 51, '1,2,3,4,5', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh', '', 673, '20230816171054-64dce6fe35091-6604'),
-(36, 2, 1, 2, 2, 650, '2023-08-16 19:42:31', 'Initiated', '2023-08-16 19:43:02', 200, 101, '1,3,5', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh', 'TEST', 1422, '20230816194231-64dd0a879cda6-6680'),
-(37, 2, 1, 2, 2, 650, '2023-08-16 20:40:59', 'Initiated', '2023-08-16 20:41:21', 200, 101, '1,3', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh', '', 972, '20230816204059-64dd183b28f99-3900'),
-(38, 2, 1, 2, 2, 650, '2023-08-16 20:44:27', 'Initiated', '2023-08-16 20:44:50', 200, 101, '1,4', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh', '', 972, '20230816204427-64dd190b7f9e1-8995'),
-(39, 2, 2, 1, 4, 500, '2023-08-16 20:48:39', 'Initiated', '2023-08-16 20:48:56', 101, 51, '5', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh', 'YYY', 673, '20230816204839-64dd1a07bfac7-9486');
+(1, 2, 2, 1, 4, 500, '2023-08-19 20:20:54', 'Initiated', '2023-08-19 20:21:17', 101, 51, '1,4', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh ', 'First order', 1123, '20230819202054-64e10806447fe-7295'),
+(2, 2, 1, 2, 2, 650, '2023-08-19 21:12:43', 'Initiated', '2023-08-19 21:13:22', 200, 101, '1,2,3,4,5', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh ', 'Order check', 1401, '20230819211243-64e1142bf2f9d-9274');
 
 -- --------------------------------------------------------
 
@@ -256,7 +192,7 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`id`, `name`, `phone`, `email`, `address1`, `address2`, `town`, `state`, `pass`, `create_time`, `update_time`, `reason`, `status`) VALUES
 (1, 'Test', '9891617198', 'sanjay.vns1987+1@gmail.com', 'Test Plz ignore', 'ttt', 'GHAZIABAD', 'Uttar Pradesh', 'ZGVtb2RlbW8=', '2023-08-13 15:22:57', '2023-08-13 09:52:57', NULL, 'Active'),
-(2, 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh', 'ZGVtb2RlbW8=', '2023-08-13 15:25:22', '2023-08-13 09:55:22', NULL, 'Active'),
+(2, 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh ', 'ZGVtb2RlbW8=', '2023-08-13 15:25:22', '2023-08-13 09:55:22', NULL, 'Active'),
 (3, NULL, '', '', NULL, NULL, NULL, '', '', '2023-08-15 14:50:29', '2023-08-15 09:20:29', NULL, 'Active');
 
 -- --------------------------------------------------------
@@ -286,9 +222,9 @@ CREATE TABLE `devotee` (
 --
 
 INSERT INTO `devotee` (`id`, `customer_id`, `name`, `relation`, `gotra`, `nakshatra`, `rashi`, `dob`, `tob`, `pob`, `additional_info`, `create_time`, `update_time`) VALUES
-(1, 2, 'Sanjay Kumar Gupta', 'self', 't', 't', 'rt', '2023-08-06', '12:20', NULL, 'na', '2023-08-15 19:54:48', '2023-08-15 20:07:00'),
+(1, 2, 'Sanjay Kumar Gupta', 'self', 't', 't', 'rt', '2023-08-06', '12:20', 'Varanasi, UP', 'na', '2023-08-15 19:54:48', '2023-08-19 21:12:53'),
 (2, 2, 'Ashok Kumar Gupta', 'brother', 't', 't', 'rt', '2023-08-06', '12:20', '', 'na', '2023-08-15 19:55:40', '2023-08-15 17:12:01'),
-(3, 2, 'Ajay Kumar Gupta', 'brother', '', '', '', '1996-06-04', '21:40', NULL, 'Varanasi', '2023-08-15 19:58:28', '2023-08-15 20:07:00'),
+(3, 2, 'Ajay Kumar Gupta', 'brother', 'NA', 'NA', 'Kumbh', '1996-02-01', '21:40', 'Varanasi', 'Varanasi', '2023-08-15 19:58:28', '2023-08-19 13:30:34'),
 (4, 2, 'Anjesh Kumar Gupta', 'brother', '', '', '', '1996-06-04', '21:40', '', 'Varanasi', '2023-08-15 19:58:38', '2023-08-15 20:21:14'),
 (5, 2, 'Laxmi Gupta', 'spouse', 'NA', 'NA', 'Kumbh', '1992-01-29', '21:40', 'Varanasi, UP', 'NA', '2023-08-15 20:02:21', '2023-08-15 17:11:46');
 
@@ -392,10 +328,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `customer_id`, `campaign_id`, `pooja_id`, `price_id`, `puja_price`, `create_time`, `update_time`, `service_charge`, `prasad_charge`, `devotees`, `name`, `phone`, `email`, `address1`, `address2`, `town`, `state`, `additional_info`, `total_price`, `transaction_id`, `pp_state`, `pp_response_code`, `pp_transactionId`, `pp_amount`, `pp_response`) VALUES
-(1, 2, 1, 2, 2, 650, '2023-08-16 23:13:02', '2023-08-16 23:13:02', 200, 101, '1,3,5', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh', 'TEST', 1422, '20230816194231-64dd0a879cda6-6680', 'COMPLETED', 'SUCCESS', 'T2308162313035561064669', 1422, '{\"success\":true,\"code\":\"PAYMENT_SUCCESS\",\"message\":\"Your payment is successful.\",\"data\":{\"merchantId\":\"MERCHANTUAT\",\"merchantTransactionId\":\"20230816194231-64dd0a879cda6-6680\",\"transactionId\":\"T2308162313035561064669\",\"amount\":1422,\"state\":\"COMPLETED\",\"responseCode\":\"SUCCESS\",\"paymentInstrument\":{\"type\":\"NETBANKING\",\"pgTransactionId\":\"1995464773\",\"pgServiceTransactionId\":\"PG2212291607083344934300\",\"bankTransactionId\":null,\"bankId\":\"null\"}}}'),
-(2, 2, 1, 2, 2, 650, '2023-08-17 00:11:59', '2023-08-17 00:11:59', 200, 101, '1,3', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', NULL, '', 972, '20230816204059-64dd183b28f99-3900', 'COMPLETED', 'SUCCESS', 'T2308170012005881064295', 972, '{\"success\":true,\"code\":\"PAYMENT_SUCCESS\",\"message\":\"Your payment is successful.\",\"data\":{\"merchantId\":\"MERCHANTUAT\",\"merchantTransactionId\":\"20230816204059-64dd183b28f99-3900\",\"transactionId\":\"T2308170012005881064295\",\"amount\":972,\"state\":\"COMPLETED\",\"responseCode\":\"SUCCESS\",\"paymentInstrument\":{\"type\":\"NETBANKING\",\"pgTransactionId\":\"1995464773\",\"pgServiceTransactionId\":\"PG2212291607083344934300\",\"bankTransactionId\":null,\"bankId\":\"null\"}}}'),
-(3, 2, 1, 2, 2, 650, '2023-08-17 00:14:50', '2023-08-17 00:14:50', 200, 101, '1,4', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', NULL, '', 972, '20230816204427-64dd190b7f9e1-8995', 'COMPLETED', 'SUCCESS', 'T2308170014516621064876', 972, '{\"success\":true,\"code\":\"PAYMENT_SUCCESS\",\"message\":\"Your payment is successful.\",\"data\":{\"merchantId\":\"MERCHANTUAT\",\"merchantTransactionId\":\"20230816204427-64dd190b7f9e1-8995\",\"transactionId\":\"T2308170014516621064876\",\"amount\":972,\"state\":\"COMPLETED\",\"responseCode\":\"SUCCESS\",\"paymentInstrument\":{\"type\":\"NETBANKING\",\"pgTransactionId\":\"1995464773\",\"pgServiceTransactionId\":\"PG2212291607083344934300\",\"bankTransactionId\":null,\"bankId\":\"null\"}}}'),
-(4, 2, 2, 1, 4, 500, '2023-08-17 00:18:56', '2023-08-17 00:18:56', 101, 51, '5', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara, Ghaziabad', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh', 'YYY', 673, '20230816204839-64dd1a07bfac7-9486', 'COMPLETED', 'SUCCESS', 'T2308170018569641064171', 673, '{\"success\":true,\"code\":\"PAYMENT_SUCCESS\",\"message\":\"Your payment is successful.\",\"data\":{\"merchantId\":\"MERCHANTUAT\",\"merchantTransactionId\":\"20230816204839-64dd1a07bfac7-9486\",\"transactionId\":\"T2308170018569641064171\",\"amount\":673,\"state\":\"COMPLETED\",\"responseCode\":\"SUCCESS\",\"paymentInstrument\":{\"type\":\"NETBANKING\",\"pgTransactionId\":\"1995464773\",\"pgServiceTransactionId\":\"PG2212291607083344934300\",\"bankTransactionId\":null,\"bankId\":\"null\"}}}');
+(1, 2, 2, 1, 4, 500, '2023-08-19 23:51:17', '2023-08-19 23:51:17', 101, 51, '1,4', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh ', 'First order', 1123, '20230819202054-64e10806447fe-7295', 'COMPLETED', 'SUCCESS', 'T2308192351175836959939', 1123, '{\"success\":true,\"code\":\"PAYMENT_SUCCESS\",\"message\":\"Your payment is successful.\",\"data\":{\"merchantId\":\"MERCHANTUAT\",\"merchantTransactionId\":\"20230819202054-64e10806447fe-7295\",\"transactionId\":\"T2308192351175836959939\",\"amount\":1123,\"state\":\"COMPLETED\",\"responseCode\":\"SUCCESS\",\"paymentInstrument\":{\"type\":\"NETBANKING\",\"pgTransactionId\":\"1995464773\",\"pgServiceTransactionId\":\"PG2212291607083344934300\",\"bankTransactionId\":null,\"bankId\":\"null\"}}}'),
+(2, 2, 1, 2, 2, 650, '2023-08-20 00:43:22', '2023-08-20 00:43:22', 200, 101, '1,2,3,4,5', 'Sanjay Kumar Gupta', '9891617198', 'sanjay.vns1987@gmail.com', 'Sector 3, Vashudhara', 'Beside SN Public School', 'GHAZIABAD', 'Uttar Pradesh ', 'Order check', 1401, '20230819211243-64e1142bf2f9d-9274', 'COMPLETED', 'SUCCESS', 'T2308200043234376959091', 1401, '{\"success\":true,\"code\":\"PAYMENT_SUCCESS\",\"message\":\"Your payment is successful.\",\"data\":{\"merchantId\":\"MERCHANTUAT\",\"merchantTransactionId\":\"20230819211243-64e1142bf2f9d-9274\",\"transactionId\":\"T2308200043234376959091\",\"amount\":1401,\"state\":\"COMPLETED\",\"responseCode\":\"SUCCESS\",\"paymentInstrument\":{\"type\":\"NETBANKING\",\"pgTransactionId\":\"1995464773\",\"pgServiceTransactionId\":\"PG2212291607083344934300\",\"bankTransactionId\":null,\"bankId\":\"null\"}}}');
 
 -- --------------------------------------------------------
 
@@ -405,11 +339,20 @@ INSERT INTO `orders` (`id`, `customer_id`, `campaign_id`, `pooja_id`, `price_id`
 
 CREATE TABLE `order_addons` (
   `id` bigint(20) NOT NULL,
-  `cart_id` bigint(20) NOT NULL,
+  `order_id` bigint(20) NOT NULL,
   `addon_id` bigint(20) NOT NULL,
   `addon_price` int(11) NOT NULL,
   `create_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_addons`
+--
+
+INSERT INTO `order_addons` (`id`, `order_id`, `addon_id`, `addon_price`, `create_time`) VALUES
+(1, 1, 2, 450, '2023-08-19 23:51:17'),
+(2, 1, 1, 21, '2023-08-19 23:51:17'),
+(3, 2, 2, 450, '2023-08-20 00:43:22');
 
 -- --------------------------------------------------------
 
@@ -525,7 +468,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `pass`, `role_id`, `status`, `reason`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(1, 'admin', '1501cc423e5a2693ee0e6d94f02753ba', 1, 'ACTIVE', NULL, '1454157568', '1692078990', NULL, 1),
+(1, 'admin', '1501cc423e5a2693ee0e6d94f02753ba', 1, 'ACTIVE', NULL, '1454157568', '1692429327', NULL, 1),
 (2, 'sanjay', '9626cfe4bc9cfec70dcc5fe9c8a37ec8', 2, 'ACTIVE', NULL, '1583921639', '1674414654', NULL, 1),
 (524, 'skgupta', 'b9ef07fd55f79ca1e754de5d5f2e7e76', 1, 'ACTIVE', NULL, '1590579457', '1607259767', NULL, 1),
 (526, 'ashok', '9626cfe4bc9cfec70dcc5fe9c8a37ec8', 3, 'ACTIVE', NULL, '1590579457', '1675799988', NULL, NULL),
@@ -732,13 +675,13 @@ ALTER TABLE `campaign_pooja`
 -- AUTO_INCREMENT for table `cart_addons`
 --
 ALTER TABLE `cart_addons`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `cart_temp`
 --
 ALTER TABLE `cart_temp`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -750,7 +693,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `devotee`
 --
 ALTER TABLE `devotee`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `divine_category`
@@ -768,13 +711,13 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_addons`
 --
 ALTER TABLE `order_addons`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `page`

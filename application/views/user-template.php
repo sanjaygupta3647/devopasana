@@ -1,3 +1,4 @@
+<?php restrictWithoutLogin(); ?> 
 <?php $this->load->view('includes/user/head'); ?> 
 
 <?php $this->load->view('includes/user/header-nev'); ?> 

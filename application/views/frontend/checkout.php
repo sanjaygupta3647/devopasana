@@ -19,6 +19,7 @@
   <div class="section">
     <div class="container">
      <div class="row"> 
+	    <?php if(!empty($cart)): ?>
         <div class="col-md-8">  
 		<table class="sigma_responsive-table" id="ordersummary">
 		<thead>
@@ -29,6 +30,7 @@
 		  </tr>
 		</thead>
 		<tbody>
+		  
 		  <tr> 
 			<td colspan="3" data-title="Product">
 			  <div class="sigma_cart-product-wrapper">
@@ -95,8 +97,7 @@
 			<td  colspan="3"data-title="Add on">Grand Total: </td> 
 			<td data-title="Total">  <b class="text-black"><?php echo showprice($total) ?></b>  </td>
 			 
-		  </tr> 
-
+		  </tr>  
 		</tbody>
 		</table>
 		</div>
@@ -145,12 +146,23 @@
 		</table>
 		</div>
 		
+		<?php else: ?>
+		<div class="col-md-12"> 
+		<h6 class="text-black text-center">Sorry, you have not added any puja.</h6>
+		<center>
+			<div class="btn-group" style="margin-top:50px;">
+				<a href="<?php echo base_url(); ?>#campaign" class="btn btn-lg btn-warning">Go to running campaigns</a>
+			</div>
+		</center> 
+		</div>
+		<?php endif; ?>
+		
 		
 		</div>
       <!-- Cart Table End -->
  
  <!-- Checkout Start -->
-  <div class="section pt-0">
+  <div class="section pt-0 <?php echo (empty($cart)) ? 'hide':'' ?>">
     <div class="container"> 
       <form method="post" id="final_submission">
         <div class="row">
