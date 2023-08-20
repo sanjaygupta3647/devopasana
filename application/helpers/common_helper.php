@@ -111,14 +111,14 @@ function sec($x)
 }
 
 
-function getTemplate($message, $setting)
+function getTemplate($message="")
 {
     $messageBody = '<div style="width:100%; background:#eee; padding:20px 0px; -webkit-text-size-adjust: 100%;">
 						<table style="margin:0px auto; width:95%; max-width:650px; border: 1px solid #ddd; background:#fff; padding:0px; font-family:Tahoma, Geneva, sans-serif; font-size:20px; color:#fff; border-spacing:0px; overflow:hidden;">
 						<tbody>
 						<tr>
 							<td align="center" style="padding:20px;color:#000000;font-family:Tahoma, Geneva, sans-serif; border-top:1px solid #ebebeb; background:#37474F;">
-								<center><img src="' . base_url('uploads/' . $setting->logo) . '" width="150"  ></center>
+								<center><img src="' . base_url('assets/frontend/img/logo.jpg') . '" width="150"  ></center>
 							</td>
 						</tr>
 						<tr>
@@ -127,14 +127,14 @@ function getTemplate($message, $setting)
     $messageBody .= $message;
     $messageBody .=     '<br /><br />
 						Kind regards,<br />
-						' . $setting->title . ' <br /><br />
+						Devopasana <br /><br />
 						<b>Note: This is an automated email, and cannot be replied to.</b>
 						</div>
 						</td>
 						</tr>
 						<tr>
 						<td align="center" style="padding:10px;color:#fff;font-family:Tahoma, Geneva, sans-serif; border-top:1px solid #ebebeb; background:#37474F;">
-							<p style="color:#fff;font-family:Tahoma, Geneva, sans-serif;font-size:13px">Copyright &copy; ' . $setting->title . ' - All Rights Reserved.</p>
+							<p style="color:#fff;font-family:Tahoma, Geneva, sans-serif;font-size:13px">Copyright &copy; devopasana.com - All Rights Reserved.</p>
 						</td>
 						</tr>
 						</tbody>
@@ -148,23 +148,19 @@ function sendmail($to, $subject, $messageBody, $cc = '', $bcc = '')
     $CI = &get_instance();
     $CI->load->library("PhpMailerLib");
     $mail = $CI->phpmailerlib->load();
-    //$setting = getSettings();
-    $messageBody = getTemplate($messageBody, $setting);
-    if (empty($setting->smtp)) {
-        return false;
-    }
+     
     try {
         //Server settings
         $mail->SMTPDebug = 0;                                 // Enable verbose debug output
         $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = $setting->host;                        // Specify main and backup SMTP servers
+        $mail->Host = "smtp.hostinger.com";                        // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = $setting->username;                 // SMTP username
-        $mail->Password = $setting->password;                           // SMTP password
-        $mail->SMTPSecure =  $setting->smtpsecure;                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = $setting->port;                                   // TCP port to connect to
+        $mail->Username = "no-reply@devopasana.com";                 // SMTP username
+        $mail->Password = "NoReply@5984";                           // SMTP password
+        $mail->SMTPSecure =  "ssl";                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = "465";                                   // TCP port to connect to
         //Recipients
-        $mail->setFrom($setting->fromemail, $setting->fromname);
+        $mail->setFrom("no-reply@devopasana.com", "Devopasana");
 
         $toAll = explode(',', $to);
         foreach ($toAll as $key => $toVal) {
@@ -179,17 +175,13 @@ function sendmail($to, $subject, $messageBody, $cc = '', $bcc = '')
             $mail->addCC($cc);
         }
 
-        if ($bcc) {
-            $bcc .= "," . $setting->bcc;
-        } else {
-            $bcc = $setting->bcc;
-        }
+          
         if ($bcc != "") {
             $mail->addBCC($bcc);
         }
 
 
-        $mail->addReplyTo($setting->replyemail, '');
+        $mail->addReplyTo("info@devopasana.com", 'Info');
 
         $mail->isHTML(true);
         $mail->Subject = $subject;
