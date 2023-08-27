@@ -1,4 +1,4 @@
- <div class="section pb-0 pt-20">
+ <div class="section pcustom-section">
     <div class="container">
       <div class="section-title text-center">
         <h2>Frequently Asked Questions</h2>

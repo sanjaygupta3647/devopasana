@@ -1,5 +1,5 @@
 <!-- Testimonials Start -->
-  <section class="section pt-0 pb-0">
+  <section class="section pcustom-section with-extra-padd">
 
     <div class="container testimonial-section bg-contain bg-norepeat bg-center"
       style="background-image: url(assets/frontend/img/textures/map-2.png)">
@@ -56,7 +56,7 @@
                     <i class="far fa-star hide"></i>
                   </div>
                 </div>
-                <p class="text-black text-18"><?php echo $val['review'];?></p>
+                <p class="text-black"><?php echo $val['review'];?></p>
               </div>
               <div class="sigma_testimonial-footer">
                 <div class="sigma_testimonial-author">
@@ -68,10 +68,6 @@
           </div>
 		  
 		  <?php endforeach; ?>
-
-           
-
-           
 
         </div>
       </div>

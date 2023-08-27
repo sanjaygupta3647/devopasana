@@ -4,7 +4,7 @@
     <div class="sigma_banner-slider">
 
       <!-- Banner Item Start -->
-      <div class="light-bg sigma_banner-slider-inner bg-cover bg-center bg-norepeat"
+      <!-- <div class="light-bg sigma_banner-slider-inner bg-cover bg-center bg-norepeat"
         style="background-image: url('assets/frontend/img/banner/devopasan-online-pooja.jpg');">
         <div class="sigma_banner-text">
           <div class="container">
@@ -22,7 +22,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Banner Item End -->
 
       <!-- Banner Item Start -->
@@ -32,7 +32,7 @@
           <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-6">
-                <h4 class="title">Online Puja for Dosh Nivaran: Seek Divine Intervention and Blessings Delivered to Your Doorstep</h4>
+                <h2 class="title">Online Puja for Dosh Nivaran: Seek Divine Intervention and Blessings Delivered to Your Doorstep</h2>
                 <p class="blockquote mb-0 bg-transparent">Are you troubled by doshas or negative energies? Experience the power of dosh nivaran pujas performed by expert pandits from Varanasi to mitigate doshas and bring positive energy into your life. Embrace spiritual healing and transform your life today.
                 </p>
                 <div class="section-button d-flex align-items-center">
@@ -79,11 +79,11 @@
    
 
   <!-- Donation Start -->
-  <div class="section section-padding pt-20" id="campaign">
+  <div class="section section-padding  pcustom-section" id="campaign">
     <div class="container">
       <div class="section-title text-center"> 
         <h2>Devotional Offerings</h2>
-		<p class="text-black text-25">Participate in pujas in your and your family family's name. You will receive prasad at your doorstep along with divine grace.</p>
+		<p class="text-black">Participate in pujas in your and your family family's name. You will receive prasad at your doorstep along with divine grace.</p>
       </div>
 	  <?php if(!empty($campaigns) && count($campaigns)>0): ?>
       <div class="row">
@@ -95,10 +95,10 @@
             </div>
             <div class="sigma_service-body p-10">
                
-                <a href="<?php echo base_url("campaign/").$val->slug; ?>"><h6 class="text-black"><?php echo $val->title; ?></h6></a>
+                <a href="<?php echo base_url("campaign/").$val->slug; ?>"><h6 class="text-black mb-2"><?php echo $val->title; ?></h6></a>
               
               <p class="text-black"><?php echo $val->short_description; ?></p>
-              <a href="<?php echo base_url("campaign/").$val->slug; ?>" class="sigma_btn-custom" style="width:395px;">
+              <a href="<?php echo base_url("campaign/").$val->slug; ?>" class="sigma_btn-custom d-block" >
                 Book Now
               </a>
             </div>
@@ -118,15 +118,15 @@
     </div>
   </div>
   <!-- Donation End -->
-  <section class="section pt-0" >
+  <section class="section pcustom-section with-extra-padd" >
     <div class="container">
 
       <div class="row align-items-center"> 
         <div class="col-lg-12">
           <div class="me-lg-30">
-            <div class="section-title mb-0 text-center">
+            <div class="section-title text-center">
               <h2>Divine corner for all your devotional needs</h2>
-              <p class="text-black text-25">Discover fascinating articles on upcoming festivals, fasts, arti, mantra and much more in Sanatana Dharma.</p>
+              <p class="text-black">Discover fascinating articles on upcoming festivals, fasts, arti, mantra and much more in Sanatana Dharma.</p>
             </div> 
           </div>
         </div>

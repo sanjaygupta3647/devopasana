@@ -19,7 +19,7 @@
     </form>
   </div>
   <!-- Search End -->
-
+  <?php $category  =  getDivineLink();  ?>
   <!-- partial:partia/__mobile-nav.html -->
   <aside class="sigma_aside sigma_aside-left">
     <a class="navbar-brand" href="<?php echo base_url(); ?>"> <img src="<?php echo base_url("assets/frontend/img/logo.jpg");?>" alt="logo"> </a>
@@ -29,7 +29,27 @@
       <li class="menu-item">
         <a href="<?php echo base_url(); ?>">Home</a>
       </li>
-       
+      <li class="menu-item">
+          <a href="<?php echo base_url(); ?>">Puja</a>
+        </li>
+      <li class="menu-item menu-item-has-children">
+        <a href="<?php echo base_url(); ?>">Divine Corner</a>
+      <ul class="sub-menu">
+        <?php if(!empty($category)):  ?>
+        <?php foreach($category as $cat): ?>
+        <li class="menu-item"> <a href="<?php echo base_url("divine-corner/".$cat->slug); ?>"><?php echo $cat->title; ?></a> </li>
+        <?php endforeach; ?>
+        <?php endif; ?> 
+      </ul>
+      </li> 
+
+      <?php if($session['id']): ?>
+        <li class="menu-item"> <a href="<?php echo base_url('profile');?>">Profile</a> </li>
+        <li class="menu-item"> <a href="<?php echo base_url('checkout');?>">Cart</a> </li>
+			  <li class="menu-item"> <a href="<?php echo base_url('customer/logout');?>">Logout</a> </li>
+      <?php else: ?>
+        <li class="menu-item"> <a href="<?php echo base_url('login');?>">Login</a> </li>
+      <?php endif; ?>
     
     </ul>
   </aside>
@@ -70,7 +90,9 @@
           <li class="menu-item">
             <a href="<?php echo base_url(); ?>">Puja</a>
           </li>
-		  <?php $category  =  getDivineLink();  ?>
+
+          
+		  
           <li class="menu-item menu-item-has-children">
             <a href="<?php echo base_url(); ?>">Divine Corner</a>
 			<ul class="sub-menu">

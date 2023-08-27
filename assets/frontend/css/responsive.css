@@ -284,8 +284,12 @@
       margin-left: 0;
   }
 
+  .sigma_block-box, .sigma_icon-block {
+    margin-bottom: 10px;
+  }
+
   .section {
-      padding: 70px 0;
+      padding: 50px 0 0;
   }
   .section.mt-negative,
   .section.section-padding.mt-negative,
@@ -552,6 +556,11 @@
   h4 {
       font-size: 22px;
   }
+
+  .section-title h2 {
+    font-size: 20px;
+  }
+
   .section-title .title{
     font-size: 30px;
   }
@@ -658,11 +667,17 @@
 
   .footer-widget {
       text-align: center;
-      padding-bottom: 50px;
+      padding-bottom: 20px;
   }
   .sigma_footer.footer-2 .sigma_footer-middle{
-    padding-top: 50px;
+    /* padding-top: 50px; */
   }
+
+  .sigma_footer.footer-2 {
+    padding: 50px 0 0;
+  }
+
+  
 
   .footer-widget .sigma_sm {
       -webkit-box-pack: center;
@@ -792,6 +807,30 @@
     font-size: 14px;
   }
 
+  .pcustom-section .section-title p {
+    font-size: 16px;
+  }
+
+  .pcustom-section.section-padding {
+    padding: 50px 0 0;
+  }
+
+  .pcustom-section.with-extra-padd {
+    padding: 20px 0 0;
+  }
+
+  .sigma_testimonial.style-2 .sigma_testimonial-inner {
+    padding: 15px
+  }
+
+  /* .pcustom-section.pt-0 {
+    padding: 0;
+  } */
+
+  .sigma_icon-block h5 {
+    font-size: 16px;
+  }
+
 }
 
 @media (max-width: 575px) {
@@ -899,12 +938,33 @@
   .sigma_header-top-links a{
     font-size: 12px;
   }
-  .sigma_banner .title{
+  /* .sigma_banner .title{
     font-size: 30px;
-  }
-  .banner-3.sigma_banner .sigma_banner-slider-inner{
+  } */
+
+  .sigma_banner .title{
+    font-size: 22px;
+  } 
+  
+  /* .banner-3.sigma_banner .sigma_banner-slider-inner{
     padding: 140px 0 140px;
+  } */
+
+  .banner-3.sigma_banner .sigma_banner-slider-inner{
+    padding: 50px 0 50px;
   }
+
+  .sigma_icon-block.icon-block-3 {
+    align-items: start;
+  }
+  .sigma_icon-block.icon-block-3 {
+    margin-top: 5px;
+  }
+
+  .sigma_testimonial.style-2 .sigma_testimonial-inner .sigma_testimonial-body p  {
+    font-size: 12px;
+  }
+
 
   .banner-2.sigma_banner .sigma_banner-slider-inner{
     padding: 190px 0 240px;
