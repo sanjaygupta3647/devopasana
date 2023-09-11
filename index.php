@@ -63,6 +63,9 @@ if(isset($_SERVER['HTTP_HOST'])){
 		case 'devopasana.com':
             define('ENVIRONMENT', 'production'); 
             break;  
+		case 'www.devopasana.com':
+            define('ENVIRONMENT', 'production'); 
+            break; 
         default:
             define('ENVIRONMENT', 'development'); 
             break;

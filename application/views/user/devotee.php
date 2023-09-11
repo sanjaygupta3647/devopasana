@@ -21,7 +21,7 @@
  <div class="content">
 
  	<!-- Basic responsive configuration -->
- 	<div class="panel panel-flat">
+ 	<div class="panel panel-flat table-responsive">
  		 
  		<table class="table datatable-responsive">
  			<thead>

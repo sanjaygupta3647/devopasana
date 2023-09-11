@@ -712,6 +712,7 @@ th {
 }
 .table {
   margin-bottom: 0;
+  overflow: auto;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,

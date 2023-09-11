@@ -17,7 +17,7 @@
  <div class="content">
 
  	<!-- Basic responsive configuration -->
- 	<div class="panel panel-flat">
+ 	<div class="panel panel-flat table-responsive">
  		 
  		<table class="table datatable-responsive">
  			<thead>
@@ -36,8 +36,8 @@
  				<?php foreach ($orders as $key => $val) : ?>
  					<tr>
  						<td><?php echo ($key + 1) ?></td>
- 						<td><a href="<?php echo base_url("order/detail/" . $val->id) ?>"><?php echo $val->puja; ?></a></td>
- 						<td><?php echo $val->campaign; ?></td>
+ 						<td width="20%"><a href="<?php echo base_url("order/detail/" . $val->id) ?>"><?php echo $val->puja; ?></a></td>
+ 						<td width="20%"><?php echo $val->campaign; ?></td>
  						<td><?php echo showprice($val->total_price); ?></td>
 						<td><?php echo userDateTimeFormat($val->create_time); ?></td>
 						<td><?php echo $val->transaction_id; ?></td> 

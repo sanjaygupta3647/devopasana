@@ -1,4 +1,4 @@
-<div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(assets/frontend/img/banner/varanasi.jpg);padding:180px 0 210px">
+<div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(assets/frontend/img/banner/varanasi.jpg);">
 
 <div class="container">
   <div class="sigma_subheader-inner"> 
@@ -11,7 +11,7 @@
 
 </div>  
 
-<div class="section pt-40">
+<div class="section pcustom-section post-details with-extra-padd">
 	<div class="container">  
      <?php echo $postdetails->body; ?>
 	</div>

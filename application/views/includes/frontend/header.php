@@ -103,33 +103,41 @@
 			   <?php endif; ?> 
             </ul>
           </li>
+          <?php if($session['id']): ?>
+		
+    <li class="menu-item menu-item-has-children">
+    <a href="<?php echo base_url("profile"); ?>"  aria-expanded="false">
+      My Account
+    </a>
+    <ul class="sub-menu">
+      <li class="menu-item"> <a href="<?php echo base_url('checkout');?>">Cart</a> </li>
+      <li class="menu-item"> <a href="<?php echo base_url('customer/logout');?>">Logout</a> </li>
+    </ul>
+    </li>
+     
+  
+  <?php endif; ?>
       
           
         </ul>
 		
-		<?php if($session['id']): ?>
-		<ul class="navbar-nav mr-auto"> 
-		  <li class="menu-item menu-item-has-children">
-			<a href="<?php echo base_url("profile"); ?>"  aria-expanded="false">
-			  My Account
-			</a>
-			<ul class="sub-menu">
-			  <li class="menu-item"> <a href="<?php echo base_url('checkout');?>">Cart</a> </li>
-			  <li class="menu-item"> <a href="<?php echo base_url('customer/logout');?>">Logout</a> </li>
-			</ul>
-		  </li>
-		   
-		</ul>
-		<?php endif; ?>
+        <!-- <div class="sigma_header-controls sigma_header-button"> 
+          <a href="https://wa.me/+918794793316" class="sigma_header-contact">
+            <img src="<?php echo base_url("assets/frontend/img/whatsapp.jpg");?>" width="50" height="37"> 
+          </a>
+		 
+		  
+        </div> -->
+		
 
 
 		 
 		<?php if(empty($session['id'])): ?> 
         <!-- Button & Phone -->
-        <div class="sigma_header-controls sigma_header-button"> 
-          <a href="https://wa.me/+918794793316" class="sigma_header-contact">
+        <div class="sigma_header-controls sigma_header-button d-none-xss"> 
+          <!-- <a href="https://wa.me/+918794793316" class="sigma_header-contact">
             <img src="<?php echo base_url("assets/frontend/img/whatsapp.jpg");?>" width="50" height="37"> 
-          </a>
+          </a> -->
 		 
 		  <a class="sigma_btn-custom" href="<?php echo base_url('login');?>"> Login </a> 
         </div>
@@ -148,4 +156,8 @@
     <!-- Middle Header End -->
 
   </header>
+
+  <a href="https://wa.me/+918794793316" class="wp-logo-centered">
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzOSIgaGVpZ2h0PSIzOSIgdmlld0JveD0iMCAwIDM5IDM5Ij48cGF0aCBmaWxsPSIjMDBFNjc2IiBkPSJNMTAuNyAzMi44bC42LjNjMi41IDEuNSA1LjMgMi4yIDguMSAyLjIgOC44IDAgMTYtNy4yIDE2LTE2IDAtNC4yLTEuNy04LjMtNC43LTExLjNzLTctNC43LTExLjMtNC43Yy04LjggMC0xNiA3LjItMTUuOSAxNi4xIDAgMyAuOSA1LjkgMi40IDguNGwuNC42LTEuNiA1LjkgNi0xLjV6Ij48L3BhdGg+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTMyLjQgNi40QzI5IDIuOSAyNC4zIDEgMTkuNSAxIDkuMyAxIDEuMSA5LjMgMS4yIDE5LjRjMCAzLjIuOSA2LjMgMi40IDkuMUwxIDM4bDkuNy0yLjVjMi43IDEuNSA1LjcgMi4yIDguNyAyLjIgMTAuMSAwIDE4LjMtOC4zIDE4LjMtMTguNCAwLTQuOS0xLjktOS41LTUuMy0xMi45ek0xOS41IDM0LjZjLTIuNyAwLTUuNC0uNy03LjctMi4xbC0uNi0uMy01LjggMS41TDYuOSAyOGwtLjQtLjZjLTQuNC03LjEtMi4zLTE2LjUgNC45LTIwLjlzMTYuNS0yLjMgMjAuOSA0LjkgMi4zIDE2LjUtNC45IDIwLjljLTIuMyAxLjUtNS4xIDIuMy03LjkgMi4zem04LjgtMTEuMWwtMS4xLS41cy0xLjYtLjctMi42LTEuMmMtLjEgMC0uMi0uMS0uMy0uMS0uMyAwLS41LjEtLjcuMiAwIDAtLjEuMS0xLjUgMS43LS4xLjItLjMuMy0uNS4zaC0uMWMtLjEgMC0uMy0uMS0uNC0uMmwtLjUtLjJjLTEuMS0uNS0yLjEtMS4xLTIuOS0xLjktLjItLjItLjUtLjQtLjctLjYtLjctLjctMS40LTEuNS0xLjktMi40bC0uMS0uMmMtLjEtLjEtLjEtLjItLjItLjQgMC0uMiAwLS40LjEtLjUgMCAwIC40LS41LjctLjguMi0uMi4zLS41LjUtLjcuMi0uMy4zLS43LjItMS0uMS0uNS0xLjMtMy4yLTEuNi0zLjgtLjItLjMtLjQtLjQtLjctLjVoLTEuMWMtLjIgMC0uNC4xLS42LjFsLS4xLjFjLS4yLjEtLjQuMy0uNi40LS4yLjItLjMuNC0uNS42LS43LjktMS4xIDItMS4xIDMuMSAwIC44LjIgMS42LjUgMi4zbC4xLjNjLjkgMS45IDIuMSAzLjYgMy43IDUuMWwuNC40Yy4zLjMuNi41LjguOCAyLjEgMS44IDQuNSAzLjEgNy4yIDMuOC4zLjEuNy4xIDEgLjJoMWMuNSAwIDEuMS0uMiAxLjUtLjQuMy0uMi41LS4yLjctLjRsLjItLjJjLjItLjIuNC0uMy42LS41cy40LS40LjUtLjZjLjItLjQuMy0uOS40LTEuNHYtLjdzLS4xLS4xLS4zLS4yeiI+PC9wYXRoPjwvc3ZnPg==" />
+  </a>
   <!-- partial -->

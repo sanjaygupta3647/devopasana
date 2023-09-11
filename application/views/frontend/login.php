@@ -1,13 +1,13 @@
  
 
  
-<section class="section pt-0" >
+<section class="section pt-0 login-container" >
     <div class="container">
 		<div class="row justify-content-center mt-5">
 		  <div class="col-lg-4 col-md-6 col-sm-6">
 			<div class="card shadow">
 			  <div class="card-title text-center border-bottom">
-				<h1 class="pt-10">Login</h1>
+				<h1 class="pt-10 h3">Login</h1>
 			  </div>
 			  <div class="card-body">
 				<form method="post" id="customer-login">

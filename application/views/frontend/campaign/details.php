@@ -1,5 +1,5 @@
 <!-- Banner Start -->
-  <div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(<?php echo base_url('uploads/campaign/' . $campaign->image);  ?>);padding:180px 0 120px">
+  <div class="sigma_subheader dark-overlay dark-overlay-2 sigma_banner_custom" style="background-image: url(<?php echo base_url('uploads/campaign/' . $campaign->image);  ?>);">
 
     <div class="container">
       <div class="sigma_subheader-inner">
@@ -39,7 +39,7 @@
 				<div class="sigma_service-thumb">
 				  <img src="<?php echo getThumb(base_url('uploads/pooja/'.$val["id"]. '/' . $val['image']),"pooja",370,222) ?>" width="370" height="222" alt="img">
 				</div>
-				<div class="sigma_service-body form-row sigma_donation-form p-15">
+				<div class="sigma_service-body sigma_donation-form">
 				<?php $form_id = "addpuja-$key"; ?>
 				<form id="<?php echo $form_id; ?>">
 				  <h6 class="text-black">
@@ -75,7 +75,7 @@
 					  <div class="text-black"><?php echo $val['description']; ?></div>
 					  <?php $session = getCustomerSessionData();  ?>
 					   
-					  <input type="button" class="sigma_btn-custom add_to_cart" data-form_id="<?php echo $form_id; ?>" data-customer="<?php echo $session['id'];?>" style="width:395px;" value="Book This Pooja"> 
+					  <input type="button" class="sigma_btn-custom add_to_cart d-block w-100" data-form_id="<?php echo $form_id; ?>" data-customer="<?php echo $session['id'];?>" value="Book This Pooja"> 
 					  
 					  
 				  </div>

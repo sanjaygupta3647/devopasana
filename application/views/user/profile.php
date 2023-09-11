@@ -7,12 +7,14 @@ $userdata = getCustomerDetails();
 		<div class="page-title">
 			<h4><span class="text-semibold">My Profile Details</span> </h4>
 		</div>
+		
+		 
 
 		<div class="heading-elements">
 			<div class="heading-btn-group">
 				 
-				<a class="change_status"  href="javascript:void(0)" >
-					<span class="label label-info updatepassword" data-id="<?php echo $userdata->id ?>"  data-username="<?php echo $userdata->email ?>">Change Password</span>
+				<a class="btn btn-link btn-float has-text"  href="javascript:void(0)" >
+					<i class="icon-plus-circle2 text-primary hide"></i><button class="btn-info updatepassword" data-id="<?php echo $userdata->id ?>"  data-username="<?php echo $userdata->email ?>">Change Password</button>
 
 				</a>
 

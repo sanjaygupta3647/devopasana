@@ -1,5 +1,5 @@
    <!-- partial:partia/__subheader.html -->
-  <div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(assets/frontend/img/banner/varanasi.jpg);padding:180px 0 210px">
+  <div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(assets/frontend/img/banner/varanasi.jpg);">
 
     <div class="container">
       <div class="sigma_subheader-inner"> 
@@ -20,7 +20,7 @@
     <div class="container">
      <div class="row"> 
 	    <?php if(!empty($cart)): ?>
-        <div class="col-md-8">  
+        <div class="col-md-7">  
 		<table class="sigma_responsive-table" id="ordersummary">
 		<thead>
 		  <tr> 
@@ -28,6 +28,7 @@
 			<th class="text-black">Amount</th> 
 			<th class="text-black">Total</th>
 		  </tr>
+		  
 		</thead>
 		<tbody>
 		  
@@ -103,13 +104,13 @@
 		</div>
 		
 		
-		<div class="col-md-4">  
+		<div class="col-md-5">  
 		<table class="sigma_responsive-table">
 		
 		<tbody> 
 		  <tr> 
-			<td colspan="3" data-title="Product"> 
-				  <h6 class="text-black"> Add Ons with this pooja </h6>  
+			<th colspan="3" data-title="Product" class="text-black"> 
+				   Add Ons with this pooja  
 			</td> 
 		  </tr>
 		  <?php if(count($addons)):  ?>
@@ -162,7 +163,7 @@
       <!-- Cart Table End -->
  
  <!-- Checkout Start -->
-  <div class="section pt-0 <?php echo (empty($cart)) ? 'hide':'' ?>">
+  <div class="section pt-0 checkout-form <?php echo (empty($cart)) ? 'hide':'' ?>">
     <div class="container"> 
       <form method="post" id="final_submission">
         <div class="row">
@@ -227,11 +228,11 @@
 			   
               <div class="form-group col-xl-12 mb-0">
                 <label>Order Notes</label>
-                <textarea name="additional_info" rows="5" class="form-control" placeholder="Order Notes (Optional)"></textarea>
+                <textarea name="additional_info" rows="3" class="form-control" placeholder="Order Notes (Optional)"></textarea>
               </div>
 			  
-			  <div class="form-group col-xl-12 pt-10"> 
-			    <label class="pt-10"></label>
+			  <div class="form-group col-xl-12 pt-4"> 
+			    
 				<input type="submit" class="form-control sigma_btn-custom" value="Proceed to pay Rs. <?php echo $total; ?>">
               </div>
               

@@ -1,4 +1,4 @@
-<div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(assets/frontend/img/banner/varanasi.jpg);padding:180px 0 210px">
+<div class="sigma_subheader dark-overlay dark-overlay-2" style="background-image: url(assets/frontend/img/banner/varanasi.jpg);">
 
 <div class="container">
   <div class="sigma_subheader-inner"> 
@@ -15,14 +15,15 @@
  
    
 
-<section class="section pt-10" >
+<section class="section pcustom-section" >
 <div class="container">
 
   <div class="row align-items-center"> 
 	<div class="col-lg-12">
 	  <div class="me-lg-30">
 		<div class="section-title mb-0 text-center"> 
-		  <p class="text-black text-25"><?php echo $categories->short_description; ?></p><br/><br/>
+		  <h2>Add a title</h2>
+		  <p class="text-black "><?php echo $categories->short_description; ?></p><br/><br/>
 		</div> 
 	  </div>
 	</div>

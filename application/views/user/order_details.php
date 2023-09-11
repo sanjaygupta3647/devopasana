@@ -23,7 +23,7 @@
  	<!-- Basic responsive configuration -->
  	<div class="panel panel-flat">
  		 
- 		<table class="table"> 
+ 		<table class="table datatable-responsive"> 
  				<tr> 
  					<th colspan="2"><b>Order summary</b></th>
 					<th><b>Amount</b></th> 
@@ -71,7 +71,7 @@
 				</tr> 
 				 
  		</table>
-		<table class="table pt-10">
+		<table class="table datatable-responsive pt-10">
 				<tr> 
 					<td colspan="8"><b>Devotee details</b></td>  
 				</tr>
@@ -98,7 +98,7 @@
 				</tr>
 		</table>
 		
-		<table class="table pt-10">
+		<table class="table datatable-responsive pt-10 ">
 				<tr> 
 					<td colspan="8"><b>Family details in this order</b></td>  
 				</tr>
